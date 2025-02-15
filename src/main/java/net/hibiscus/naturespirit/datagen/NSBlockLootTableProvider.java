@@ -215,6 +215,7 @@ class NSBlockLootTableProvider extends FabricBlockLootTableProvider {
     addVinePlantDrop(NSWoods.WISTERIA.getPinkVines(), NSWoods.WISTERIA.getPinkVinesPlant());
     addVinePlantDrop(NSWoods.WILLOW.getVines(), NSWoods.WILLOW.getVinesPlant());
     this.addDrop(NSWoods.FIR.getFrostyLeaves(), leavesDrops(NSWoods.FIR.getFrostyLeaves(), NSWoods.FIR.getSapling(), SAPLING_DROP_CHANCE));
+    this.addDrop(NSWoods.REDWOOD.getFrostyLeaves(), leavesDrops(NSWoods.REDWOOD.getFrostyLeaves(), NSWoods.REDWOOD.getSapling(), SAPLING_DROP_CHANCE));
     this.addDrop(ALLUAUDIA);
     this.addDrop(ALLUAUDIA_BUNDLE);
     this.addDrop(STRIPPED_ALLUAUDIA);

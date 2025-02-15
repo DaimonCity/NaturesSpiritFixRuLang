@@ -98,11 +98,6 @@ public class NatureSpirit implements ModInitializer {
           Text.translatable("pack.natures_spirit.modified_windswept_hills"),
           NSConfig.windswept_hills_toggle ? ResourcePackActivationType.DEFAULT_ENABLED : ResourcePackActivationType.NORMAL
       );
-      ResourceManagerHelper.registerBuiltinResourcePack(
-          Identifier.of(MOD_ID, "better_leaves_compatibility"), modContainer.get(),
-          Text.translatable("pack.natures_spirit.bushy_leaves_compatibility"),
-          ResourcePackActivationType.NORMAL
-      );
 
       ResourceManagerHelper.registerBuiltinResourcePack(
           Identifier.of(MOD_ID, "plank_consistency"), modContainer.get(),

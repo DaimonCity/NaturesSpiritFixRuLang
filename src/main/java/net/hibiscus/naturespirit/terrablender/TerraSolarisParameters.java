@@ -930,7 +930,7 @@ public class TerraSolarisParameters {
   private RegistryKey<Biome> getBiomeOrWindsweptSavanna(int temperature, int humidity, MultiNoiseUtil.ParameterRange weirdness, RegistryKey<Biome> biomeKey) {
     if (temperature == 2 && humidity < 4 && NSConfig.has_sugi_forest) {
       return weirdness.max() >= 0L ? NSBiomes.WINDSWEPT_SUGI_FOREST : biomeKey;
-    } else if (temperature == 3 && humidity < 4 && NSConfig.has_wisteria_forest) {
+    } else if (temperature == 3 && humidity < 4 && NSConfig.has_floral_ridges) {
       return weirdness.max() >= 0L ? NSBiomes.FLORAL_RIDGES : biomeKey;
     }
     return temperature > 1 && humidity < 4 && weirdness.max() >= 0L ? BiomeKeys.WINDSWEPT_SAVANNA : biomeKey;

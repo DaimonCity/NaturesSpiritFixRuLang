@@ -281,6 +281,7 @@ class NSLangGenerator extends FabricLanguageProvider {
     translationBuilder.add("pack.natures_spirit.modified_vanilla_trees", "Modified Vanilla Trees");
     translationBuilder.add("pack.natures_spirit.modified_windswept_hills", "Modified Windswept Hills");
     translationBuilder.add("pack.natures_spirit.modified_jungle", "Modified Jungles");
+    translationBuilder.add("pack.natures_spirit.modified_flower_forest", "Modified Flower Forests");
     translationBuilder.add("painting.natures_spirit.redwood.title", "Woody Spires");
     translationBuilder.add("painting.natures_spirit.redwood.author", "Aeramisu");
     translationBuilder.add("painting.natures_spirit.lavender.title", "Happy Days");
