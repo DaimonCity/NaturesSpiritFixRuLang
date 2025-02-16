@@ -16,9 +16,6 @@
           }
         },
         "probability": 0.1
-      },
-      {
-        "type": "natures_spirit:snow_decorator"
       }
     ],
     "dirt_provider": {

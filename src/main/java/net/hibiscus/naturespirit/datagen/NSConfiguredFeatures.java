@@ -232,7 +232,7 @@ public class NSConfiguredFeatures {
         BlockStateProvider.of(NSWoods.REDWOOD.getFrostyLeaves()),
         new RedwoodFoliagePlacer(UniformIntProvider.create(1, 3), UniformIntProvider.create(1, 2), UniformIntProvider.create(22, 32)),
         new TwoLayersFeatureSize(2, 0, 2)
-    ).ignoreVines().decorators(ImmutableList.of(new RedwoodBranchTreeDecorator(.1f, BlockStateProvider.of(NSWoods.REDWOOD.getFrostyLeaves())), new SnowTreeDecorator())).build());
+    ).ignoreVines().decorators(ImmutableList.of(new RedwoodBranchTreeDecorator(.1f, BlockStateProvider.of(NSWoods.REDWOOD.getFrostyLeaves())))).build());
 
     register(
         context,
@@ -249,7 +249,7 @@ public class NSConfiguredFeatures {
         new RedwoodFoliagePlacer(ConstantIntProvider.create(0), ConstantIntProvider.create(0), UniformIntProvider.create(27, 31)),
         new TwoLayersFeatureSize(2, 0, 2)
     ).decorators(ImmutableList.of(new AlterGroundTreeDecorator(BlockStateProvider.of(Blocks.PODZOL)),
-        new RedwoodBranchTreeDecorator(.05f, BlockStateProvider.of(NSWoods.REDWOOD.getFrostyLeaves())), new SnowTreeDecorator())).build());
+        new RedwoodBranchTreeDecorator(.05f, BlockStateProvider.of(NSWoods.REDWOOD.getFrostyLeaves())))).build());
 
     register(
         context,
