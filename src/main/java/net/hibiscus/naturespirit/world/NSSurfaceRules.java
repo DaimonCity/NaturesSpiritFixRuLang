@@ -1,10 +1,5 @@
 package net.hibiscus.naturespirit.world;
 
-import static net.minecraft.world.gen.surfacebuilder.MaterialRules.STONE_DEPTH_FLOOR;
-import static net.minecraft.world.gen.surfacebuilder.MaterialRules.STONE_DEPTH_FLOOR_WITH_SURFACE_DEPTH;
-import static net.minecraft.world.gen.surfacebuilder.MaterialRules.STONE_DEPTH_FLOOR_WITH_SURFACE_DEPTH_RANGE_30;
-import static net.minecraft.world.gen.surfacebuilder.MaterialRules.STONE_DEPTH_FLOOR_WITH_SURFACE_DEPTH_RANGE_6;
-
 import com.google.common.collect.ImmutableList;
 import net.hibiscus.naturespirit.registration.NSBiomes;
 import net.hibiscus.naturespirit.registration.NSColoredBlocks;
@@ -15,7 +10,9 @@ import net.minecraft.util.math.VerticalSurfaceType;
 import net.minecraft.world.gen.YOffset;
 import net.minecraft.world.gen.noise.NoiseParametersKeys;
 import net.minecraft.world.gen.surfacebuilder.MaterialRules;
-import net.minecraft.world.gen.surfacebuilder.MaterialRules.MaterialCondition;
+import net.minecraft.world.gen.surfacebuilder.MaterialRules.*;
+
+import static net.minecraft.world.gen.surfacebuilder.MaterialRules.*;
 
 public class NSSurfaceRules {
 

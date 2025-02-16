@@ -2,8 +2,6 @@ package net.hibiscus.naturespirit.world.tree_decorator;
 
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.MapCodec;
-import java.util.List;
-import net.hibiscus.naturespirit.blocks.CoconutBlock;
 import net.hibiscus.naturespirit.blocks.OliveBranchBlock;
 import net.hibiscus.naturespirit.registration.NSWoods;
 import net.hibiscus.naturespirit.registration.NSWorldGen;
@@ -12,6 +10,8 @@ import net.minecraft.util.math.Direction;
 import net.minecraft.util.math.random.Random;
 import net.minecraft.world.gen.treedecorator.TreeDecorator;
 import net.minecraft.world.gen.treedecorator.TreeDecoratorType;
+
+import java.util.List;
 
 public class OliveBranchTreeDecorator extends TreeDecorator {
 

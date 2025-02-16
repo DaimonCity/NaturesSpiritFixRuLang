@@ -1,9 +1,5 @@
 package net.hibiscus.naturespirit.util;
 
-import static net.hibiscus.naturespirit.NatureSpirit.MOD_ID;
-import static net.minecraft.village.VillagerType.BIOME_TO_TYPE;
-import static net.minecraft.village.VillagerType.DESERT;
-
 import net.fabricmc.fabric.api.object.builder.v1.trade.TradeOfferHelper;
 import net.fabricmc.fabric.api.object.builder.v1.villager.VillagerTypeHelper;
 import net.hibiscus.naturespirit.registration.NSBiomes;
@@ -11,6 +7,10 @@ import net.hibiscus.naturespirit.registration.NSMiscBlocks;
 import net.minecraft.util.Identifier;
 import net.minecraft.village.TradeOffers;
 import net.minecraft.village.VillagerType;
+
+import static net.hibiscus.naturespirit.NatureSpirit.MOD_ID;
+import static net.minecraft.village.VillagerType.BIOME_TO_TYPE;
+import static net.minecraft.village.VillagerType.DESERT;
 
 public class NSVillagers {
 

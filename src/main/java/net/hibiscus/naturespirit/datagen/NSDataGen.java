@@ -2,12 +2,11 @@ package net.hibiscus.naturespirit.datagen;
 
 import net.fabricmc.fabric.api.datagen.v1.DataGeneratorEntrypoint;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
-
-import static net.hibiscus.naturespirit.NatureSpirit.MOD_ID;
-
 import net.minecraft.registry.RegistryBuilder;
 import net.minecraft.registry.RegistryKeys;
 import org.jetbrains.annotations.NotNull;
+
+import static net.hibiscus.naturespirit.NatureSpirit.MOD_ID;
 
 public class NSDataGen implements DataGeneratorEntrypoint {
 

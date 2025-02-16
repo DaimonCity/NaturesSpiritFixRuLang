@@ -1,32 +1,16 @@
 package net.hibiscus.naturespirit.registration;
 
 import com.google.common.collect.ImmutableList;
-import java.util.List;
-import java.util.Optional;
 import net.fabricmc.fabric.api.registry.FlammableBlockRegistry;
 import net.hibiscus.naturespirit.NatureSpirit;
-
-import static net.hibiscus.naturespirit.NatureSpirit.MOD_ID;
-
 import net.hibiscus.naturespirit.blocks.CoconutBlock;
 import net.hibiscus.naturespirit.blocks.OliveBranchBlock;
 import net.hibiscus.naturespirit.blocks.SproutingCoconutBlock;
 import net.hibiscus.naturespirit.datagen.NSConfiguredFeatures;
 import net.hibiscus.naturespirit.items.CoconutHalfItem;
-
-import static net.hibiscus.naturespirit.registration.NSRegistryHelper.*;
-
 import net.hibiscus.naturespirit.registration.sets.WoodSet;
 import net.hibiscus.naturespirit.registration.sets.WoodSet.WoodPreset;
-import net.minecraft.block.AbstractBlock;
-import net.minecraft.block.Block;
-import net.minecraft.block.Blocks;
-import net.minecraft.block.CarpetBlock;
-import net.minecraft.block.GlazedTerracottaBlock;
-import net.minecraft.block.MapColor;
-import net.minecraft.block.SaplingGenerator;
-import net.minecraft.block.SlabBlock;
-import net.minecraft.block.StairsBlock;
+import net.minecraft.block.*;
 import net.minecraft.block.piston.PistonBehavior;
 import net.minecraft.component.type.FoodComponent;
 import net.minecraft.item.Item;
@@ -34,6 +18,12 @@ import net.minecraft.item.ItemGroups;
 import net.minecraft.item.Items;
 import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.util.Identifier;
+
+import java.util.List;
+import java.util.Optional;
+
+import static net.hibiscus.naturespirit.NatureSpirit.MOD_ID;
+import static net.hibiscus.naturespirit.registration.NSRegistryHelper.*;
 
 public class NSWoods {
 

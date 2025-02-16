@@ -1,6 +1,5 @@
 package net.hibiscus.naturespirit.items;
 
-import java.util.List;
 import net.hibiscus.naturespirit.NatureSpirit;
 import net.hibiscus.naturespirit.blocks.PizzaBlock;
 import net.hibiscus.naturespirit.blocks.block_entities.PizzaToppingVariant;
@@ -22,6 +21,8 @@ import net.minecraft.nbt.NbtCompound;
 import net.minecraft.text.Text;
 import net.minecraft.util.Formatting;
 import net.minecraft.world.World;
+
+import java.util.List;
 
 public class PizzaItem extends AliasedBlockItem {
 

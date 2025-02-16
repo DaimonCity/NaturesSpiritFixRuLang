@@ -1,7 +1,5 @@
 package net.hibiscus.naturespirit;
 
-import java.io.IOException;
-import java.util.Optional;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.event.registry.DynamicRegistries;
 import net.fabricmc.fabric.api.resource.ResourceManagerHelper;
@@ -24,6 +22,9 @@ import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import java.io.IOException;
+import java.util.Optional;
 
 public class NatureSpirit implements ModInitializer {
 

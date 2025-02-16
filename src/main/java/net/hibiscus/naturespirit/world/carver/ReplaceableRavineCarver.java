@@ -2,7 +2,6 @@ package net.hibiscus.naturespirit.world.carver;
 
 
 import com.mojang.serialization.Codec;
-import java.util.function.Function;
 import net.hibiscus.naturespirit.registration.NSMiscBlocks;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
@@ -24,6 +23,8 @@ import net.minecraft.world.gen.chunk.AquiferSampler;
 import net.minecraft.world.gen.densityfunction.DensityFunction;
 import org.apache.commons.lang3.mutable.MutableBoolean;
 import org.jetbrains.annotations.Nullable;
+
+import java.util.function.Function;
 
 public class ReplaceableRavineCarver extends Carver<ReplaceableRavineCarverConfig> {
 

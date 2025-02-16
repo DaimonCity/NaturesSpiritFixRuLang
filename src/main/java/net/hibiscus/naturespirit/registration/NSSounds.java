@@ -1,12 +1,12 @@
 package net.hibiscus.naturespirit.registration;
 
-import static net.hibiscus.naturespirit.NatureSpirit.MOD_ID;
-
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.registry.entry.RegistryEntry;
 import net.minecraft.sound.SoundEvent;
 import net.minecraft.util.Identifier;
+
+import static net.hibiscus.naturespirit.NatureSpirit.MOD_ID;
 
 @SuppressWarnings("unused")
 public class NSSounds {

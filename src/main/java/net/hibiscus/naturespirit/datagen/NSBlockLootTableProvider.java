@@ -1,24 +1,16 @@
 package net.hibiscus.naturespirit.datagen;
 
-import java.util.HashMap;
-import java.util.concurrent.CompletableFuture;
-import java.util.stream.IntStream;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricBlockLootTableProvider;
 import net.hibiscus.naturespirit.blocks.AzollaBlock;
-import net.hibiscus.naturespirit.blocks.WaterFlowerbedBlock;
 import net.hibiscus.naturespirit.registration.NSColoredBlocks;
 import net.hibiscus.naturespirit.registration.NSMiscBlocks;
-
-import static net.hibiscus.naturespirit.registration.NSMiscBlocks.*;
-
 import net.hibiscus.naturespirit.registration.NSRegistryHelper;
 import net.hibiscus.naturespirit.registration.NSWoods;
 import net.hibiscus.naturespirit.registration.sets.FlowerSet;
 import net.hibiscus.naturespirit.registration.sets.StoneSet;
 import net.hibiscus.naturespirit.registration.sets.WoodSet;
 import net.minecraft.block.Block;
-import net.minecraft.block.FlowerbedBlock;
 import net.minecraft.block.TallPlantBlock;
 import net.minecraft.block.enums.DoubleBlockHalf;
 import net.minecraft.data.server.loottable.BlockLootTableGenerator;
@@ -33,8 +25,6 @@ import net.minecraft.loot.condition.MatchToolLootCondition;
 import net.minecraft.loot.condition.TableBonusLootCondition;
 import net.minecraft.loot.entry.ItemEntry;
 import net.minecraft.loot.entry.LeafEntry;
-import net.minecraft.loot.entry.LootPoolEntry;
-import net.minecraft.loot.entry.LootPoolEntry.Builder;
 import net.minecraft.loot.function.ApplyBonusLootFunction;
 import net.minecraft.loot.function.SetCountLootFunction;
 import net.minecraft.loot.provider.number.ConstantLootNumberProvider;
@@ -43,6 +33,12 @@ import net.minecraft.predicate.item.ItemPredicate;
 import net.minecraft.registry.RegistryKeys;
 import net.minecraft.registry.RegistryWrapper;
 import net.minecraft.registry.tag.ItemTags;
+
+import java.util.HashMap;
+import java.util.concurrent.CompletableFuture;
+import java.util.stream.IntStream;
+
+import static net.hibiscus.naturespirit.registration.NSMiscBlocks.*;
 
 class NSBlockLootTableProvider extends FabricBlockLootTableProvider {
 

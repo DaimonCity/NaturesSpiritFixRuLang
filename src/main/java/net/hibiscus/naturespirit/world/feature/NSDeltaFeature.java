@@ -3,7 +3,6 @@ package net.hibiscus.naturespirit.world.feature;
 
 import com.google.common.collect.ImmutableList;
 import com.mojang.serialization.Codec;
-import java.util.Iterator;
 import net.hibiscus.naturespirit.registration.NSMiscBlocks;
 import net.hibiscus.naturespirit.registration.NSWoods;
 import net.minecraft.block.Block;
@@ -19,6 +18,8 @@ import net.minecraft.world.WorldAccess;
 import net.minecraft.world.gen.feature.DeltaFeatureConfig;
 import net.minecraft.world.gen.feature.Feature;
 import net.minecraft.world.gen.feature.util.FeatureContext;
+
+import java.util.Iterator;
 
 public class NSDeltaFeature extends Feature<DeltaFeatureConfig> {
 

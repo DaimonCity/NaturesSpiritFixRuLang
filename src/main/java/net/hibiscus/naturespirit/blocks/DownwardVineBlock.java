@@ -1,7 +1,6 @@
 package net.hibiscus.naturespirit.blocks;
 
 import com.mojang.serialization.MapCodec;
-import java.util.function.Supplier;
 import net.minecraft.block.AbstractPlantStemBlock;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
@@ -12,6 +11,8 @@ import net.minecraft.util.math.Direction;
 import net.minecraft.util.math.random.Random;
 import net.minecraft.util.shape.VoxelShape;
 import net.minecraft.world.WorldView;
+
+import java.util.function.Supplier;
 
 
 public class DownwardVineBlock extends AbstractPlantStemBlock {

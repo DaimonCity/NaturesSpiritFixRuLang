@@ -2,12 +2,7 @@ package net.hibiscus.naturespirit.blocks;
 
 import com.mojang.serialization.MapCodec;
 import net.hibiscus.naturespirit.registration.NSMiscBlocks;
-import net.minecraft.block.Block;
-import net.minecraft.block.BlockState;
-import net.minecraft.block.Fertilizable;
-import net.minecraft.block.IceBlock;
-import net.minecraft.block.PlantBlock;
-import net.minecraft.block.ShapeContext;
+import net.minecraft.block.*;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.vehicle.BoatEntity;

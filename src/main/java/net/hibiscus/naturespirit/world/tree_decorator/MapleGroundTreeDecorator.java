@@ -3,7 +3,6 @@ package net.hibiscus.naturespirit.world.tree_decorator;
 import com.google.common.collect.Lists;
 import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
-import java.util.List;
 import net.hibiscus.naturespirit.registration.NSMiscBlocks;
 import net.hibiscus.naturespirit.registration.NSWorldGen;
 import net.minecraft.util.math.BlockPos;
@@ -11,6 +10,8 @@ import net.minecraft.world.gen.feature.Feature;
 import net.minecraft.world.gen.stateprovider.BlockStateProvider;
 import net.minecraft.world.gen.treedecorator.TreeDecorator;
 import net.minecraft.world.gen.treedecorator.TreeDecoratorType;
+
+import java.util.List;
 
 public class MapleGroundTreeDecorator extends TreeDecorator {
 

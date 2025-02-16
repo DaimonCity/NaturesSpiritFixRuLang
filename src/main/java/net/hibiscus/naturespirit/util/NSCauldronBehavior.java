@@ -1,16 +1,12 @@
 package net.hibiscus.naturespirit.util;
 
-import static net.minecraft.block.cauldron.CauldronBehavior.CauldronBehaviorMap;
-import static net.minecraft.block.cauldron.CauldronBehavior.createMap;
-import static net.minecraft.block.cauldron.CauldronBehavior.emptyCauldron;
-import static net.minecraft.block.cauldron.CauldronBehavior.fillCauldron;
-import static net.minecraft.block.cauldron.CauldronBehavior.registerBucketBehavior;
-
 import net.hibiscus.naturespirit.registration.NSMiscBlocks;
 import net.minecraft.block.cauldron.CauldronBehavior;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.sound.SoundEvents;
+
+import static net.minecraft.block.cauldron.CauldronBehavior.*;
 
 public interface NSCauldronBehavior {
 

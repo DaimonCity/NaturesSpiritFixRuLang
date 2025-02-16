@@ -1,7 +1,6 @@
 package net.hibiscus.naturespirit.world.feature;
 
 import com.mojang.serialization.Codec;
-import java.util.Iterator;
 import net.hibiscus.naturespirit.blocks.GrowingBranchingTrunkBlock;
 import net.hibiscus.naturespirit.registration.NSMiscBlocks;
 import net.minecraft.block.Block;
@@ -15,6 +14,8 @@ import net.minecraft.world.gen.feature.DefaultFeatureConfig;
 import net.minecraft.world.gen.feature.Feature;
 import net.minecraft.world.gen.feature.util.FeatureContext;
 import org.jetbrains.annotations.Nullable;
+
+import java.util.Iterator;
 
 public class AlluaudiaFeature extends Feature<DefaultFeatureConfig> {
 

@@ -1,10 +1,6 @@
 package net.hibiscus.naturespirit.registration;
 
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
-
-import static net.hibiscus.naturespirit.NatureSpirit.MOD_ID;
-
-import net.hibiscus.naturespirit.NatureSpirit;
 import net.hibiscus.naturespirit.config.NSConfig;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
@@ -14,6 +10,8 @@ import net.minecraft.registry.RegistryKey;
 import net.minecraft.registry.RegistryKeys;
 import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
+
+import static net.hibiscus.naturespirit.NatureSpirit.MOD_ID;
 
 public class NSItemGroups {
 

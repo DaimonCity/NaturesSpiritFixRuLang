@@ -3,7 +3,6 @@ package net.hibiscus.naturespirit.world.tree_decorator;
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
-import java.util.List;
 import net.hibiscus.naturespirit.blocks.PolyporeBlock;
 import net.hibiscus.naturespirit.registration.NSWorldGen;
 import net.minecraft.block.MushroomBlock;
@@ -13,6 +12,8 @@ import net.minecraft.util.math.random.Random;
 import net.minecraft.world.gen.stateprovider.BlockStateProvider;
 import net.minecraft.world.gen.treedecorator.TreeDecorator;
 import net.minecraft.world.gen.treedecorator.TreeDecoratorType;
+
+import java.util.List;
 
 public class PolyporeTreeDecorator extends TreeDecorator {
 

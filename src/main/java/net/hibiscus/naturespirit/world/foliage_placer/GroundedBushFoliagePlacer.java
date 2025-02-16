@@ -3,7 +3,6 @@ package net.hibiscus.naturespirit.world.foliage_placer;
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
-import java.util.function.Predicate;
 import net.hibiscus.naturespirit.registration.NSWorldGen;
 import net.minecraft.block.Blocks;
 import net.minecraft.util.math.BlockPos;
@@ -13,6 +12,8 @@ import net.minecraft.world.TestableWorld;
 import net.minecraft.world.gen.feature.TreeFeatureConfig;
 import net.minecraft.world.gen.foliage.FoliagePlacer;
 import net.minecraft.world.gen.foliage.FoliagePlacerType;
+
+import java.util.function.Predicate;
 
 public class GroundedBushFoliagePlacer extends FoliagePlacer {
 
