@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "natures_spirit:travertine"
+        "recipe": "natures_spirit:travertine_from_calcite"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -26,7 +26,7 @@
   ],
   "rewards": {
     "recipes": [
-      "natures_spirit:travertine"
+      "natures_spirit:travertine_from_calcite"
     ]
   }
 }
