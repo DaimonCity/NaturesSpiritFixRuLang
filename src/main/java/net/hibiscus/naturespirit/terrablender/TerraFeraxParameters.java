@@ -10,6 +10,8 @@ import net.minecraft.world.biome.source.util.MultiNoiseUtil;
 
 import java.util.function.Consumer;
 
+import static net.hibiscus.naturespirit.NatureSpirit.CONFIG;
+
 
 public class TerraFeraxParameters {
 
@@ -52,41 +54,41 @@ public class TerraFeraxParameters {
   private final RegistryKey<Biome>[][] specialNearMountainBiomes;
   private final RegistryKey<Biome>[][] windsweptBiomes;
 
-  RegistryKey<Biome> commonBiomeSnowyPlainsFrozen = NSConfig.has_tundra ? NSBiomes.TUNDRA : BiomeKeys.SNOWY_PLAINS;
-  RegistryKey<Biome> commonBiomeSnowyTaigaFrozen = NSConfig.has_snowy_fir_forest ? NSBiomes.SNOWY_FIR_FOREST : BiomeKeys.SNOWY_TAIGA;
-  RegistryKey<Biome> commonBiomePlainsCold = NSConfig.has_prairie ? NSBiomes.PRAIRIE : BiomeKeys.PLAINS;
-  RegistryKey<Biome> commonBiomeForestCold = NSConfig.has_prairie ? NSBiomes.PRAIRIE : BiomeKeys.FOREST;
-  RegistryKey<Biome> mountainBiomeMeadowCold = NSConfig.has_prairie ? NSBiomes.PRAIRIE : BiomeKeys.MEADOW;
-  RegistryKey<Biome> commonBiomeTaigaCold = NSConfig.has_fir_forest ? NSBiomes.FIR_FOREST : BiomeKeys.TAIGA;
-  RegistryKey<Biome> commonBiomeOldSpruceCold = NSConfig.has_redwood_forest ? NSBiomes.REDWOOD_FOREST : BiomeKeys.OLD_GROWTH_SPRUCE_TAIGA;
-  RegistryKey<Biome> uncommonBiomeOldPineCold = NSConfig.has_redwood_forest ? null : BiomeKeys.OLD_GROWTH_PINE_TAIGA;
-  RegistryKey<Biome> commonBiomeSnowyTaigaFrozen2 = NSConfig.has_snowy_redwood_forest ? NSBiomes.SNOWY_REDWOOD_FOREST : BiomeKeys.SNOWY_TAIGA;
-  RegistryKey<Biome> specialBiomeCherryGrove = NSConfig.has_heather_fields ? NSBiomes.HEATHER_FIELDS : BiomeKeys.CHERRY_GROVE;
-  RegistryKey<Biome> commonBiomeDesert = NSConfig.has_lively_dunes ? NSBiomes.LIVELY_DUNES : BiomeKeys.DESERT;
-  RegistryKey<Biome> commonBiomeDesert2 = NSConfig.has_blooming_dunes ? NSBiomes.BLOOMING_DUNES : BiomeKeys.DESERT;
-  RegistryKey<Biome> commonBiomeDesert3 = NSConfig.has_chaparral ? NSBiomes.CHAPARRAL : BiomeKeys.DESERT;
-  RegistryKey<Biome> uncommonBiomePlainsWarm = NSConfig.has_chaparral ? NSBiomes.CHAPARRAL : BiomeKeys.PLAINS;
-  RegistryKey<Biome> uncommonBiomeDesert = NSConfig.has_blooming_dunes ? NSBiomes.BLOOMING_DUNES : null;
-  RegistryKey<Biome> nearBiomeBadlands = NSConfig.has_stratified_desert ? NSBiomes.STRATIFIED_DESERT : BiomeKeys.BADLANDS;
-  RegistryKey<Biome> nearBiomeWoodedBadlands = NSConfig.has_chaparral ? NSBiomes.CHAPARRAL : BiomeKeys.WOODED_BADLANDS;
-  RegistryKey<Biome> specialBiomeErodedBadlands = NSConfig.has_stratified_desert ? null : BiomeKeys.ERODED_BADLANDS;
-  RegistryKey<Biome> specialBiomeWoodedBadlands = NSConfig.has_chaparral ? NSBiomes.CHAPARRAL : null;
-  RegistryKey<Biome> uncommonBiomePlainsCold = NSConfig.has_heather_fields ? NSBiomes.HEATHER_FIELDS : null;
-  RegistryKey<Biome> commonBiomeFlowerForestTemperate = NSConfig.has_oak_savanna ? NSBiomes.OAK_SAVANNA : BiomeKeys.FLOWER_FOREST;
-  RegistryKey<Biome> commonBiomeSavannaWarm = NSConfig.has_oak_savanna ? NSBiomes.OAK_SAVANNA : BiomeKeys.SAVANNA;
-  RegistryKey<Biome> commonBiomePlainsTemperate = NSConfig.has_oak_savanna ? NSBiomes.OAK_SAVANNA : BiomeKeys.PLAINS;
-  RegistryKey<Biome> nearBiomeMeadowTemperate = NSConfig.has_oak_savanna ? NSBiomes.OAK_SAVANNA : BiomeKeys.MEADOW;
-  RegistryKey<Biome> nearBiomeSavannaPlateauTemperate = NSConfig.has_oak_savanna ? NSBiomes.OAK_SAVANNA : BiomeKeys.SAVANNA_PLATEAU;
-  RegistryKey<Biome> specialBiomeCherryGroveTemperate = NSConfig.has_oak_savanna ? NSBiomes.OAK_SAVANNA : BiomeKeys.CHERRY_GROVE;
-  RegistryKey<Biome> windsweptBiomeWindsweptHillsTemperate = NSConfig.has_oak_savanna ? null : BiomeKeys.WINDSWEPT_HILLS;
-  RegistryKey<Biome> commonBiomeJungleWarm = NSConfig.has_chaparral ? NSBiomes.CHAPARRAL : BiomeKeys.JUNGLE;
-  RegistryKey<Biome> nearBiomeForestWarm = NSConfig.has_chaparral ? NSBiomes.CHAPARRAL : BiomeKeys.FOREST;
-  RegistryKey<Biome> uncommonBiomeSparseJungleWarm = NSConfig.has_chaparral ? NSBiomes.CHAPARRAL : BiomeKeys.SPARSE_JUNGLE;
-  RegistryKey<Biome> uncommonBiomeBambooJungleWarm = NSConfig.has_chaparral ? null : BiomeKeys.BAMBOO_JUNGLE;
-  RegistryKey[] windsweptFrozen = NSConfig.has_tundra ?
+  RegistryKey<Biome> commonBiomeSnowyPlainsFrozen = CONFIG.has_tundra ? NSBiomes.TUNDRA : BiomeKeys.SNOWY_PLAINS;
+  RegistryKey<Biome> commonBiomeSnowyTaigaFrozen = CONFIG.has_snowy_fir_forest ? NSBiomes.SNOWY_FIR_FOREST : BiomeKeys.SNOWY_TAIGA;
+  RegistryKey<Biome> commonBiomePlainsCold = CONFIG.has_prairie ? NSBiomes.PRAIRIE : BiomeKeys.PLAINS;
+  RegistryKey<Biome> commonBiomeForestCold = CONFIG.has_prairie ? NSBiomes.PRAIRIE : BiomeKeys.FOREST;
+  RegistryKey<Biome> mountainBiomeMeadowCold = CONFIG.has_prairie ? NSBiomes.PRAIRIE : BiomeKeys.MEADOW;
+  RegistryKey<Biome> commonBiomeTaigaCold = CONFIG.has_fir_forest ? NSBiomes.FIR_FOREST : BiomeKeys.TAIGA;
+  RegistryKey<Biome> commonBiomeOldSpruceCold = CONFIG.has_redwood_forest ? NSBiomes.REDWOOD_FOREST : BiomeKeys.OLD_GROWTH_SPRUCE_TAIGA;
+  RegistryKey<Biome> uncommonBiomeOldPineCold = CONFIG.has_redwood_forest ? null : BiomeKeys.OLD_GROWTH_PINE_TAIGA;
+  RegistryKey<Biome> commonBiomeSnowyTaigaFrozen2 = CONFIG.has_snowy_redwood_forest ? NSBiomes.SNOWY_REDWOOD_FOREST : BiomeKeys.SNOWY_TAIGA;
+  RegistryKey<Biome> specialBiomeCherryGrove = CONFIG.has_heather_fields ? NSBiomes.HEATHER_FIELDS : BiomeKeys.CHERRY_GROVE;
+  RegistryKey<Biome> commonBiomeDesert = CONFIG.has_lively_dunes ? NSBiomes.LIVELY_DUNES : BiomeKeys.DESERT;
+  RegistryKey<Biome> commonBiomeDesert2 = CONFIG.has_blooming_dunes ? NSBiomes.BLOOMING_DUNES : BiomeKeys.DESERT;
+  RegistryKey<Biome> commonBiomeDesert3 = CONFIG.has_chaparral ? NSBiomes.CHAPARRAL : BiomeKeys.DESERT;
+  RegistryKey<Biome> uncommonBiomePlainsWarm = CONFIG.has_chaparral ? NSBiomes.CHAPARRAL : BiomeKeys.PLAINS;
+  RegistryKey<Biome> uncommonBiomeDesert = CONFIG.has_blooming_dunes ? NSBiomes.BLOOMING_DUNES : null;
+  RegistryKey<Biome> nearBiomeBadlands = CONFIG.has_stratified_desert ? NSBiomes.STRATIFIED_DESERT : BiomeKeys.BADLANDS;
+  RegistryKey<Biome> nearBiomeWoodedBadlands = CONFIG.has_chaparral ? NSBiomes.CHAPARRAL : BiomeKeys.WOODED_BADLANDS;
+  RegistryKey<Biome> specialBiomeErodedBadlands = CONFIG.has_stratified_desert ? null : BiomeKeys.ERODED_BADLANDS;
+  RegistryKey<Biome> specialBiomeWoodedBadlands = CONFIG.has_chaparral ? NSBiomes.CHAPARRAL : null;
+  RegistryKey<Biome> uncommonBiomePlainsCold = CONFIG.has_heather_fields ? NSBiomes.HEATHER_FIELDS : null;
+  RegistryKey<Biome> commonBiomeFlowerForestTemperate = CONFIG.has_oak_savanna ? NSBiomes.OAK_SAVANNA : BiomeKeys.FLOWER_FOREST;
+  RegistryKey<Biome> commonBiomeSavannaWarm = CONFIG.has_oak_savanna ? NSBiomes.OAK_SAVANNA : BiomeKeys.SAVANNA;
+  RegistryKey<Biome> commonBiomePlainsTemperate = CONFIG.has_oak_savanna ? NSBiomes.OAK_SAVANNA : BiomeKeys.PLAINS;
+  RegistryKey<Biome> nearBiomeMeadowTemperate = CONFIG.has_oak_savanna ? NSBiomes.OAK_SAVANNA : BiomeKeys.MEADOW;
+  RegistryKey<Biome> nearBiomeSavannaPlateauTemperate = CONFIG.has_oak_savanna ? NSBiomes.OAK_SAVANNA : BiomeKeys.SAVANNA_PLATEAU;
+  RegistryKey<Biome> specialBiomeCherryGroveTemperate = CONFIG.has_oak_savanna ? NSBiomes.OAK_SAVANNA : BiomeKeys.CHERRY_GROVE;
+  RegistryKey<Biome> windsweptBiomeWindsweptHillsTemperate = CONFIG.has_oak_savanna ? null : BiomeKeys.WINDSWEPT_HILLS;
+  RegistryKey<Biome> commonBiomeJungleWarm = CONFIG.has_chaparral ? NSBiomes.CHAPARRAL : BiomeKeys.JUNGLE;
+  RegistryKey<Biome> nearBiomeForestWarm = CONFIG.has_chaparral ? NSBiomes.CHAPARRAL : BiomeKeys.FOREST;
+  RegistryKey<Biome> uncommonBiomeSparseJungleWarm = CONFIG.has_chaparral ? NSBiomes.CHAPARRAL : BiomeKeys.SPARSE_JUNGLE;
+  RegistryKey<Biome> uncommonBiomeBambooJungleWarm = CONFIG.has_chaparral ? null : BiomeKeys.BAMBOO_JUNGLE;
+  RegistryKey[] windsweptFrozen = CONFIG.has_tundra ?
       new RegistryKey[]{NSBiomes.TUNDRA, NSBiomes.TUNDRA, NSBiomes.TUNDRA, NSBiomes.TUNDRA, NSBiomes.TUNDRA} :
       new RegistryKey[]{BiomeKeys.WINDSWEPT_GRAVELLY_HILLS, BiomeKeys.WINDSWEPT_GRAVELLY_HILLS, BiomeKeys.WINDSWEPT_HILLS, BiomeKeys.WINDSWEPT_FOREST, BiomeKeys.WINDSWEPT_FOREST};
-  RegistryKey[] windsweptCold = NSConfig.has_prairie ?
+  RegistryKey[] windsweptCold = CONFIG.has_prairie ?
       new RegistryKey[]{NSBiomes.PRAIRIE, NSBiomes.PRAIRIE, NSBiomes.PRAIRIE, NSBiomes.PRAIRIE, NSBiomes.PRAIRIE} :
       new RegistryKey[]{BiomeKeys.WINDSWEPT_GRAVELLY_HILLS, BiomeKeys.WINDSWEPT_GRAVELLY_HILLS, BiomeKeys.WINDSWEPT_HILLS, BiomeKeys.WINDSWEPT_FOREST, BiomeKeys.WINDSWEPT_FOREST};
 
@@ -305,7 +307,7 @@ public class TerraFeraxParameters {
             this.erosionParameters[6],
             weirdness,
             0.0F,
-            NSConfig.has_lively_dunes ? registryKey2 : registryKey
+            CONFIG.has_lively_dunes ? registryKey2 : registryKey
         );
       }
     }
@@ -362,7 +364,7 @@ public class TerraFeraxParameters {
             this.erosionParameters[3],
             weirdness,
             0.0F,
-            NSConfig.has_lively_dunes ? registryKey2 : registryKey
+            CONFIG.has_lively_dunes ? registryKey2 : registryKey
         );
         this.writeBiomeParameters(parameters,
             parameterRange,
@@ -371,7 +373,7 @@ public class TerraFeraxParameters {
             this.erosionParameters[2],
             weirdness,
             0.0F,
-            NSConfig.has_lively_dunes ? registryKey2 : registryKey
+            CONFIG.has_lively_dunes ? registryKey2 : registryKey
         );
         this.writeBiomeParameters(parameters,
             parameterRange,
@@ -400,7 +402,7 @@ public class TerraFeraxParameters {
             this.erosionParameters[5],
             weirdness,
             0.0F,
-            NSConfig.has_lively_dunes ? registryKey2 : registryKey6
+            CONFIG.has_lively_dunes ? registryKey2 : registryKey6
         );
         this.writeBiomeParameters(parameters,
             parameterRange,
@@ -481,7 +483,7 @@ public class TerraFeraxParameters {
         this.writeBiomeParameters(parameters, parameterRange, parameterRange2, this.farInlandContinentalness, this.erosionParameters[1], weirdness, 0.0F,
             i == 0 ? registryKey9 : registryKey5);
         this.writeBiomeParameters(parameters, parameterRange, parameterRange2, this.nearInlandContinentalness, this.erosionParameters[2], weirdness, 0.0F,
-            NSConfig.has_lively_dunes ? registryKey2 : registryKey);
+            CONFIG.has_lively_dunes ? registryKey2 : registryKey);
         this.writeBiomeParameters(parameters, parameterRange, parameterRange2, this.midInlandContinentalness, this.erosionParameters[2], weirdness, 0.0F, registryKey2);
         this.writeBiomeParameters(parameters, parameterRange, parameterRange2, this.farInlandContinentalness, this.erosionParameters[2], weirdness, 0.0F, registryKey5);
         this.writeBiomeParameters(parameters,
@@ -491,7 +493,7 @@ public class TerraFeraxParameters {
             this.erosionParameters[3],
             weirdness,
             0.0F,
-            NSConfig.has_lively_dunes ? registryKey2 : registryKey
+            CONFIG.has_lively_dunes ? registryKey2 : registryKey
         );
         this.writeBiomeParameters(parameters,
             parameterRange,
@@ -511,7 +513,7 @@ public class TerraFeraxParameters {
               this.erosionParameters[4],
               weirdness,
               0.0F,
-              NSConfig.has_lively_dunes ? registryKey2 : registryKey
+              CONFIG.has_lively_dunes ? registryKey2 : registryKey
           );
         } else {
           this.writeBiomeParameters(parameters,
@@ -602,7 +604,7 @@ public class TerraFeraxParameters {
             MultiNoiseUtil.ParameterRange.combine(this.erosionParameters[2], this.erosionParameters[3]),
             weirdness,
             0.0F,
-            NSConfig.has_lively_dunes ? registryKey2 : registryKey
+            CONFIG.has_lively_dunes ? registryKey2 : registryKey
         );
         this.writeBiomeParameters(parameters,
             parameterRange,
@@ -775,7 +777,7 @@ public class TerraFeraxParameters {
   }
 
   private RegistryKey<Biome> getStratifiedDesertOrRegularBiome(int temperature, int humidity, MultiNoiseUtil.ParameterRange weirdness) {
-    return temperature == 4 ? (NSConfig.has_lively_dunes ? NSBiomes.STRATIFIED_DESERT : this.getBadlandsBiome(humidity, weirdness))
+    return temperature == 4 ? (CONFIG.has_lively_dunes ? NSBiomes.STRATIFIED_DESERT : this.getBadlandsBiome(humidity, weirdness))
         : this.getRegularBiome(temperature, humidity, weirdness);
   }
 
@@ -795,10 +797,10 @@ public class TerraFeraxParameters {
   private RegistryKey<Biome> getShoreBiome(int temperature, int humidity) {
     if (temperature == 0) {
       return BiomeKeys.SNOWY_BEACH;
-    } else if (temperature == 3 && NSConfig.has_tropical_shores) {
+    } else if (temperature == 3 && CONFIG.has_tropical_shores) {
       return NSBiomes.TROPICAL_SHORES;
     } else {
-      return temperature == 4 ? (NSConfig.has_lively_dunes ? NSBiomes.LIVELY_DUNES : (BiomeKeys.DESERT)) : BiomeKeys.BEACH;
+      return temperature == 4 ? (CONFIG.has_lively_dunes ? NSBiomes.LIVELY_DUNES : (BiomeKeys.DESERT)) : BiomeKeys.BEACH;
     }
   }
 
@@ -814,13 +816,13 @@ public class TerraFeraxParameters {
   }
 
   private RegistryKey<Biome> getPeakBiome(int temperature, int humidity, MultiNoiseUtil.ParameterRange weirdness) {
-    if (temperature <= 1 && NSConfig.has_prairie && humidity <= 2) {
+    if (temperature <= 1 && CONFIG.has_prairie && humidity <= 2) {
       return BiomeKeys.STONY_PEAKS;
     }
     if (temperature <= 2) {
       return weirdness.max() < 0L ? BiomeKeys.JAGGED_PEAKS : BiomeKeys.FROZEN_PEAKS;
     } else {
-      return temperature == 3 ? BiomeKeys.STONY_PEAKS : (NSConfig.has_lively_dunes ? NSBiomes.STRATIFIED_DESERT : this.getBadlandsBiome(humidity, weirdness));
+      return temperature == 3 ? BiomeKeys.STONY_PEAKS : (CONFIG.has_lively_dunes ? NSBiomes.STRATIFIED_DESERT : this.getBadlandsBiome(humidity, weirdness));
     }
   }
 
@@ -836,9 +838,9 @@ public class TerraFeraxParameters {
     if (temperature >= 3) {
       return this.getNearMountainBiome(temperature, humidity, weirdness);
     } else {
-      if (NSConfig.has_tundra || NSConfig.has_snowy_fir_forest) {
-        return humidity <= 2 && temperature <= 1 && NSConfig.has_tundra ? NSBiomes.TUNDRA
-            : temperature == 0 && humidity == 3 && NSConfig.has_snowy_fir_forest ? NSBiomes.SNOWY_FIR_FOREST : BiomeKeys.GROVE;
+      if (CONFIG.has_tundra || CONFIG.has_snowy_fir_forest) {
+        return humidity <= 2 && temperature <= 1 && CONFIG.has_tundra ? NSBiomes.TUNDRA
+            : temperature == 0 && humidity == 3 && CONFIG.has_snowy_fir_forest ? NSBiomes.SNOWY_FIR_FOREST : BiomeKeys.GROVE;
       } else {
         return humidity <= 1 ? BiomeKeys.SNOWY_SLOPES : BiomeKeys.GROVE;
       }
@@ -846,9 +848,9 @@ public class TerraFeraxParameters {
   }
 
   private RegistryKey<Biome> getWetlandType(int temperature, int humidity, MultiNoiseUtil.ParameterRange weirdness) {
-    if (temperature == 0 || (NSConfig.has_lively_dunes && temperature == 4)) {
+    if (temperature == 0 || (CONFIG.has_lively_dunes && temperature == 4)) {
       return this.getRegularBiome(temperature, humidity, weirdness);
-    } else if ((humidity <= 3 || temperature > 2) && NSConfig.has_marsh) {
+    } else if ((humidity <= 3 || temperature > 2) && CONFIG.has_marsh) {
       return NSBiomes.MARSH;
     } else {
       return temperature >= 3 ? BiomeKeys.MANGROVE_SWAMP : BiomeKeys.SWAMP;

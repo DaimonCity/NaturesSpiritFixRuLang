@@ -10,6 +10,8 @@ import net.minecraft.world.biome.source.util.MultiNoiseUtil;
 
 import java.util.function.Consumer;
 
+import static net.hibiscus.naturespirit.NatureSpirit.CONFIG;
+
 
 public class TerraSolarisParameters {
 
@@ -73,49 +75,49 @@ public class TerraSolarisParameters {
 
   private final RegistryKey<Biome>[][] windsweptBiomes;
 
-  RegistryKey<Biome> commonBiomeForestCold = NSConfig.has_woody_highlands ? NSBiomes.WOODY_HIGHLANDS : BiomeKeys.FOREST;
+  RegistryKey<Biome> commonBiomeForestCold = CONFIG.has_woody_highlands ? NSBiomes.WOODY_HIGHLANDS : BiomeKeys.FOREST;
 
-  RegistryKey<Biome> nearBiomeForestCold = NSConfig.has_blooming_highlands ? NSBiomes.BLOOMING_HIGHLANDS : BiomeKeys.FOREST;
+  RegistryKey<Biome> nearBiomeForestCold = CONFIG.has_blooming_highlands ? NSBiomes.BLOOMING_HIGHLANDS : BiomeKeys.FOREST;
 
-  RegistryKey<Biome> commonBiomeTaigaCold = NSConfig.has_woody_highlands ? NSBiomes.WOODY_HIGHLANDS : BiomeKeys.TAIGA;
+  RegistryKey<Biome> commonBiomeTaigaCold = CONFIG.has_woody_highlands ? NSBiomes.WOODY_HIGHLANDS : BiomeKeys.TAIGA;
 
-  RegistryKey<Biome> commonBiomeOldSpruceCold = NSConfig.has_woody_highlands ? NSBiomes.WOODY_HIGHLANDS : BiomeKeys.OLD_GROWTH_SPRUCE_TAIGA;
+  RegistryKey<Biome> commonBiomeOldSpruceCold = CONFIG.has_woody_highlands ? NSBiomes.WOODY_HIGHLANDS : BiomeKeys.OLD_GROWTH_SPRUCE_TAIGA;
 
-  RegistryKey<Biome> uncommonBiomeOldPineCold = NSConfig.has_woody_highlands ? null : BiomeKeys.OLD_GROWTH_PINE_TAIGA;
+  RegistryKey<Biome> uncommonBiomeOldPineCold = CONFIG.has_woody_highlands ? null : BiomeKeys.OLD_GROWTH_PINE_TAIGA;
 
-  RegistryKey<Biome> commonPlains = NSConfig.has_sugi_forest ? NSBiomes.SUGI_FOREST : BiomeKeys.PLAINS;
+  RegistryKey<Biome> commonPlains = CONFIG.has_sugi_forest ? NSBiomes.SUGI_FOREST : BiomeKeys.PLAINS;
 
-  RegistryKey<Biome> commonForest = NSConfig.has_sugi_forest ? NSBiomes.SUGI_FOREST : BiomeKeys.FOREST;
+  RegistryKey<Biome> commonForest = CONFIG.has_sugi_forest ? NSBiomes.SUGI_FOREST : BiomeKeys.FOREST;
 
-  RegistryKey<Biome> uncommonNull = NSConfig.has_blooming_sugi_forest ? NSBiomes.BLOOMING_SUGI_FOREST : null;
+  RegistryKey<Biome> uncommonNull = CONFIG.has_blooming_sugi_forest ? NSBiomes.BLOOMING_SUGI_FOREST : null;
 
-  RegistryKey<Biome> specialForest = NSConfig.has_blooming_sugi_forest ? NSBiomes.BLOOMING_SUGI_FOREST : BiomeKeys.FOREST;
+  RegistryKey<Biome> specialForest = CONFIG.has_blooming_sugi_forest ? NSBiomes.BLOOMING_SUGI_FOREST : BiomeKeys.FOREST;
 
-  RegistryKey<Biome> commonBirchForest = NSConfig.has_sugi_forest ? NSBiomes.SUGI_FOREST : BiomeKeys.BIRCH_FOREST;
+  RegistryKey<Biome> commonBirchForest = CONFIG.has_sugi_forest ? NSBiomes.SUGI_FOREST : BiomeKeys.BIRCH_FOREST;
 
-  RegistryKey<Biome> uncommonBirchForest = NSConfig.has_sugi_forest ? NSBiomes.SUGI_FOREST : BiomeKeys.OLD_GROWTH_BIRCH_FOREST;
+  RegistryKey<Biome> uncommonBirchForest = CONFIG.has_sugi_forest ? NSBiomes.SUGI_FOREST : BiomeKeys.OLD_GROWTH_BIRCH_FOREST;
 
-  RegistryKey<Biome> mountainMeadow = NSConfig.has_sugi_forest ? NSBiomes.SUGI_FOREST : BiomeKeys.MEADOW;
+  RegistryKey<Biome> mountainMeadow = CONFIG.has_sugi_forest ? NSBiomes.SUGI_FOREST : BiomeKeys.MEADOW;
 
-  RegistryKey<Biome> windsweptHills = NSConfig.has_sugi_forest ? NSBiomes.SUGI_FOREST : BiomeKeys.WINDSWEPT_HILLS;
+  RegistryKey<Biome> windsweptHills = CONFIG.has_sugi_forest ? NSBiomes.SUGI_FOREST : BiomeKeys.WINDSWEPT_HILLS;
 
-  RegistryKey<Biome> windsweptHills2 = NSConfig.has_floral_ridges ? NSBiomes.FLORAL_RIDGES : BiomeKeys.WINDSWEPT_HILLS;
+  RegistryKey<Biome> windsweptHills2 = CONFIG.has_floral_ridges ? NSBiomes.FLORAL_RIDGES : BiomeKeys.WINDSWEPT_HILLS;
 
-  RegistryKey<Biome> windsweptForest = NSConfig.has_sugi_forest ? NSBiomes.SUGI_FOREST : BiomeKeys.WINDSWEPT_FOREST;
+  RegistryKey<Biome> windsweptForest = CONFIG.has_sugi_forest ? NSBiomes.SUGI_FOREST : BiomeKeys.WINDSWEPT_FOREST;
 
-  RegistryKey<Biome> plainsCold = NSConfig.has_shrubby_highlands ? NSBiomes.SHRUBBY_HIGHLANDS : BiomeKeys.PLAINS;
+  RegistryKey<Biome> plainsCold = CONFIG.has_shrubby_highlands ? NSBiomes.SHRUBBY_HIGHLANDS : BiomeKeys.PLAINS;
 
-  RegistryKey<Biome> meadowCold = NSConfig.has_blooming_highlands ? NSBiomes.BLOOMING_HIGHLANDS : BiomeKeys.MEADOW;
+  RegistryKey<Biome> meadowCold = CONFIG.has_blooming_highlands ? NSBiomes.BLOOMING_HIGHLANDS : BiomeKeys.MEADOW;
 
-  RegistryKey<Biome> nullCold = NSConfig.has_arid_highlands ? NSBiomes.ARID_HIGHLANDS : null;
+  RegistryKey<Biome> nullCold = CONFIG.has_arid_highlands ? NSBiomes.ARID_HIGHLANDS : null;
 
-  RegistryKey<Biome> cherryCold = NSConfig.has_arid_highlands ? NSBiomes.ARID_HIGHLANDS : BiomeKeys.CHERRY_GROVE;
+  RegistryKey<Biome> cherryCold = CONFIG.has_arid_highlands ? NSBiomes.ARID_HIGHLANDS : BiomeKeys.CHERRY_GROVE;
 
-  RegistryKey<Biome> windsweptGravelyHillsCold = NSConfig.has_arid_highlands ? NSBiomes.ARID_HIGHLANDS : BiomeKeys.WINDSWEPT_GRAVELLY_HILLS;
+  RegistryKey<Biome> windsweptGravelyHillsCold = CONFIG.has_arid_highlands ? NSBiomes.ARID_HIGHLANDS : BiomeKeys.WINDSWEPT_GRAVELLY_HILLS;
 
-  RegistryKey<Biome> windsweptHillsCold = NSConfig.has_shrubby_highlands ? NSBiomes.SHRUBBY_HIGHLANDS : BiomeKeys.WINDSWEPT_HILLS;
+  RegistryKey<Biome> windsweptHillsCold = CONFIG.has_shrubby_highlands ? NSBiomes.SHRUBBY_HIGHLANDS : BiomeKeys.WINDSWEPT_HILLS;
 
-  RegistryKey<Biome> windsweptForestCold = NSConfig.has_shrubby_highlands ? NSBiomes.SHRUBBY_HIGHLANDS : BiomeKeys.WINDSWEPT_FOREST;
+  RegistryKey<Biome> windsweptForestCold = CONFIG.has_shrubby_highlands ? NSBiomes.SHRUBBY_HIGHLANDS : BiomeKeys.WINDSWEPT_FOREST;
 
   public TerraSolarisParameters() {
     this.frozenTemperature = this.temperatureParameters[0];
@@ -728,7 +730,7 @@ public class TerraSolarisParameters {
         0.0F,
         BiomeKeys.FROZEN_RIVER
     );
-    if (!NSConfig.has_sugi_forest) {
+    if (!CONFIG.has_sugi_forest) {
       this.writeBiomeParameters(parameters,
           this.nonFrozenTemperatureParameters,
           this.defaultParameter,
@@ -782,7 +784,7 @@ public class TerraSolarisParameters {
             0.0F,
             this.getWetlandType2(i, j, weirdness)
         );
-        if (NSConfig.has_sugi_forest) {
+        if (CONFIG.has_sugi_forest) {
           if (i == 2 && j < 4 && j > 0) {
             this.writeBiomeParameters(parameters,
                 parameterRange,
@@ -888,11 +890,11 @@ public class TerraSolarisParameters {
   private RegistryKey<Biome> getWetlandType(int temperature, int humidity, MultiNoiseUtil.ParameterRange weirdness) {
     if (temperature == 0) {
       return this.getRegularBiome(temperature, humidity, weirdness);
-    } else if (temperature >= 2 && temperature <= 3 && humidity < 3 && NSConfig.has_wisteria_forest) {
+    } else if (temperature >= 2 && temperature <= 3 && humidity < 3 && CONFIG.has_wisteria_forest) {
       return NSBiomes.WISTERIA_FOREST;
-    } else if (temperature == 3 && humidity > 2 && NSConfig.has_bamboo_wetlands) {
+    } else if (temperature == 3 && humidity > 2 && CONFIG.has_bamboo_wetlands) {
       return NSBiomes.BAMBOO_WETLANDS;
-    } else if ((humidity <= 3 || temperature == 4) && NSConfig.has_marsh) {
+    } else if ((humidity <= 3 || temperature == 4) && CONFIG.has_marsh) {
       return NSBiomes.MARSH;
     } else {
       return BiomeKeys.SWAMP;
@@ -902,13 +904,13 @@ public class TerraSolarisParameters {
   private RegistryKey<Biome> getWetlandType2(int temperature, int humidity, MultiNoiseUtil.ParameterRange weirdness) {
     if (temperature == 0) {
       return this.getRegularBiome(temperature, humidity, weirdness);
-    } else if (temperature == 3 && humidity < 3 && NSConfig.has_wisteria_forest) {
+    } else if (temperature == 3 && humidity < 3 && CONFIG.has_wisteria_forest) {
       return NSBiomes.WISTERIA_FOREST;
-    } else if (temperature == 2 && NSConfig.has_sugi_forest) {
+    } else if (temperature == 2 && CONFIG.has_sugi_forest) {
       return NSBiomes.SUGI_FOREST;
-    } else if (temperature == 3 && humidity > 2 && NSConfig.has_bamboo_wetlands) {
+    } else if (temperature == 3 && humidity > 2 && CONFIG.has_bamboo_wetlands) {
       return NSBiomes.BAMBOO_WETLANDS;
-    } else if ((humidity <= 3 || temperature == 4) && NSConfig.has_marsh) {
+    } else if ((humidity <= 3 || temperature == 4) && CONFIG.has_marsh) {
       return NSBiomes.MARSH;
     } else {
       return BiomeKeys.SWAMP;
@@ -928,9 +930,9 @@ public class TerraSolarisParameters {
   }
 
   private RegistryKey<Biome> getBiomeOrWindsweptSavanna(int temperature, int humidity, MultiNoiseUtil.ParameterRange weirdness, RegistryKey<Biome> biomeKey) {
-    if (temperature == 2 && humidity < 4 && NSConfig.has_sugi_forest) {
+    if (temperature == 2 && humidity < 4 && CONFIG.has_sugi_forest) {
       return weirdness.max() >= 0L ? NSBiomes.WINDSWEPT_SUGI_FOREST : biomeKey;
-    } else if (temperature == 3 && humidity < 4 && NSConfig.has_floral_ridges) {
+    } else if (temperature == 3 && humidity < 4 && CONFIG.has_floral_ridges) {
       return weirdness.max() >= 0L ? NSBiomes.FLORAL_RIDGES : biomeKey;
     }
     return temperature > 1 && humidity < 4 && weirdness.max() >= 0L ? BiomeKeys.WINDSWEPT_SAVANNA : biomeKey;
@@ -944,7 +946,7 @@ public class TerraSolarisParameters {
   private RegistryKey<Biome> getShoreBiome(int temperature, int humidity) {
     if (temperature == 0) {
       return BiomeKeys.SNOWY_BEACH;
-    } else if (temperature == 3 && NSConfig.has_tropical_shores) {
+    } else if (temperature == 3 && CONFIG.has_tropical_shores) {
       return NSBiomes.TROPICAL_SHORES;
     } else {
       return temperature == 4 ? BiomeKeys.DESERT : BiomeKeys.BEACH;
@@ -960,10 +962,10 @@ public class TerraSolarisParameters {
   }
 
   private RegistryKey<Biome> getSteppeBiome(int temperature, int humidity, MultiNoiseUtil.ParameterRange weirdness) {
-    if (humidity < 3 && NSConfig.has_arid_highlands) {
+    if (humidity < 3 && CONFIG.has_arid_highlands) {
       return NSBiomes.ARID_HIGHLANDS;
     } else {
-      return humidity < 4 && NSConfig.has_shrubby_highlands ? NSBiomes.SHRUBBY_HIGHLANDS : (NSConfig.has_woody_highlands ? NSBiomes.WOODY_HIGHLANDS : this.getRegularBiome(
+      return humidity < 4 && CONFIG.has_shrubby_highlands ? NSBiomes.SHRUBBY_HIGHLANDS : (CONFIG.has_woody_highlands ? NSBiomes.WOODY_HIGHLANDS : this.getRegularBiome(
           temperature,
           humidity,
           weirdness
@@ -983,7 +985,7 @@ public class TerraSolarisParameters {
   }
 
   private RegistryKey<Biome> getPeakBiome(int temperature, int humidity, MultiNoiseUtil.ParameterRange weirdness) {
-    if (temperature == 1 && NSConfig.has_snowcapped_red_peaks) {
+    if (temperature == 1 && CONFIG.has_snowcapped_red_peaks) {
       return NSBiomes.SNOWCAPPED_RED_PEAKS;
     }
     if (temperature <= 2) {
@@ -997,7 +999,7 @@ public class TerraSolarisParameters {
     if (temperature >= 3) {
       return this.getNearMountainBiome(temperature, humidity, weirdness);
     }
-    if (temperature == 1 && NSConfig.has_sleeted_slopes) {
+    if (temperature == 1 && CONFIG.has_sleeted_slopes) {
       return NSBiomes.SLEETED_SLOPES;
     } else {
       return humidity <= 1 ? BiomeKeys.SNOWY_SLOPES : BiomeKeys.GROVE;

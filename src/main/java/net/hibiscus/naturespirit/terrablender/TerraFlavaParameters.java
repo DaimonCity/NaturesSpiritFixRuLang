@@ -10,6 +10,8 @@ import net.minecraft.world.biome.source.util.MultiNoiseUtil;
 
 import java.util.function.Consumer;
 
+import static net.hibiscus.naturespirit.NatureSpirit.CONFIG;
+
 
 public class TerraFlavaParameters {
 
@@ -51,24 +53,24 @@ public class TerraFlavaParameters {
   private final RegistryKey<Biome>[][] nearMountainBiomes;
   private final RegistryKey<Biome>[][] specialNearMountainBiomes;
   private final RegistryKey<Biome>[][] windsweptBiomes;
-  RegistryKey<Biome> commonBiomePlainsCold = NSConfig.has_golden_wilds ? NSBiomes.GOLDEN_WILDS : BiomeKeys.PLAINS;
-  RegistryKey<Biome> mountainBiomeMeadowCold = NSConfig.has_golden_wilds ? NSBiomes.GOLDEN_WILDS : BiomeKeys.MEADOW;
-  RegistryKey<Biome> mountainBiomeForestCold = NSConfig.has_golden_wilds ? NSBiomes.GOLDEN_WILDS : BiomeKeys.FOREST;
-  RegistryKey<Biome> mountainBiomeMeadowCold2 = NSConfig.has_marigold_meadows ? NSBiomes.MARIGOLD_MEADOWS : (NSConfig.has_golden_wilds ? NSBiomes.GOLDEN_WILDS : BiomeKeys.MEADOW);
-  RegistryKey<Biome> uncommonBiomeCold = NSConfig.has_marigold_meadows ? NSBiomes.MARIGOLD_MEADOWS : null;
-  RegistryKey<Biome> commonBiomeForestCold = NSConfig.has_maple_woodlands ? NSBiomes.MAPLE_WOODLANDS : BiomeKeys.FOREST;
-  RegistryKey<Biome> commonBiomeTaigaCold = NSConfig.has_aspen_forest ? NSBiomes.ASPEN_FOREST : BiomeKeys.TAIGA;
-  RegistryKey<Biome> commonBiomeOldSpruceCold = NSConfig.has_aspen_forest ? NSBiomes.ASPEN_FOREST : BiomeKeys.OLD_GROWTH_SPRUCE_TAIGA;
-  RegistryKey<Biome> uncommonBiomeOldPineCold = NSConfig.has_aspen_forest ? null : BiomeKeys.OLD_GROWTH_PINE_TAIGA;
-  RegistryKey<Biome> commonBiomeDesertHot = NSConfig.has_drylands ? NSBiomes.DRYLANDS : BiomeKeys.DESERT;
-  RegistryKey<Biome> commonBiomeDesertHot2 = NSConfig.has_wooded_drylands ? NSBiomes.WOODED_DRYLANDS : BiomeKeys.DESERT;
-  RegistryKey<Biome> commonBiomeSavannaWarm = NSConfig.has_wooded_drylands ? NSBiomes.WOODED_DRYLANDS : BiomeKeys.SAVANNA;
-  RegistryKey<Biome> commonBiomeForestWarm = NSConfig.has_wooded_drylands ? NSBiomes.WOODED_DRYLANDS : BiomeKeys.FOREST;
-  RegistryKey<Biome> nearBiomeSavannaPlateauWarm = NSConfig.has_wooded_drylands ? NSBiomes.WOODED_DRYLANDS : BiomeKeys.SAVANNA_PLATEAU;
-  RegistryKey<Biome> nearBiomeBadlandsHot = NSConfig.has_drylands ? NSBiomes.DRYLANDS : BiomeKeys.BADLANDS;
-  RegistryKey<Biome> nearBiomeWoodedBadlandsHot = NSConfig.has_wooded_drylands ? NSBiomes.WOODED_DRYLANDS : BiomeKeys.WOODED_BADLANDS;
-  RegistryKey<Biome> nearBiomeBadlandsHot2 = NSConfig.has_wooded_drylands ? NSBiomes.WOODED_DRYLANDS : BiomeKeys.BADLANDS;
-  RegistryKey<Biome> specialBiomeErodedBadlandsHot = NSConfig.has_drylands ? null : BiomeKeys.ERODED_BADLANDS;
+  RegistryKey<Biome> commonBiomePlainsCold = CONFIG.has_golden_wilds ? NSBiomes.GOLDEN_WILDS : BiomeKeys.PLAINS;
+  RegistryKey<Biome> mountainBiomeMeadowCold = CONFIG.has_golden_wilds ? NSBiomes.GOLDEN_WILDS : BiomeKeys.MEADOW;
+  RegistryKey<Biome> mountainBiomeForestCold = CONFIG.has_golden_wilds ? NSBiomes.GOLDEN_WILDS : BiomeKeys.FOREST;
+  RegistryKey<Biome> mountainBiomeMeadowCold2 = CONFIG.has_marigold_meadows ? NSBiomes.MARIGOLD_MEADOWS : (CONFIG.has_golden_wilds ? NSBiomes.GOLDEN_WILDS : BiomeKeys.MEADOW);
+  RegistryKey<Biome> uncommonBiomeCold = CONFIG.has_marigold_meadows ? NSBiomes.MARIGOLD_MEADOWS : null;
+  RegistryKey<Biome> commonBiomeForestCold = CONFIG.has_maple_woodlands ? NSBiomes.MAPLE_WOODLANDS : BiomeKeys.FOREST;
+  RegistryKey<Biome> commonBiomeTaigaCold = CONFIG.has_aspen_forest ? NSBiomes.ASPEN_FOREST : BiomeKeys.TAIGA;
+  RegistryKey<Biome> commonBiomeOldSpruceCold = CONFIG.has_aspen_forest ? NSBiomes.ASPEN_FOREST : BiomeKeys.OLD_GROWTH_SPRUCE_TAIGA;
+  RegistryKey<Biome> uncommonBiomeOldPineCold = CONFIG.has_aspen_forest ? null : BiomeKeys.OLD_GROWTH_PINE_TAIGA;
+  RegistryKey<Biome> commonBiomeDesertHot = CONFIG.has_drylands ? NSBiomes.DRYLANDS : BiomeKeys.DESERT;
+  RegistryKey<Biome> commonBiomeDesertHot2 = CONFIG.has_wooded_drylands ? NSBiomes.WOODED_DRYLANDS : BiomeKeys.DESERT;
+  RegistryKey<Biome> commonBiomeSavannaWarm = CONFIG.has_wooded_drylands ? NSBiomes.WOODED_DRYLANDS : BiomeKeys.SAVANNA;
+  RegistryKey<Biome> commonBiomeForestWarm = CONFIG.has_wooded_drylands ? NSBiomes.WOODED_DRYLANDS : BiomeKeys.FOREST;
+  RegistryKey<Biome> nearBiomeSavannaPlateauWarm = CONFIG.has_wooded_drylands ? NSBiomes.WOODED_DRYLANDS : BiomeKeys.SAVANNA_PLATEAU;
+  RegistryKey<Biome> nearBiomeBadlandsHot = CONFIG.has_drylands ? NSBiomes.DRYLANDS : BiomeKeys.BADLANDS;
+  RegistryKey<Biome> nearBiomeWoodedBadlandsHot = CONFIG.has_wooded_drylands ? NSBiomes.WOODED_DRYLANDS : BiomeKeys.WOODED_BADLANDS;
+  RegistryKey<Biome> nearBiomeBadlandsHot2 = CONFIG.has_wooded_drylands ? NSBiomes.WOODED_DRYLANDS : BiomeKeys.BADLANDS;
+  RegistryKey<Biome> specialBiomeErodedBadlandsHot = CONFIG.has_drylands ? null : BiomeKeys.ERODED_BADLANDS;
 
   public TerraFlavaParameters() {
     this.frozenTemperature = this.temperatureParameters[0];
@@ -252,7 +254,7 @@ public class TerraFlavaParameters {
             this.erosionParameters[4],
             weirdness,
             0.0F,
-            NSConfig.has_drylands ? registryKey2 : registryKey
+            CONFIG.has_drylands ? registryKey2 : registryKey
         );
         this.writeBiomeParameters(parameters,
             parameterRange,
@@ -455,7 +457,7 @@ public class TerraFlavaParameters {
             i == 0 ? registryKey9 : registryKey5);
         this.writeBiomeParameters(parameters, parameterRange, parameterRange2, this.nearInlandContinentalness, this.erosionParameters[2], weirdness, 0.0F, registryKey);
         this.writeBiomeParameters(parameters, parameterRange, parameterRange2, this.midInlandContinentalness, this.erosionParameters[2], weirdness, 0.0F,
-            NSConfig.has_drylands ? registryKey : registryKey2);
+            CONFIG.has_drylands ? registryKey : registryKey2);
         this.writeBiomeParameters(parameters, parameterRange, parameterRange2, this.farInlandContinentalness, this.erosionParameters[2], weirdness, 0.0F, registryKey5);
         this.writeBiomeParameters(parameters,
             parameterRange,
@@ -473,7 +475,7 @@ public class TerraFlavaParameters {
             this.erosionParameters[3],
             weirdness,
             0.0F,
-            NSConfig.has_drylands ? registryKey : registryKey2
+            CONFIG.has_drylands ? registryKey : registryKey2
         );
         if (weirdness.max() < 0L) {
           this.writeBiomeParameters(parameters, parameterRange, parameterRange2, this.coastContinentalness, this.erosionParameters[4], weirdness, 0.0F, registryKey6);
@@ -578,7 +580,7 @@ public class TerraFlavaParameters {
             MultiNoiseUtil.ParameterRange.combine(this.erosionParameters[0], this.erosionParameters[1]),
             weirdness,
             0.0F,
-            NSConfig.has_drylands ? registryKey : registryKey2
+            CONFIG.has_drylands ? registryKey : registryKey2
         );
         this.writeBiomeParameters(parameters,
             parameterRange,
@@ -605,7 +607,7 @@ public class TerraFlavaParameters {
             MultiNoiseUtil.ParameterRange.combine(this.erosionParameters[2], this.erosionParameters[3]),
             weirdness,
             0.0F,
-            NSConfig.has_drylands ? registryKey : registryKey2
+            CONFIG.has_drylands ? registryKey : registryKey2
         );
         this.writeBiomeParameters(parameters,
             parameterRange,
@@ -745,7 +747,7 @@ public class TerraFlavaParameters {
 
       for (int j = 0; j < this.humidityParameters.length; ++j) {
         MultiNoiseUtil.ParameterRange parameterRange2 = this.humidityParameters[j];
-        RegistryKey<Biome> registryKey = NSConfig.has_drylands ? this.getRegularBiome(i, j, weirdness) : this.getBadlandsOrRegularBiome(i, j, weirdness);
+        RegistryKey<Biome> registryKey = CONFIG.has_drylands ? this.getRegularBiome(i, j, weirdness) : this.getBadlandsOrRegularBiome(i, j, weirdness);
         this.writeBiomeParameters(parameters,
             parameterRange,
             parameterRange2,
@@ -831,10 +833,10 @@ public class TerraFlavaParameters {
   private RegistryKey<Biome> getShoreBiome(int temperature, int humidity) {
     if (temperature == 0) {
       return BiomeKeys.SNOWY_BEACH;
-    } else if (temperature == 3 && NSConfig.has_tropical_shores) {
+    } else if (temperature == 3 && CONFIG.has_tropical_shores) {
       return NSBiomes.TROPICAL_SHORES;
     } else {
-      return temperature == 4 ? (NSConfig.has_drylands ? NSBiomes.DRYLANDS : (BiomeKeys.DESERT)) : BiomeKeys.BEACH;
+      return temperature == 4 ? (CONFIG.has_drylands ? NSBiomes.DRYLANDS : (BiomeKeys.DESERT)) : BiomeKeys.BEACH;
     }
   }
 

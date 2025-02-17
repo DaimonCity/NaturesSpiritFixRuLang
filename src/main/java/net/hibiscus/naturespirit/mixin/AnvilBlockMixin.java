@@ -1,5 +1,6 @@
 package net.hibiscus.naturespirit.mixin;
 
+import net.hibiscus.naturespirit.NatureSpirit;
 import net.hibiscus.naturespirit.config.NSConfig;
 import net.minecraft.block.AnvilBlock;
 import net.minecraft.block.BlockState;
@@ -17,7 +18,7 @@ public class AnvilBlockMixin {
 
   @Inject(method = "onLanding", at = @At("HEAD"))
   private void onLanding(World world, BlockPos pos, BlockState fallingBlockState, BlockState currentStateInPos, FallingBlockEntity fallingBlockEntity, CallbackInfo info) {
-    if (NSConfig.deepslate_generator) {
+    if (NatureSpirit.CONFIG.deepslate_generator) {
       if (world.getBlockState(pos.down()).isOf(Blocks.STONE) && world.getBlockState(pos.down(2)).isOf(Blocks.MAGMA_BLOCK)) {
         world.setBlockState(
             pos.down(),

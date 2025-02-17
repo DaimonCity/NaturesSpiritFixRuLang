@@ -1,6 +1,7 @@
 package net.hibiscus.naturespirit.mixin;
 
 import com.llamalad7.mixinextras.sugar.Local;
+import net.hibiscus.naturespirit.NatureSpirit;
 import net.hibiscus.naturespirit.config.NSConfig;
 import net.hibiscus.naturespirit.registration.NSBiomes;
 import net.hibiscus.naturespirit.registration.NSWorldGen;
@@ -65,7 +66,7 @@ public class SurfaceBuilderMixin {
       CallbackInfo ci,
       @Local RegistryEntry<Biome> registryEntry, @Local(ordinal = 2) int k, @Local(ordinal = 3) int l, @Local(ordinal = 4) int m, @Local(ordinal = 5) int n,
       @Local BlockColumn blockColumn) {
-    if (NSConfig.sugi_and_stratified_pillars) {
+    if (NatureSpirit.CONFIG.sugi_and_stratified_pillars) {
       int o = chunk.sampleHeightmap(Heightmap.Type.OCEAN_FLOOR_WG, k, l) + 1;
       if (registryEntry.matchesKey(NSBiomes.SUGI_FOREST) || registryEntry.matchesKey(NSBiomes.BLOOMING_SUGI_FOREST)) {
         this.placeSugiPillar(blockColumn, m, n, o, chunk);

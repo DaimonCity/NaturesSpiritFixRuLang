@@ -10,6 +10,8 @@ import net.minecraft.world.biome.source.util.MultiNoiseUtil;
 
 import java.util.function.Consumer;
 
+import static net.hibiscus.naturespirit.NatureSpirit.CONFIG;
+
 public class TerraLaetaParameters {
 
   private final MultiNoiseUtil.ParameterRange defaultParameter = MultiNoiseUtil.ParameterRange.of(-1.0F, 1.0F);
@@ -52,46 +54,46 @@ public class TerraLaetaParameters {
   private final RegistryKey<Biome>[][] specialNearMountainBiomes;
   private final RegistryKey<Biome>[][] windsweptBiomes;
 
-  RegistryKey<Biome> commonBiomeDesertHot = NSConfig.has_xeric_plains && NSConfig.has_drylands ? NSBiomes.DRYLANDS : BiomeKeys.DESERT;
-  RegistryKey<Biome> commonBiomeDesertHot2 = NSConfig.has_xeric_plains ? NSBiomes.XERIC_PLAINS : BiomeKeys.DESERT;
-  RegistryKey<Biome> nearBiomeBadlandsHot = NSConfig.has_xeric_plains && NSConfig.has_drylands ? NSBiomes.DRYLANDS : BiomeKeys.BADLANDS;
-  RegistryKey<Biome> nearBiomeWoodedBadlandsHot = NSConfig.has_xeric_plains && NSConfig.has_drylands ? NSBiomes.DRYLANDS : BiomeKeys.WOODED_BADLANDS;
-  RegistryKey<Biome> specialBiomeErodedBadlandsHot = NSConfig.has_xeric_plains ? null : BiomeKeys.ERODED_BADLANDS;
-  RegistryKey<Biome> commonBiomeSavannaWarm = NSConfig.has_xeric_plains ? NSBiomes.XERIC_PLAINS : BiomeKeys.SAVANNA;
-  RegistryKey<Biome> uncommonBiomePlainsWarm = NSConfig.has_cypress_fields ? null : BiomeKeys.PLAINS;
-  RegistryKey<Biome> commonBiomeForestWarm = NSConfig.has_cypress_fields ? NSBiomes.CYPRESS_FIELDS : BiomeKeys.FOREST;
-  RegistryKey<Biome> commonBiomeJungleWarm = NSConfig.has_cypress_fields ? NSBiomes.CYPRESS_FIELDS : BiomeKeys.JUNGLE;
-  RegistryKey<Biome> commonBiomeJungleWarm2 = NSConfig.has_lavender_fields ? NSBiomes.LAVENDER_FIELDS : (NSConfig.has_cypress_fields ? NSBiomes.CYPRESS_FIELDS : BiomeKeys.JUNGLE);
-  RegistryKey<Biome> nearBiomeSavannaPlateauWarm = NSConfig.has_xeric_plains ? NSBiomes.XERIC_PLAINS : BiomeKeys.SAVANNA_PLATEAU;
-  RegistryKey<Biome> nearBiomeForestWarm = NSConfig.has_cypress_fields ? NSBiomes.CYPRESS_FIELDS : BiomeKeys.FOREST;
-  RegistryKey<Biome> nearBiomeForestWarm2 = NSConfig.has_cypress_fields ? NSBiomes.CYPRESS_FIELDS : BiomeKeys.FOREST;
-  RegistryKey<Biome> nearBiomeJungleWarm = NSConfig.has_lavender_fields ? NSBiomes.LAVENDER_FIELDS : (NSConfig.has_cypress_fields ? NSBiomes.CYPRESS_FIELDS : BiomeKeys.JUNGLE);
-  RegistryKey<Biome> uncommonSparseJungleWarm = NSConfig.has_cypress_fields ? null : BiomeKeys.SPARSE_JUNGLE;
+  RegistryKey<Biome> commonBiomeDesertHot = CONFIG.has_xeric_plains && CONFIG.has_drylands ? NSBiomes.DRYLANDS : BiomeKeys.DESERT;
+  RegistryKey<Biome> commonBiomeDesertHot2 = CONFIG.has_xeric_plains ? NSBiomes.XERIC_PLAINS : BiomeKeys.DESERT;
+  RegistryKey<Biome> nearBiomeBadlandsHot = CONFIG.has_xeric_plains && CONFIG.has_drylands ? NSBiomes.DRYLANDS : BiomeKeys.BADLANDS;
+  RegistryKey<Biome> nearBiomeWoodedBadlandsHot = CONFIG.has_xeric_plains && CONFIG.has_drylands ? NSBiomes.DRYLANDS : BiomeKeys.WOODED_BADLANDS;
+  RegistryKey<Biome> specialBiomeErodedBadlandsHot = CONFIG.has_xeric_plains ? null : BiomeKeys.ERODED_BADLANDS;
+  RegistryKey<Biome> commonBiomeSavannaWarm = CONFIG.has_xeric_plains ? NSBiomes.XERIC_PLAINS : BiomeKeys.SAVANNA;
+  RegistryKey<Biome> uncommonBiomePlainsWarm = CONFIG.has_cypress_fields ? null : BiomeKeys.PLAINS;
+  RegistryKey<Biome> commonBiomeForestWarm = CONFIG.has_cypress_fields ? NSBiomes.CYPRESS_FIELDS : BiomeKeys.FOREST;
+  RegistryKey<Biome> commonBiomeJungleWarm = CONFIG.has_cypress_fields ? NSBiomes.CYPRESS_FIELDS : BiomeKeys.JUNGLE;
+  RegistryKey<Biome> commonBiomeJungleWarm2 = CONFIG.has_lavender_fields ? NSBiomes.LAVENDER_FIELDS : (CONFIG.has_cypress_fields ? NSBiomes.CYPRESS_FIELDS : BiomeKeys.JUNGLE);
+  RegistryKey<Biome> nearBiomeSavannaPlateauWarm = CONFIG.has_xeric_plains ? NSBiomes.XERIC_PLAINS : BiomeKeys.SAVANNA_PLATEAU;
+  RegistryKey<Biome> nearBiomeForestWarm = CONFIG.has_cypress_fields ? NSBiomes.CYPRESS_FIELDS : BiomeKeys.FOREST;
+  RegistryKey<Biome> nearBiomeForestWarm2 = CONFIG.has_cypress_fields ? NSBiomes.CYPRESS_FIELDS : BiomeKeys.FOREST;
+  RegistryKey<Biome> nearBiomeJungleWarm = CONFIG.has_lavender_fields ? NSBiomes.LAVENDER_FIELDS : (CONFIG.has_cypress_fields ? NSBiomes.CYPRESS_FIELDS : BiomeKeys.JUNGLE);
+  RegistryKey<Biome> uncommonSparseJungleWarm = CONFIG.has_cypress_fields ? null : BiomeKeys.SPARSE_JUNGLE;
   RegistryKey<Biome> uncommonBambooJungleWarm =
-      NSConfig.has_carnation_fields ? NSBiomes.CARNATION_FIELDS : (NSConfig.has_cypress_fields ? NSBiomes.CYPRESS_FIELDS : BiomeKeys.BAMBOO_JUNGLE);
-  RegistryKey<Biome> specialBiomeCedar = NSConfig.has_cedar_thicket ? NSBiomes.CEDAR_THICKET : null;
-  RegistryKey<Biome> specialBiomeNull = NSConfig.has_cypress_fields ? NSBiomes.CARNATION_FIELDS : null;
-  RegistryKey<Biome> commonBiomePlainsCold = NSConfig.has_alpine_clearings ? NSBiomes.ALPINE_CLEARINGS : BiomeKeys.PLAINS;
-  RegistryKey<Biome> uncommonBiomePlainsCold = NSConfig.has_heather_fields ? NSBiomes.HEATHER_FIELDS : null;
-  RegistryKey<Biome> commonBiomeForestCold = NSConfig.has_alpine_clearings ? NSBiomes.ALPINE_CLEARINGS : BiomeKeys.FOREST;
-  RegistryKey<Biome> specialBiomeMeadowCold = NSConfig.has_alpine_clearings ? null : BiomeKeys.MEADOW;
+      CONFIG.has_carnation_fields ? NSBiomes.CARNATION_FIELDS : (CONFIG.has_cypress_fields ? NSBiomes.CYPRESS_FIELDS : BiomeKeys.BAMBOO_JUNGLE);
+  RegistryKey<Biome> specialBiomeCedar = CONFIG.has_cedar_thicket ? NSBiomes.CEDAR_THICKET : null;
+  RegistryKey<Biome> specialBiomeNull = CONFIG.has_cypress_fields ? NSBiomes.CARNATION_FIELDS : null;
+  RegistryKey<Biome> commonBiomePlainsCold = CONFIG.has_alpine_clearings ? NSBiomes.ALPINE_CLEARINGS : BiomeKeys.PLAINS;
+  RegistryKey<Biome> uncommonBiomePlainsCold = CONFIG.has_heather_fields ? NSBiomes.HEATHER_FIELDS : null;
+  RegistryKey<Biome> commonBiomeForestCold = CONFIG.has_alpine_clearings ? NSBiomes.ALPINE_CLEARINGS : BiomeKeys.FOREST;
+  RegistryKey<Biome> specialBiomeMeadowCold = CONFIG.has_alpine_clearings ? null : BiomeKeys.MEADOW;
   RegistryKey<Biome> commonBiomeSnowyPlainsFrozen =
-      NSConfig.has_tundra && (NSConfig.has_alpine_highlands || NSConfig.has_alpine_clearings) ? NSBiomes.TUNDRA : BiomeKeys.SNOWY_PLAINS;
-  RegistryKey<Biome> nearBiomeMeadowCold = NSConfig.has_alpine_highlands ? NSBiomes.ALPINE_HIGHLANDS : BiomeKeys.MEADOW;
-  RegistryKey<Biome> nearBiomeForestCold = NSConfig.has_alpine_highlands ? NSBiomes.ALPINE_HIGHLANDS : (NSConfig.has_alpine_clearings ? BiomeKeys.MEADOW : BiomeKeys.FOREST);
-  RegistryKey<Biome> commonBiomeTaiga = NSConfig.has_coniferous_covert ? NSBiomes.CONIFEROUS_COVERT : BiomeKeys.TAIGA;
-  RegistryKey<Biome> commonBiomeOldTaiga = NSConfig.has_coniferous_covert ? NSBiomes.CONIFEROUS_COVERT : BiomeKeys.OLD_GROWTH_SPRUCE_TAIGA;
-  RegistryKey<Biome> uncommonBiomeOldTaiga = NSConfig.has_coniferous_covert ? NSBiomes.CONIFEROUS_COVERT : BiomeKeys.OLD_GROWTH_PINE_TAIGA;
-  RegistryKey<Biome> uncommonBiomeTaiga = NSConfig.has_coniferous_covert ? NSBiomes.CONIFEROUS_COVERT : BiomeKeys.OLD_GROWTH_PINE_TAIGA;
+      CONFIG.has_tundra && (CONFIG.has_alpine_highlands || CONFIG.has_alpine_clearings) ? NSBiomes.TUNDRA : BiomeKeys.SNOWY_PLAINS;
+  RegistryKey<Biome> nearBiomeMeadowCold = CONFIG.has_alpine_highlands ? NSBiomes.ALPINE_HIGHLANDS : BiomeKeys.MEADOW;
+  RegistryKey<Biome> nearBiomeForestCold = CONFIG.has_alpine_highlands ? NSBiomes.ALPINE_HIGHLANDS : (CONFIG.has_alpine_clearings ? BiomeKeys.MEADOW : BiomeKeys.FOREST);
+  RegistryKey<Biome> commonBiomeTaiga = CONFIG.has_coniferous_covert ? NSBiomes.CONIFEROUS_COVERT : BiomeKeys.TAIGA;
+  RegistryKey<Biome> commonBiomeOldTaiga = CONFIG.has_coniferous_covert ? NSBiomes.CONIFEROUS_COVERT : BiomeKeys.OLD_GROWTH_SPRUCE_TAIGA;
+  RegistryKey<Biome> uncommonBiomeOldTaiga = CONFIG.has_coniferous_covert ? NSBiomes.CONIFEROUS_COVERT : BiomeKeys.OLD_GROWTH_PINE_TAIGA;
+  RegistryKey<Biome> uncommonBiomeTaiga = CONFIG.has_coniferous_covert ? NSBiomes.CONIFEROUS_COVERT : BiomeKeys.OLD_GROWTH_PINE_TAIGA;
   RegistryKey<Biome> specialNearBiomeCherryCold =
-      NSConfig.has_heather_fields ? NSBiomes.HEATHER_FIELDS : (NSConfig.has_alpine_clearings ? NSBiomes.ALPINE_CLEARINGS : BiomeKeys.CHERRY_GROVE);
-  RegistryKey<Biome> commonBiomeSnowyTaigaFrozen = NSConfig.has_boreal_taiga ? NSBiomes.BOREAL_TAIGA : BiomeKeys.SNOWY_TAIGA;
-  RegistryKey<Biome> uncommonBiomeSnowyTaigaFrozen = NSConfig.has_boreal_taiga ? NSBiomes.BOREAL_TAIGA : BiomeKeys.SNOWY_TAIGA;
-  RegistryKey<Biome> commonBiomeTaigaFrozen = NSConfig.has_boreal_taiga ? NSBiomes.BOREAL_TAIGA : BiomeKeys.TAIGA;
-  RegistryKey[] windsweptFrozen = NSConfig.has_tundra && NSConfig.has_alpine_clearings ?
+      CONFIG.has_heather_fields ? NSBiomes.HEATHER_FIELDS : (CONFIG.has_alpine_clearings ? NSBiomes.ALPINE_CLEARINGS : BiomeKeys.CHERRY_GROVE);
+  RegistryKey<Biome> commonBiomeSnowyTaigaFrozen = CONFIG.has_boreal_taiga ? NSBiomes.BOREAL_TAIGA : BiomeKeys.SNOWY_TAIGA;
+  RegistryKey<Biome> uncommonBiomeSnowyTaigaFrozen = CONFIG.has_boreal_taiga ? NSBiomes.BOREAL_TAIGA : BiomeKeys.SNOWY_TAIGA;
+  RegistryKey<Biome> commonBiomeTaigaFrozen = CONFIG.has_boreal_taiga ? NSBiomes.BOREAL_TAIGA : BiomeKeys.TAIGA;
+  RegistryKey[] windsweptFrozen = CONFIG.has_tundra && CONFIG.has_alpine_clearings ?
       new RegistryKey[]{NSBiomes.TUNDRA, NSBiomes.TUNDRA, NSBiomes.TUNDRA, NSBiomes.TUNDRA, NSBiomes.TUNDRA} :
       new RegistryKey[]{BiomeKeys.WINDSWEPT_GRAVELLY_HILLS, BiomeKeys.WINDSWEPT_GRAVELLY_HILLS, BiomeKeys.WINDSWEPT_HILLS, BiomeKeys.WINDSWEPT_FOREST, BiomeKeys.WINDSWEPT_FOREST};
-  RegistryKey[] windsweptCold = NSConfig.has_alpine_highlands ?
+  RegistryKey[] windsweptCold = CONFIG.has_alpine_highlands ?
       new RegistryKey[]{NSBiomes.ALPINE_HIGHLANDS, NSBiomes.ALPINE_HIGHLANDS, NSBiomes.ALPINE_HIGHLANDS, NSBiomes.ALPINE_HIGHLANDS, NSBiomes.ALPINE_HIGHLANDS} :
       new RegistryKey[]{BiomeKeys.WINDSWEPT_GRAVELLY_HILLS, BiomeKeys.WINDSWEPT_GRAVELLY_HILLS, BiomeKeys.WINDSWEPT_HILLS, BiomeKeys.WINDSWEPT_FOREST, BiomeKeys.WINDSWEPT_FOREST};
 
@@ -232,7 +234,7 @@ public class TerraLaetaParameters {
             this.erosionParameters[0],
             weirdness,
             0.0F,
-            NSConfig.has_white_cliffs ? registryKey10 : registryKey7
+            CONFIG.has_white_cliffs ? registryKey10 : registryKey7
         );
         this.writeBiomeParameters(parameters,
             parameterRange,
@@ -241,7 +243,7 @@ public class TerraLaetaParameters {
             this.erosionParameters[1],
             weirdness,
             0.0F,
-            NSConfig.has_white_cliffs ? registryKey10 : registryKey3
+            CONFIG.has_white_cliffs ? registryKey10 : registryKey3
         );
         this.writeBiomeParameters(parameters,
             parameterRange,
@@ -250,7 +252,7 @@ public class TerraLaetaParameters {
             this.erosionParameters[2],
             weirdness,
             0.0F,
-            NSConfig.has_white_cliffs ? registryKey10 : registryKey
+            CONFIG.has_white_cliffs ? registryKey10 : registryKey
         );
         this.writeBiomeParameters(parameters,
             parameterRange,
@@ -316,7 +318,7 @@ public class TerraLaetaParameters {
             this.erosionParameters[4],
             weirdness,
             0.0F,
-            NSConfig.has_xeric_plains ? registryKey2 : registryKey
+            CONFIG.has_xeric_plains ? registryKey2 : registryKey
         );
         this.writeBiomeParameters(parameters,
             parameterRange,
@@ -325,7 +327,7 @@ public class TerraLaetaParameters {
             this.erosionParameters[4],
             weirdness,
             0.0F,
-            NSConfig.has_xeric_plains ? registryKey2 : registryKey
+            CONFIG.has_xeric_plains ? registryKey2 : registryKey
         );
         this.writeBiomeParameters(parameters,
             parameterRange,
@@ -334,7 +336,7 @@ public class TerraLaetaParameters {
             this.erosionParameters[5],
             weirdness,
             0.0F,
-            NSConfig.has_white_cliffs ? registryKey11 : registryKey6
+            CONFIG.has_white_cliffs ? registryKey11 : registryKey6
         );
         this.writeBiomeParameters(parameters,
             parameterRange,
@@ -371,7 +373,7 @@ public class TerraLaetaParameters {
         RegistryKey<Biome> registryKey4 = this.getNearMountainBiome(i, j, weirdness);
         RegistryKey<Biome> registryKey5 = this.getWindsweptOrRegularBiome(i, j, weirdness);
         RegistryKey<Biome> registryKey6 =
-            NSConfig.has_white_cliffs ? this.getBiomeOrChalkCliffs(i, j, weirdness, registryKey) : this.getBiomeOrWindsweptSavanna(i, j, weirdness, registryKey);
+            CONFIG.has_white_cliffs ? this.getBiomeOrChalkCliffs(i, j, weirdness, registryKey) : this.getBiomeOrWindsweptSavanna(i, j, weirdness, registryKey);
         RegistryKey<Biome> registryKey7 = this.getMountainSlopeBiome(i, j, weirdness);
         RegistryKey<Biome> registryKey8 = this.getPeakBiome(i, j, weirdness);
         RegistryKey<Biome> registryKey11 = this.getShoreCliffBiome(i, j, weirdness);
@@ -382,7 +384,7 @@ public class TerraLaetaParameters {
             MultiNoiseUtil.ParameterRange.combine(this.erosionParameters[0], this.erosionParameters[2]),
             weirdness,
             0.0F,
-            NSConfig.has_white_cliffs ? registryKey11 : registryKey
+            CONFIG.has_white_cliffs ? registryKey11 : registryKey
         );
         this.writeBiomeParameters(parameters, parameterRange, parameterRange2, this.nearInlandContinentalness, this.erosionParameters[0], weirdness, 0.0F, registryKey7);
         this.writeBiomeParameters(parameters,
@@ -497,7 +499,7 @@ public class TerraLaetaParameters {
         RegistryKey<Biome> registryKey5 = this.getNearMountainBiome(i, j, weirdness);
         RegistryKey<Biome> registryKey6 = this.getShoreBiome(i, j);
         RegistryKey<Biome> registryKey7 =
-            NSConfig.has_white_cliffs ? this.getBiomeOrChalkCliffs(i, j, weirdness, registryKey) : this.getBiomeOrWindsweptSavanna(i, j, weirdness, registryKey);
+            CONFIG.has_white_cliffs ? this.getBiomeOrChalkCliffs(i, j, weirdness, registryKey) : this.getBiomeOrWindsweptSavanna(i, j, weirdness, registryKey);
         RegistryKey<Biome> registryKey8 = this.getErodedShoreBiome(i, j, weirdness);
         RegistryKey<Biome> registryKey9 = this.getMountainSlopeBiome(i, j, weirdness);
         RegistryKey<Biome> registryKey12 = this.getShoreCliffBiome(i, j, weirdness);
@@ -519,7 +521,7 @@ public class TerraLaetaParameters {
             MultiNoiseUtil.ParameterRange.combine(this.erosionParameters[0], this.erosionParameters[2]),
             weirdness,
             0.0F,
-            NSConfig.has_white_cliffs ? registryKey12 : BiomeKeys.STONY_SHORE
+            CONFIG.has_white_cliffs ? registryKey12 : BiomeKeys.STONY_SHORE
         );
         this.writeBiomeParameters(parameters,
             parameterRange,
@@ -543,7 +545,7 @@ public class TerraLaetaParameters {
             i == 0 ? registryKey9 : registryKey5);
         this.writeBiomeParameters(parameters, parameterRange, parameterRange2, this.nearInlandContinentalness, this.erosionParameters[2], weirdness, 0.0F, registryKey);
         this.writeBiomeParameters(parameters, parameterRange, parameterRange2, this.midInlandContinentalness, this.erosionParameters[2], weirdness, 0.0F,
-            NSConfig.has_xeric_plains ? registryKey : registryKey2);
+            CONFIG.has_xeric_plains ? registryKey : registryKey2);
         this.writeBiomeParameters(parameters, parameterRange, parameterRange2, this.farInlandContinentalness, this.erosionParameters[2], weirdness, 0.0F, registryKey5);
         this.writeBiomeParameters(parameters, parameterRange, parameterRange2, this.coastContinentalness, this.erosionParameters[3], weirdness, 0.0F, registryKey);
         this.writeBiomeParameters(parameters, parameterRange, parameterRange2, this.nearInlandContinentalness, this.erosionParameters[3], weirdness, 0.0F, registryKey);
@@ -554,7 +556,7 @@ public class TerraLaetaParameters {
             this.erosionParameters[3],
             weirdness,
             0.0F,
-            NSConfig.has_xeric_plains ? registryKey : registryKey2
+            CONFIG.has_xeric_plains ? registryKey : registryKey2
         );
         if (weirdness.max() < 0L) {
           this.writeBiomeParameters(parameters, parameterRange, parameterRange2, this.coastContinentalness, this.erosionParameters[4], weirdness, 0.0F, registryKey6);
@@ -634,7 +636,7 @@ public class TerraLaetaParameters {
         RegistryKey<Biome> registryKey3 = this.getMountainStartBiome(i, j, weirdness);
         RegistryKey<Biome> registryKey4 = this.getShoreBiome(i, j);
         RegistryKey<Biome> registryKey5 =
-            NSConfig.has_white_cliffs ? this.getBiomeOrChalkCliffs(i, j, weirdness, registryKey) : this.getBiomeOrWindsweptSavanna(i, j, weirdness, registryKey);
+            CONFIG.has_white_cliffs ? this.getBiomeOrChalkCliffs(i, j, weirdness, registryKey) : this.getBiomeOrWindsweptSavanna(i, j, weirdness, registryKey);
         RegistryKey<Biome> registryKey6 = this.getErodedShoreBiome(i, j, weirdness);
         RegistryKey<Biome> registryKey8 = this.getShoreCliffBiome(i, j, weirdness);
 
@@ -655,7 +657,7 @@ public class TerraLaetaParameters {
             MultiNoiseUtil.ParameterRange.combine(this.erosionParameters[0], this.erosionParameters[3]),
             weirdness,
             0.0F,
-            NSConfig.has_white_cliffs ? registryKey8 : registryKey
+            CONFIG.has_white_cliffs ? registryKey8 : registryKey
         );
         this.writeBiomeParameters(parameters,
             parameterRange,
@@ -664,7 +666,7 @@ public class TerraLaetaParameters {
             MultiNoiseUtil.ParameterRange.combine(this.erosionParameters[0], this.erosionParameters[1]),
             weirdness,
             0.0F,
-            NSConfig.has_xeric_plains ? registryKey : registryKey2
+            CONFIG.has_xeric_plains ? registryKey : registryKey2
         );
         this.writeBiomeParameters(parameters,
             parameterRange,
@@ -691,7 +693,7 @@ public class TerraLaetaParameters {
             MultiNoiseUtil.ParameterRange.combine(this.erosionParameters[2], this.erosionParameters[3]),
             weirdness,
             0.0F,
-            NSConfig.has_xeric_plains ? registryKey : registryKey2
+            CONFIG.has_xeric_plains ? registryKey : registryKey2
         );
         this.writeBiomeParameters(parameters, parameterRange, parameterRange2, this.coastContinentalness, this.erosionParameters[4], weirdness, 0.0F, registryKey4);
         this.writeBiomeParameters(parameters, parameterRange, parameterRange2, this.nearInlandContinentalness, this.erosionParameters[4], weirdness, 0.0F, registryKey);
@@ -842,7 +844,7 @@ public class TerraLaetaParameters {
 
       for (int j = 0; j < this.humidityParameters.length; ++j) {
         MultiNoiseUtil.ParameterRange parameterRange2 = this.humidityParameters[j];
-        RegistryKey<Biome> registryKey = NSConfig.has_xeric_plains ? this.getRegularBiome(i, j, weirdness) : this.getBadlandsOrRegularBiome(i, j, weirdness);
+        RegistryKey<Biome> registryKey = CONFIG.has_xeric_plains ? this.getRegularBiome(i, j, weirdness) : this.getBadlandsOrRegularBiome(i, j, weirdness);
         this.writeBiomeParameters(parameters,
             parameterRange,
             parameterRange2,
@@ -920,7 +922,7 @@ public class TerraLaetaParameters {
   private RegistryKey<Biome> getWetlandType(int temperature, int humidity, MultiNoiseUtil.ParameterRange weirdness) {
     if (temperature == 0) {
       return this.getRegularBiome(temperature, humidity, weirdness);
-    } else if ((humidity <= 3 || temperature >= 3) && NSConfig.has_marsh) {
+    } else if ((humidity <= 3 || temperature >= 3) && CONFIG.has_marsh) {
       return NSBiomes.MARSH;
     } else {
       return BiomeKeys.SWAMP;
@@ -928,7 +930,7 @@ public class TerraLaetaParameters {
   }
 
   private RegistryKey<Biome> getXericPlainsOrRegularBiome(int temperature, int humidity, MultiNoiseUtil.ParameterRange weirdness) {
-    return temperature == 4 ? (NSConfig.has_xeric_plains ? NSBiomes.XERIC_PLAINS : this.getBadlandsBiome(humidity, weirdness))
+    return temperature == 4 ? (CONFIG.has_xeric_plains ? NSBiomes.XERIC_PLAINS : this.getBadlandsBiome(humidity, weirdness))
         : this.getRegularBiome(temperature, humidity, weirdness);
   }
 
@@ -937,7 +939,7 @@ public class TerraLaetaParameters {
   }
 
   private RegistryKey<Biome> getBiomeOrWindsweptSavanna(int temperature, int humidity, MultiNoiseUtil.ParameterRange weirdness, RegistryKey<Biome> biomeKey) {
-    return temperature > 1 && humidity < 4 && weirdness.max() >= 0L ? (NSConfig.has_xeric_plains ? NSBiomes.XERIC_PLAINS : BiomeKeys.WINDSWEPT_SAVANNA) : biomeKey;
+    return temperature > 1 && humidity < 4 && weirdness.max() >= 0L ? (CONFIG.has_xeric_plains ? NSBiomes.XERIC_PLAINS : BiomeKeys.WINDSWEPT_SAVANNA) : biomeKey;
   }
 
   private RegistryKey<Biome> getBiomeOrChalkCliffs(int temperature, int humidity, MultiNoiseUtil.ParameterRange weirdness, RegistryKey<Biome> biomeKey) {
@@ -954,10 +956,10 @@ public class TerraLaetaParameters {
   private RegistryKey<Biome> getShoreBiome(int temperature, int humidity) {
     if (temperature == 0) {
       return BiomeKeys.SNOWY_BEACH;
-    } else if (temperature == 3 && humidity > 2 && NSConfig.has_tropical_shores) {
+    } else if (temperature == 3 && humidity > 2 && CONFIG.has_tropical_shores) {
       return NSBiomes.TROPICAL_SHORES;
     } else {
-      return temperature == 4 ? (NSConfig.has_xeric_plains ? NSBiomes.DRYLANDS : (BiomeKeys.DESERT)) : BiomeKeys.BEACH;
+      return temperature == 4 ? (CONFIG.has_xeric_plains ? NSBiomes.DRYLANDS : (BiomeKeys.DESERT)) : BiomeKeys.BEACH;
     }
   }
 
@@ -979,24 +981,24 @@ public class TerraLaetaParameters {
 
 
   private RegistryKey<Biome> getPeakBiome(int temperature, int humidity, MultiNoiseUtil.ParameterRange weirdness) {
-    if (temperature <= 1 && (NSConfig.has_alpine_highlands || NSConfig.has_alpine_clearings) && humidity <= 2 && weirdness.max() >= 0L) {
+    if (temperature <= 1 && (CONFIG.has_alpine_highlands || CONFIG.has_alpine_clearings) && humidity <= 2 && weirdness.max() >= 0L) {
       return BiomeKeys.STONY_PEAKS;
     }
     if (temperature <= 2) {
       return weirdness.max() < 0L ? BiomeKeys.JAGGED_PEAKS : BiomeKeys.FROZEN_PEAKS;
     } else {
-      return temperature == 3 ? (NSConfig.has_red_peaks && humidity < 3 ? NSBiomes.RED_PEAKS : BiomeKeys.STONY_PEAKS)
-          : (NSConfig.has_red_peaks ? NSBiomes.RED_PEAKS : this.getBadlandsBiome(humidity, weirdness));
+      return temperature == 3 ? (CONFIG.has_red_peaks && humidity < 3 ? NSBiomes.RED_PEAKS : BiomeKeys.STONY_PEAKS)
+          : (CONFIG.has_red_peaks ? NSBiomes.RED_PEAKS : this.getBadlandsBiome(humidity, weirdness));
     }
   }
 
   private RegistryKey<Biome> getMountainSlopeBiome(int temperature, int humidity, MultiNoiseUtil.ParameterRange weirdness) {
     if (temperature == 4) {
-      return NSConfig.has_dusty_slopes ? NSBiomes.DUSTY_SLOPES : this.getNearMountainBiome(temperature, humidity, weirdness);
+      return CONFIG.has_dusty_slopes ? NSBiomes.DUSTY_SLOPES : this.getNearMountainBiome(temperature, humidity, weirdness);
     } else if (temperature >= 3) {
       return this.getNearMountainBiome(temperature, humidity, weirdness);
     } else {
-      if (NSConfig.has_tundra && (NSConfig.has_alpine_clearings || NSConfig.has_alpine_highlands)) {
+      if (CONFIG.has_tundra && (CONFIG.has_alpine_clearings || CONFIG.has_alpine_highlands)) {
         return humidity <= 2 && temperature <= 1 && weirdness.max() >= 0L ? NSBiomes.TUNDRA : BiomeKeys.GROVE;
       } else {
         return humidity <= 1 ? BiomeKeys.SNOWY_SLOPES : BiomeKeys.GROVE;

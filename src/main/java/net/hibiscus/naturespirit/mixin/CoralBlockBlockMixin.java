@@ -1,5 +1,6 @@
 package net.hibiscus.naturespirit.mixin;
 
+import net.hibiscus.naturespirit.NatureSpirit;
 import net.hibiscus.naturespirit.config.NSConfig;
 import net.hibiscus.naturespirit.registration.NSMiscBlocks;
 import net.minecraft.block.*;
@@ -49,7 +50,7 @@ public abstract class CoralBlockBlockMixin extends Block {
 
   @Override
   public void randomTick(BlockState state, ServerWorld world, BlockPos pos, Random random) {
-    if (NSConfig.calcite_generator) {
+    if (NatureSpirit.CONFIG.calcite_generator) {
       if (findColumnEnd(world, pos, BlockTags.CORAL_BLOCKS, Direction.DOWN, Blocks.BUBBLE_COLUMN, 10).isPresent()) {
         for (Direction direction : Direction.Type.HORIZONTAL) {
           if (random.nextInt(25) == 0) {

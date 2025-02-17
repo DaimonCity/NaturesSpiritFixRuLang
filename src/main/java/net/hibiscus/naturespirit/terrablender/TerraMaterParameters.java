@@ -10,6 +10,8 @@ import net.minecraft.world.biome.source.util.MultiNoiseUtil;
 
 import java.util.function.Consumer;
 
+import static net.hibiscus.naturespirit.NatureSpirit.CONFIG;
+
 
 public class TerraMaterParameters {
 
@@ -51,23 +53,23 @@ public class TerraMaterParameters {
   private final RegistryKey<Biome>[][] nearMountainBiomes;
   private final RegistryKey<Biome>[][] specialNearMountainBiomes;
   private final RegistryKey<Biome>[][] windsweptBiomes;
-  RegistryKey<Biome> commonBiomeJungleWarm = NSConfig.has_tropical_woods ? NSBiomes.TROPICAL_WOODS : BiomeKeys.JUNGLE;
-  RegistryKey<Biome> nearBiomeJungleWarm = NSConfig.has_sparse_tropical_woods ? NSBiomes.SPARSE_TROPICAL_WOODS : BiomeKeys.JUNGLE;
-  RegistryKey<Biome> commonBiomeForestWarm = NSConfig.has_sparse_tropical_woods ? NSBiomes.SPARSE_TROPICAL_WOODS : BiomeKeys.FOREST;
-  RegistryKey<Biome> uncommonBiomeBambooJungleWarm = NSConfig.has_tropical_woods ? null : BiomeKeys.BAMBOO_JUNGLE;
-  RegistryKey<Biome> uncommonBiomeSparseJungleWarm = NSConfig.has_tropical_woods ? null : BiomeKeys.SPARSE_JUNGLE;
-  RegistryKey<Biome> uncommonBiomePlainsWarm = NSConfig.has_sparse_tropical_woods ? null : BiomeKeys.PLAINS;
-  RegistryKey<Biome> commonBiomeDesertHot = NSConfig.has_arid_savanna ? NSBiomes.ARID_SAVANNA : BiomeKeys.DESERT;
-  RegistryKey<Biome> nearBiomeWoodedBadlandsHot = NSConfig.has_arid_savanna ? NSBiomes.ARID_SAVANNA : BiomeKeys.WOODED_BADLANDS;
-  RegistryKey<Biome> nearBiomeBadlandsHot = NSConfig.has_arid_savanna ? NSBiomes.ARID_SAVANNA : BiomeKeys.BADLANDS;
-  RegistryKey<Biome> commonBiomeDesertHot2 = NSConfig.has_scorched_dunes ? NSBiomes.SCORCHED_DUNES : BiomeKeys.DESERT;
-  RegistryKey<Biome> commonBiomeNullHot = NSConfig.has_scorched_dunes ? NSBiomes.SCORCHED_DUNES : null;
-  RegistryKey<Biome> commonBiomeFlowerForestTemperate = NSConfig.has_flowering_shrubland ? NSBiomes.FLOWERING_SHRUBLAND : BiomeKeys.FLOWER_FOREST;
-  RegistryKey<Biome> uncommonBiomeSunflowerFieldTemperate = NSConfig.has_flowering_shrubland ? null : BiomeKeys.SUNFLOWER_PLAINS;
-  RegistryKey<Biome> commonBiomePlainsTemperate = NSConfig.has_shrubland ? NSBiomes.SHRUBLAND : BiomeKeys.PLAINS;
-  RegistryKey<Biome> nearBiomeMeadowTemperate = NSConfig.has_flowering_shrubland ? NSBiomes.FLOWERING_SHRUBLAND : BiomeKeys.MEADOW;
-  RegistryKey<Biome> nearBiomeMeadowTemperate2 = NSConfig.has_shrubland ? NSBiomes.SHRUBLAND : BiomeKeys.MEADOW;
-  RegistryKey<Biome> specialBiomeCherryTemperate = NSConfig.has_flowering_shrubland ? null : BiomeKeys.CHERRY_GROVE;
+  RegistryKey<Biome> commonBiomeJungleWarm = CONFIG.has_tropical_woods ? NSBiomes.TROPICAL_WOODS : BiomeKeys.JUNGLE;
+  RegistryKey<Biome> nearBiomeJungleWarm = CONFIG.has_sparse_tropical_woods ? NSBiomes.SPARSE_TROPICAL_WOODS : BiomeKeys.JUNGLE;
+  RegistryKey<Biome> commonBiomeForestWarm = CONFIG.has_sparse_tropical_woods ? NSBiomes.SPARSE_TROPICAL_WOODS : BiomeKeys.FOREST;
+  RegistryKey<Biome> uncommonBiomeBambooJungleWarm = CONFIG.has_tropical_woods ? null : BiomeKeys.BAMBOO_JUNGLE;
+  RegistryKey<Biome> uncommonBiomeSparseJungleWarm = CONFIG.has_tropical_woods ? null : BiomeKeys.SPARSE_JUNGLE;
+  RegistryKey<Biome> uncommonBiomePlainsWarm = CONFIG.has_sparse_tropical_woods ? null : BiomeKeys.PLAINS;
+  RegistryKey<Biome> commonBiomeDesertHot = CONFIG.has_arid_savanna ? NSBiomes.ARID_SAVANNA : BiomeKeys.DESERT;
+  RegistryKey<Biome> nearBiomeWoodedBadlandsHot = CONFIG.has_arid_savanna ? NSBiomes.ARID_SAVANNA : BiomeKeys.WOODED_BADLANDS;
+  RegistryKey<Biome> nearBiomeBadlandsHot = CONFIG.has_arid_savanna ? NSBiomes.ARID_SAVANNA : BiomeKeys.BADLANDS;
+  RegistryKey<Biome> commonBiomeDesertHot2 = CONFIG.has_scorched_dunes ? NSBiomes.SCORCHED_DUNES : BiomeKeys.DESERT;
+  RegistryKey<Biome> commonBiomeNullHot = CONFIG.has_scorched_dunes ? NSBiomes.SCORCHED_DUNES : null;
+  RegistryKey<Biome> commonBiomeFlowerForestTemperate = CONFIG.has_flowering_shrubland ? NSBiomes.FLOWERING_SHRUBLAND : BiomeKeys.FLOWER_FOREST;
+  RegistryKey<Biome> uncommonBiomeSunflowerFieldTemperate = CONFIG.has_flowering_shrubland ? null : BiomeKeys.SUNFLOWER_PLAINS;
+  RegistryKey<Biome> commonBiomePlainsTemperate = CONFIG.has_shrubland ? NSBiomes.SHRUBLAND : BiomeKeys.PLAINS;
+  RegistryKey<Biome> nearBiomeMeadowTemperate = CONFIG.has_flowering_shrubland ? NSBiomes.FLOWERING_SHRUBLAND : BiomeKeys.MEADOW;
+  RegistryKey<Biome> nearBiomeMeadowTemperate2 = CONFIG.has_shrubland ? NSBiomes.SHRUBLAND : BiomeKeys.MEADOW;
+  RegistryKey<Biome> specialBiomeCherryTemperate = CONFIG.has_flowering_shrubland ? null : BiomeKeys.CHERRY_GROVE;
 
   public TerraMaterParameters() {
     this.frozenTemperature = this.temperatureParameters[0];
@@ -748,9 +750,9 @@ public class TerraMaterParameters {
   private RegistryKey<Biome> getWetlandType(int temperature, int humidity, MultiNoiseUtil.ParameterRange weirdness) {
     if (temperature == 0) {
       return this.getRegularBiome(temperature, humidity, weirdness);
-    } else if (temperature == 3 && humidity > 1 && NSConfig.has_tropical_basin) {
+    } else if (temperature == 3 && humidity > 1 && CONFIG.has_tropical_basin) {
       return NSBiomes.TROPICAL_BASIN;
-    } else if ((humidity <= 3 || temperature == 4) && NSConfig.has_marsh) {
+    } else if ((humidity <= 3 || temperature == 4) && CONFIG.has_marsh) {
       return NSBiomes.MARSH;
     } else {
       return BiomeKeys.SWAMP;
@@ -770,7 +772,7 @@ public class TerraMaterParameters {
   }
 
   private RegistryKey<Biome> getBiomeOrWindsweptSavanna(int temperature, int humidity, MultiNoiseUtil.ParameterRange weirdness, RegistryKey<Biome> biomeKey) {
-    if (temperature == 2 && NSConfig.has_sugi_forest) {
+    if (temperature == 2 && CONFIG.has_sugi_forest) {
       return humidity < 4 && weirdness.max() >= 0L ? NSBiomes.WINDSWEPT_SUGI_FOREST : biomeKey;
     }
     return temperature > 1 && humidity < 4 && weirdness.max() >= 0L ? BiomeKeys.WINDSWEPT_SAVANNA : biomeKey;
@@ -784,7 +786,7 @@ public class TerraMaterParameters {
   private RegistryKey<Biome> getShoreBiome(int temperature, int humidity) {
     if (temperature == 0) {
       return BiomeKeys.SNOWY_BEACH;
-    } else if (temperature == 3 && NSConfig.has_tropical_shores) {
+    } else if (temperature == 3 && CONFIG.has_tropical_shores) {
       return NSBiomes.TROPICAL_SHORES;
     } else {
       return temperature == 4 ? BiomeKeys.DESERT : BiomeKeys.BEACH;

@@ -33,71 +33,67 @@ public class NatureSpirit implements ModInitializer {
   public static final Identifier EAT_PIZZA_SLICE = StatsTypeAccessor.registerNew("eat_pizza_slice", StatFormatter.DEFAULT);
   public static final Identifier EAT_CHEESE = StatsTypeAccessor.registerNew("eat_cheese", StatFormatter.DEFAULT);
   public static final RegistryKey<Registry<PizzaToppingVariant>> PIZZA_TOPPING_VARIANT = RegistryKey.ofRegistry(Identifier.of(MOD_ID, "pizza_topping_variant"));
+  public static final NSConfig CONFIG = new NSConfig(FabricLoader.getInstance().getConfigDir().resolve(MOD_ID + ".toml"));
 
   @Override
   public void onInitialize() {
-    Optional<ModContainer> modContainer = FabricLoader.getInstance().getModContainer("natures_spirit");
-    try {
-      NSConfig.main();
-    } catch (IOException e) {
-      throw new RuntimeException(e);
-    }
+    Optional<ModContainer> modContainer = FabricLoader.getInstance().getModContainer(MOD_ID);
 
     if (modContainer.isPresent()) {
       ResourceManagerHelper.registerBuiltinResourcePack(
           Identifier.of(MOD_ID, "modified_vanilla_trees"), modContainer.get(),
           Text.translatable("pack.natures_spirit.modified_vanilla_trees"),
-          NSConfig.vanilla_trees_toggle ? ResourcePackActivationType.DEFAULT_ENABLED : ResourcePackActivationType.NORMAL
+          CONFIG.vanilla_trees_toggle ? ResourcePackActivationType.DEFAULT_ENABLED : ResourcePackActivationType.NORMAL
       );
       ResourceManagerHelper.registerBuiltinResourcePack(
           Identifier.of(MOD_ID, "modified_flower_forest"), modContainer.get(),
           Text.translatable("pack.natures_spirit.modified_flower_forest"),
-          NSConfig.flower_forest_toggle ? ResourcePackActivationType.DEFAULT_ENABLED : ResourcePackActivationType.NORMAL
+          CONFIG.flower_forest_toggle ? ResourcePackActivationType.DEFAULT_ENABLED : ResourcePackActivationType.NORMAL
       );
       ResourceManagerHelper.registerBuiltinResourcePack(
           Identifier.of(MOD_ID, "modified_birch_forest"), modContainer.get(),
           Text.translatable("pack.natures_spirit.modified_birch_forest"),
-          NSConfig.birch_forest_toggle ? ResourcePackActivationType.DEFAULT_ENABLED : ResourcePackActivationType.NORMAL
+          CONFIG.birch_forest_toggle ? ResourcePackActivationType.DEFAULT_ENABLED : ResourcePackActivationType.NORMAL
       );
       ResourceManagerHelper.registerBuiltinResourcePack(
           Identifier.of(MOD_ID, "modified_jungle"), modContainer.get(),
           Text.translatable("pack.natures_spirit.modified_jungle"),
-          NSConfig.jungle_toggle ? ResourcePackActivationType.DEFAULT_ENABLED : ResourcePackActivationType.NORMAL
+          CONFIG.jungle_toggle ? ResourcePackActivationType.DEFAULT_ENABLED : ResourcePackActivationType.NORMAL
       );
       ResourceManagerHelper.registerBuiltinResourcePack(
           Identifier.of(MOD_ID, "modified_swamp"), modContainer.get(),
           Text.translatable("pack.natures_spirit.modified_swamp"),
-          NSConfig.swamp_toggle ? ResourcePackActivationType.DEFAULT_ENABLED : ResourcePackActivationType.NORMAL
+          CONFIG.swamp_toggle ? ResourcePackActivationType.DEFAULT_ENABLED : ResourcePackActivationType.NORMAL
       );
       ResourceManagerHelper.registerBuiltinResourcePack(
           Identifier.of(MOD_ID, "modified_desert"), modContainer.get(),
           Text.translatable("pack.natures_spirit.modified_desert"),
-          NSConfig.desert_toggle ? ResourcePackActivationType.DEFAULT_ENABLED : ResourcePackActivationType.NORMAL
+          CONFIG.desert_toggle ? ResourcePackActivationType.DEFAULT_ENABLED : ResourcePackActivationType.NORMAL
       );
       ResourceManagerHelper.registerBuiltinResourcePack(
           Identifier.of(MOD_ID, "modified_badlands"), modContainer.get(),
           Text.translatable("pack.natures_spirit.modified_badlands"),
-          NSConfig.badlands_toggle ? ResourcePackActivationType.DEFAULT_ENABLED : ResourcePackActivationType.NORMAL
+          CONFIG.badlands_toggle ? ResourcePackActivationType.DEFAULT_ENABLED : ResourcePackActivationType.NORMAL
       );
       ResourceManagerHelper.registerBuiltinResourcePack(
           Identifier.of(MOD_ID, "modified_mountain_biomes"), modContainer.get(),
           Text.translatable("pack.natures_spirit.modified_mountain_biomes"),
-          NSConfig.mountain_biomes_toggle ? ResourcePackActivationType.DEFAULT_ENABLED : ResourcePackActivationType.NORMAL
+          CONFIG.mountain_biomes_toggle ? ResourcePackActivationType.DEFAULT_ENABLED : ResourcePackActivationType.NORMAL
       );
       ResourceManagerHelper.registerBuiltinResourcePack(
           Identifier.of(MOD_ID, "modified_savannas"), modContainer.get(),
           Text.translatable("pack.natures_spirit.modified_savannas"),
-          NSConfig.savanna_toggle ? ResourcePackActivationType.DEFAULT_ENABLED : ResourcePackActivationType.NORMAL
+          CONFIG.savanna_toggle ? ResourcePackActivationType.DEFAULT_ENABLED : ResourcePackActivationType.NORMAL
       );
       ResourceManagerHelper.registerBuiltinResourcePack(
           Identifier.of(MOD_ID, "modified_dark_forest"), modContainer.get(),
           Text.translatable("pack.natures_spirit.modified_dark_forest"),
-          NSConfig.dark_forest_toggle ? ResourcePackActivationType.DEFAULT_ENABLED : ResourcePackActivationType.NORMAL
+          CONFIG.dark_forest_toggle ? ResourcePackActivationType.DEFAULT_ENABLED : ResourcePackActivationType.NORMAL
       );
       ResourceManagerHelper.registerBuiltinResourcePack(
           Identifier.of(MOD_ID, "modified_windswept_hills"), modContainer.get(),
           Text.translatable("pack.natures_spirit.modified_windswept_hills"),
-          NSConfig.windswept_hills_toggle ? ResourcePackActivationType.DEFAULT_ENABLED : ResourcePackActivationType.NORMAL
+          CONFIG.windswept_hills_toggle ? ResourcePackActivationType.DEFAULT_ENABLED : ResourcePackActivationType.NORMAL
       );
 
       ResourceManagerHelper.registerBuiltinResourcePack(

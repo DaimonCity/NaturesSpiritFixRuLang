@@ -1,289 +1,165 @@
 package net.hibiscus.naturespirit.config;
 
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParser;
-import net.fabricmc.loader.api.FabricLoader;
-
-import java.io.FileReader;
-import java.io.IOException;
-import java.io.PrintWriter;
 import java.nio.file.Path;
 
-public class NSConfig {
+public class NSConfig extends Config {
 
-  public static int terra_ferax_weight;
-  public static int terra_solaris_weight;
-  public static int terra_flava_weight;
-  public static int terra_laeta_weight;
-  public static int terra_mater_weight;
+  public int terra_ferax_weight;
+  public int terra_solaris_weight;
+  public int terra_flava_weight;
+  public int terra_laeta_weight;
+  public int terra_mater_weight;
 
-  public static boolean cheese_arrow;
-  public static boolean calcite_generator;
-  public static boolean deepslate_generator;
-  public static boolean creative_tab;
-  public static boolean sugi_and_stratified_pillars;
-  public static boolean vanilla_trees_toggle;
-  public static boolean birch_forest_toggle;
-  public static boolean flower_forest_toggle;
-  public static boolean jungle_toggle;
-  public static boolean swamp_toggle;
-  public static boolean desert_toggle;
-  public static boolean badlands_toggle;
-  public static boolean mountain_biomes_toggle;
-  public static boolean savanna_toggle;
-  public static boolean dark_forest_toggle;
-  public static boolean windswept_hills_toggle;
+  public boolean calcite_generator;
+  public boolean deepslate_generator;
+  public boolean creative_tab;
+  public boolean cheese_arrow;
+  public boolean sugi_and_stratified_pillars;
 
-  public static boolean has_sugi_forest;
-  public static boolean has_windswept_sugi_forest;
-  public static boolean has_blooming_sugi_forest;
-  public static boolean has_lavender_fields;
-  public static boolean has_marsh;
-  public static boolean has_bamboo_wetlands;
-  public static boolean has_wisteria_forest;
-  public static boolean has_redwood_forest;
-  public static boolean has_snowy_redwood_forest;
-  public static boolean has_aspen_forest;
-  public static boolean has_maple_woodlands;
-  public static boolean has_golden_wilds;
-  public static boolean has_marigold_meadows;
-  public static boolean has_fir_forest;
-  public static boolean has_snowy_fir_forest;
-  public static boolean has_cypress_fields;
-  public static boolean has_cedar_thicket;
-  public static boolean has_carnation_fields;
-  public static boolean has_stratified_desert;
-  public static boolean has_blooming_dunes;
-  public static boolean has_lively_dunes;
-  public static boolean has_drylands;
-  public static boolean has_wooded_drylands;
-  public static boolean has_xeric_plains;
-  public static boolean has_white_cliffs;
-  public static boolean has_prairie;
-  public static boolean has_oak_savanna;
-  public static boolean has_heather_fields;
-  public static boolean has_tundra;
-  public static boolean has_alpine_clearings;
-  public static boolean has_alpine_highlands;
-  public static boolean has_coniferous_covert;
-  public static boolean has_boreal_taiga;
-  public static boolean has_tropical_shores;
-  public static boolean has_tropical_woods;
-  public static boolean has_sparse_tropical_woods;
-  public static boolean has_tropical_basin;
-  public static boolean has_arid_savanna;
-  public static boolean has_scorched_dunes;
-  public static boolean has_flowering_shrubland;
-  public static boolean has_shrubland;
-  public static boolean has_arid_highlands;
-  public static boolean has_shrubby_highlands;
-  public static boolean has_woody_highlands;
-  public static boolean has_red_peaks;
-  public static boolean has_dusty_slopes;
-  public static boolean has_snowcapped_red_peaks;
-  public static boolean has_sleeted_slopes;
-  public static boolean has_blooming_highlands;
-  public static boolean has_chaparral;
-  public static boolean has_floral_ridges;
+  public boolean vanilla_trees_toggle;
+  public boolean birch_forest_toggle;
+  public boolean flower_forest_toggle;
+  public boolean jungle_toggle;
+  public boolean swamp_toggle;
+  public boolean desert_toggle;
+  public boolean badlands_toggle;
+  public boolean mountain_biomes_toggle;
+  public boolean savanna_toggle;
+  public boolean dark_forest_toggle;
+  public boolean windswept_hills_toggle;
 
+  public boolean has_sugi_forest;
+  public boolean has_windswept_sugi_forest;
+  public boolean has_blooming_sugi_forest;
+  public boolean has_lavender_fields;
+  public boolean has_marsh;
+  public boolean has_bamboo_wetlands;
+  public boolean has_wisteria_forest;
+  public boolean has_redwood_forest;
+  public boolean has_snowy_redwood_forest;
+  public boolean has_aspen_forest;
+  public boolean has_maple_woodlands;
+  public boolean has_golden_wilds;
+  public boolean has_marigold_meadows;
+  public boolean has_fir_forest;
+  public boolean has_snowy_fir_forest;
+  public boolean has_cypress_fields;
+  public boolean has_cedar_thicket;
+  public boolean has_carnation_fields;
+  public boolean has_stratified_desert;
+  public boolean has_blooming_dunes;
+  public boolean has_lively_dunes;
+  public boolean has_drylands;
+  public boolean has_wooded_drylands;
+  public boolean has_xeric_plains;
+  public boolean has_white_cliffs;
+  public boolean has_prairie;
+  public boolean has_oak_savanna;
+  public boolean has_heather_fields;
+  public boolean has_tundra;
+  public boolean has_alpine_clearings;
+  public boolean has_alpine_highlands;
+  public boolean has_coniferous_covert;
+  public boolean has_boreal_taiga;
+  public boolean has_tropical_shores;
+  public boolean has_tropical_woods;
+  public boolean has_sparse_tropical_woods;
+  public boolean has_tropical_basin;
+  public boolean has_arid_savanna;
+  public boolean has_scorched_dunes;
+  public boolean has_flowering_shrubland;
+  public boolean has_shrubland;
+  public boolean has_arid_highlands;
+  public boolean has_shrubby_highlands;
+  public boolean has_woody_highlands;
+  public boolean has_red_peaks;
+  public boolean has_dusty_slopes;
+  public boolean has_snowcapped_red_peaks;
+  public boolean has_sleeted_slopes;
+  public boolean has_blooming_highlands;
+  public boolean has_chaparral;
+  public boolean has_floral_ridges;
 
-  public NSConfig() {}
-
-  public static void main() throws IOException {
-    Path configPath = Path.of(FabricLoader.getInstance().getConfigDir().toString(), "natures_spirit_2.0.0-1.21.1.json");
-    try {
-      if (configPath.toFile().createNewFile()) {
-        JsonObject jsonObjects = getJsonObject();
-        PrintWriter pw = new PrintWriter(configPath.toString());
-        Gson gson = new GsonBuilder().setPrettyPrinting().create();
-        pw.print(gson.toJson(jsonObjects));
-        pw.flush();
-        pw.close();
-      }
-      JsonObject obj = (JsonObject) JsonParser.parseReader(new FileReader(configPath.toString()));
-      JsonObject biomes = (JsonObject) obj.get("biomes");
-      JsonObject region_weights = (JsonObject) obj.get("region_weights");
-      JsonObject misc_features = (JsonObject) obj.get("misc_features");
-      JsonObject datapack_toggles = (JsonObject) obj.get("datapack_toggles");
-
-      has_sugi_forest = biomes.get("has_sugi_forest").getAsBoolean();
-      has_windswept_sugi_forest = biomes.get("has_windswept_sugi_forest").getAsBoolean();
-      has_blooming_sugi_forest = biomes.get("has_blooming_sugi_forest").getAsBoolean();
-      has_lavender_fields = biomes.get("has_lavender_fields").getAsBoolean();
-      has_marsh = biomes.get("has_marsh").getAsBoolean();
-      has_bamboo_wetlands = biomes.get("has_bamboo_wetlands").getAsBoolean();
-      has_wisteria_forest = biomes.get("has_wisteria_forest").getAsBoolean();
-      has_redwood_forest = biomes.get("has_redwood_forest").getAsBoolean();
-      has_snowy_redwood_forest = biomes.get("has_snowy_redwood_forest").getAsBoolean();
-      has_aspen_forest = biomes.get("has_aspen_forest").getAsBoolean();
-      has_maple_woodlands = biomes.get("has_maple_woodlands").getAsBoolean();
-      has_golden_wilds = biomes.get("has_golden_wilds").getAsBoolean();
-      has_marigold_meadows = biomes.get("has_marigold_meadows").getAsBoolean();
-      has_fir_forest = biomes.get("has_fir_forest").getAsBoolean();
-      has_snowy_fir_forest = biomes.get("has_snowy_fir_forest").getAsBoolean();
-      has_cypress_fields = biomes.get("has_cypress_fields").getAsBoolean();
-      has_cedar_thicket = biomes.get("has_cedar_thicket").getAsBoolean();
-      has_carnation_fields = biomes.get("has_carnation_fields").getAsBoolean();
-      has_stratified_desert = biomes.get("has_stratified_desert").getAsBoolean();
-      has_blooming_dunes = biomes.get("has_blooming_dunes").getAsBoolean();
-      has_lively_dunes = biomes.get("has_lively_dunes").getAsBoolean();
-      has_drylands = biomes.get("has_drylands").getAsBoolean();
-      has_wooded_drylands = biomes.get("has_wooded_drylands").getAsBoolean();
-      has_xeric_plains = biomes.get("has_xeric_plains").getAsBoolean();
-      has_white_cliffs = biomes.get("has_white_cliffs").getAsBoolean();
-      has_prairie = biomes.get("has_prairie").getAsBoolean();
-      has_oak_savanna = biomes.get("has_oak_savanna").getAsBoolean();
-      has_heather_fields = biomes.get("has_heather_fields").getAsBoolean();
-      has_tundra = biomes.get("has_tundra").getAsBoolean();
-      has_alpine_clearings = biomes.get("has_alpine_clearings").getAsBoolean();
-      has_alpine_highlands = biomes.get("has_alpine_highlands").getAsBoolean();
-      has_coniferous_covert = biomes.get("has_coniferous_covert").getAsBoolean();
-      has_boreal_taiga = biomes.get("has_boreal_taiga").getAsBoolean();
-      has_tropical_shores = biomes.get("has_tropical_shores").getAsBoolean();
-      has_tropical_woods = biomes.get("has_tropical_woods").getAsBoolean();
-      has_sparse_tropical_woods = biomes.get("has_sparse_tropical_woods").getAsBoolean();
-      has_tropical_basin = biomes.get("has_tropical_basin").getAsBoolean();
-      has_arid_savanna = biomes.get("has_arid_savanna").getAsBoolean();
-      has_scorched_dunes = biomes.get("has_scorched_dunes").getAsBoolean();
-      has_flowering_shrubland = biomes.get("has_flowering_shrubland").getAsBoolean();
-      has_shrubland = biomes.get("has_shrubland").getAsBoolean();
-      has_arid_highlands = biomes.get("has_arid_highlands").getAsBoolean();
-      has_shrubby_highlands = biomes.get("has_shrubby_highlands").getAsBoolean();
-      has_woody_highlands = biomes.get("has_woody_highlands").getAsBoolean();
-      has_red_peaks = biomes.get("has_red_peaks").getAsBoolean();
-      has_dusty_slopes = biomes.get("has_dusty_slopes").getAsBoolean();
-      has_snowcapped_red_peaks = biomes.get("has_snowcapped_red_peaks").getAsBoolean();
-      has_sleeted_slopes = biomes.get("has_sleeted_slopes").getAsBoolean();
-      has_blooming_highlands = biomes.get("has_blooming_highlands").getAsBoolean();
-      has_chaparral = biomes.get("has_chaparral").getAsBoolean();
-      has_floral_ridges = biomes.get("has_floral_ridges").getAsBoolean();
-
-      terra_ferax_weight = region_weights.get("terra_ferax_frequency").getAsInt();
-      terra_solaris_weight = region_weights.get("terra_solaris_frequency").getAsInt();
-      terra_flava_weight = region_weights.get("terra_flava_frequency").getAsInt();
-      terra_laeta_weight = region_weights.get("terra_laeta_frequency").getAsInt();
-      terra_mater_weight = region_weights.get("terra_mater_frequency").getAsInt();
-
-      calcite_generator = misc_features.get("calcite_generator").getAsBoolean();
-      deepslate_generator = misc_features.get("deepslate_generator").getAsBoolean();
-      sugi_and_stratified_pillars = misc_features.get("sugi_and_stratified_pillars").getAsBoolean();
-      cheese_arrow = misc_features.get("cheese_arrow").getAsBoolean();
-      creative_tab = misc_features.get("creative_tab").getAsBoolean();
-
-      vanilla_trees_toggle = datapack_toggles.get("vanilla_trees_toggle").getAsBoolean();
-      birch_forest_toggle = datapack_toggles.get("birch_forest_toggle").getAsBoolean();
-      flower_forest_toggle = datapack_toggles.get("flower_forest_toggle").getAsBoolean();
-      jungle_toggle = datapack_toggles.get("jungle_toggle").getAsBoolean();
-      swamp_toggle = datapack_toggles.get("swamp_toggle").getAsBoolean();
-      desert_toggle = datapack_toggles.get("desert_toggle").getAsBoolean();
-      badlands_toggle = datapack_toggles.get("badlands_toggle").getAsBoolean();
-      mountain_biomes_toggle = datapack_toggles.get("mountain_biomes_toggle").getAsBoolean();
-      savanna_toggle = datapack_toggles.get("savanna_toggle").getAsBoolean();
-      dark_forest_toggle = datapack_toggles.get("dark_forest_toggle").getAsBoolean();
-      windswept_hills_toggle = datapack_toggles.get("windswept_hills_toggle").getAsBoolean();
-
-    } catch (final IOException e) {
-      System.err.println("An error occurred, delete the natures_spirit.config file in .minecraft/config and relaunch");
-    }
+  public NSConfig(Path path) {
+    super(path);
   }
 
+  @Override
+  public void load() {
+    has_sugi_forest = add("biome.has_sugi_forest", true, "");
+    has_windswept_sugi_forest = add("biome.has_windswept_sugi_forest", true, "");
+    has_blooming_sugi_forest = add("biome.has_blooming_sugi_forest", true, "");
+    has_lavender_fields = add("biome.has_lavender_fields", true, "");
+    has_marsh = add("biome.has_marsh", true, "");
+    has_bamboo_wetlands = add("biome.has_bamboo_wetlands", true, "");
+    has_wisteria_forest = add("biome.has_wisteria_forest", true, "");
+    has_redwood_forest = add("biome.has_redwood_forest", true, "");
+    has_snowy_redwood_forest = add("biome.has_snowy_redwood_forest", true, "");
+    has_aspen_forest = add("biome.has_aspen_forest", true, "");
+    has_maple_woodlands = add("biome.has_maple_woodlands", true, "");
+    has_golden_wilds = add("biome.has_golden_wilds", true, "");
+    has_marigold_meadows = add("biome.has_marigold_meadows", true, "");
+    has_fir_forest = add("biome.has_fir_forest", true, "");
+    has_snowy_fir_forest = add("biome.has_snowy_fir_forest", true, "");
+    has_cypress_fields = add("biome.has_cypress_fields", true, "");
+    has_cedar_thicket = add("biome.has_cedar_thicket", true, "");
+    has_carnation_fields = add("biome.has_carnation_fields", true, "");
+    has_stratified_desert = add("biome.has_stratified_desert", true, "");
+    has_blooming_dunes = add("biome.has_blooming_dunes", true, "");
+    has_lively_dunes = add("biome.has_lively_dunes", true, "");
+    has_drylands = add("biome.has_drylands", true, "");
+    has_wooded_drylands = add("biome.has_wooded_drylands", true, "");
+    has_xeric_plains = add("biome.has_xeric_plains", true, "");
+    has_white_cliffs = add("biome.has_white_cliffs", true, "");
+    has_prairie = add("biome.has_prairie", true, "");
+    has_oak_savanna = add("biome.has_oak_savanna", true, "");
+    has_heather_fields = add("biome.has_heather_fields", true, "");
+    has_tundra = add("biome.has_tundra", true, "");
+    has_alpine_clearings = add("biome.has_alpine_clearings", true, "");
+    has_alpine_highlands = add("biome.has_alpine_highlands", true, "");
+    has_coniferous_covert = add("biome.has_coniferous_covert", true, "");
+    has_boreal_taiga = add("biome.has_boreal_taiga", true, "");
+    has_tropical_shores = add("biome.has_tropical_shores", true, "");
+    has_tropical_woods = add("biome.has_tropical_woods", true, "");
+    has_sparse_tropical_woods = add("biome.has_sparse_tropical_woods", true, "");
+    has_tropical_basin = add("biome.has_tropical_basin", true, "");
+    has_arid_savanna = add("biome.has_arid_savanna", true, "");
+    has_scorched_dunes = add("biome.has_scorched_dunes", true, "");
+    has_flowering_shrubland = add("biome.has_flowering_shrubland", true, "");
+    has_shrubland = add("biome.has_shrubland", true, "");
+    has_arid_highlands = add("biome.has_arid_highlands", true, "");
+    has_shrubby_highlands = add("biome.has_shrubby_highlands", true, "");
+    has_woody_highlands = add("biome.has_woody_highlands", true, "");
+    has_red_peaks = add("biome.has_red_peaks", true, "");
+    has_dusty_slopes = add("biome.has_dusty_slopes", true, "");
+    has_snowcapped_red_peaks = add("biome.has_snowcapped_red_peaks", true, "");
+    has_sleeted_slopes = add("biome.has_sleeted_slopes", true, "");
+    has_blooming_highlands = add("biome.has_blooming_highlands", true, "");
+    has_chaparral = add("biome.has_chaparral", true, "");
+    has_floral_ridges = add("biome.has_floral_ridges", true, "");
 
-  private static JsonObject getJsonObject() {
+    terra_ferax_weight = addNumber("region.terra_ferax_frequency", 4, 0, Integer.MAX_VALUE, "");
+    terra_solaris_weight = addNumber("region.terra_solaris_frequency", 4, 0, Integer.MAX_VALUE, "");
+    terra_flava_weight = addNumber("region.terra_flava_frequency", 4, 0, Integer.MAX_VALUE, "");
+    terra_laeta_weight = addNumber("region.terra_laeta_frequency", 4, 0, Integer.MAX_VALUE, "");
+    terra_mater_weight = addNumber("region.terra_mater_frequency", 4, 0, Integer.MAX_VALUE, "");
 
-    JsonObject jsonObjects = new JsonObject();
+    calcite_generator = add("misc.calcite_generator", true, "Calcite clusters from coral feature");
+    deepslate_generator = add("misc.deepslate_generator", true, "Toggle the Deepslate Generator");
+    creative_tab = add("misc.creative_tab", true, "Toggle the additional creative inventory tab");
+    cheese_arrow = add("misc.cheese_arrow", true, "Toggle the cheese arrow feature");
+    sugi_and_stratified_pillars = add("misc.sugi_and_stratified_pillars", true, "Toggle the Pillar Generation (turn off for lower end devices)");
 
-    JsonObject biomesObject = getBiomesObject();
-    jsonObjects.add("biomes", biomesObject);
-
-    JsonObject regionsObject = new JsonObject();
-    regionsObject.addProperty("terra_ferax_frequency", 4);
-    regionsObject.addProperty("terra_solaris_frequency", 4);
-    regionsObject.addProperty("terra_flava_frequency", 4);
-    regionsObject.addProperty("terra_laeta_frequency", 4);
-    regionsObject.addProperty("terra_mater_frequency", 4);
-    jsonObjects.add("region_weights", regionsObject);
-
-    JsonObject miscObject = new JsonObject();
-    miscObject.addProperty("deepslate_generator", true);
-    miscObject.addProperty("sugi_and_stratified_pillars", true);
-    miscObject.addProperty("calcite_generator", true);
-    miscObject.addProperty("cheese_arrow", true);
-    miscObject.addProperty("creative_tab", true);
-    jsonObjects.add("misc_features", miscObject);
-
-    JsonObject datapackTogglesObject = new JsonObject();
-    datapackTogglesObject.addProperty("vanilla_trees_toggle", false);
-    datapackTogglesObject.addProperty("birch_forest_toggle", true);
-    datapackTogglesObject.addProperty("flower_forest_toggle", true);
-    datapackTogglesObject.addProperty("jungle_toggle", true);
-    datapackTogglesObject.addProperty("swamp_toggle", true);
-    datapackTogglesObject.addProperty("desert_toggle", true);
-    datapackTogglesObject.addProperty("badlands_toggle", true);
-    datapackTogglesObject.addProperty("mountain_biomes_toggle", true);
-    datapackTogglesObject.addProperty("savanna_toggle", true);
-    datapackTogglesObject.addProperty("dark_forest_toggle", true);
-    datapackTogglesObject.addProperty("windswept_hills_toggle", true);
-    jsonObjects.add("datapack_toggles", datapackTogglesObject);
-
-    return jsonObjects;
-  }
-
-
-  private static JsonObject getBiomesObject() {
-    JsonObject biomesObject = new JsonObject();
-    biomesObject.addProperty("has_sugi_forest", true);
-    biomesObject.addProperty("has_windswept_sugi_forest", true);
-    biomesObject.addProperty("has_blooming_sugi_forest", true);
-    biomesObject.addProperty("has_lavender_fields", true);
-    biomesObject.addProperty("has_marsh", true);
-    biomesObject.addProperty("has_bamboo_wetlands", true);
-    biomesObject.addProperty("has_wisteria_forest", true);
-    biomesObject.addProperty("has_redwood_forest", true);
-    biomesObject.addProperty("has_snowy_redwood_forest", true);
-    biomesObject.addProperty("has_aspen_forest", true);
-    biomesObject.addProperty("has_maple_woodlands", true);
-    biomesObject.addProperty("has_golden_wilds", true);
-    biomesObject.addProperty("has_marigold_meadows", true);
-    biomesObject.addProperty("has_fir_forest", true);
-    biomesObject.addProperty("has_snowy_fir_forest", true);
-    biomesObject.addProperty("has_cypress_fields", true);
-    biomesObject.addProperty("has_carnation_fields", true);
-    biomesObject.addProperty("has_stratified_desert", true);
-    biomesObject.addProperty("has_blooming_dunes", true);
-    biomesObject.addProperty("has_lively_dunes", true);
-    biomesObject.addProperty("has_drylands", true);
-    biomesObject.addProperty("has_wooded_drylands", true);
-    biomesObject.addProperty("has_cedar_thicket", true);
-    biomesObject.addProperty("has_xeric_plains", true);
-    biomesObject.addProperty("has_white_cliffs", true);
-    biomesObject.addProperty("has_prairie", true);
-    biomesObject.addProperty("has_oak_savanna", true);
-    biomesObject.addProperty("has_heather_fields", true);
-    biomesObject.addProperty("has_tundra", true);
-    biomesObject.addProperty("has_alpine_clearings", true);
-    biomesObject.addProperty("has_alpine_highlands", true);
-    biomesObject.addProperty("has_coniferous_covert", true);
-    biomesObject.addProperty("has_boreal_taiga", true);
-    biomesObject.addProperty("has_tropical_shores", true);
-    biomesObject.addProperty("has_tropical_woods", true);
-    biomesObject.addProperty("has_sparse_tropical_woods", true);
-    biomesObject.addProperty("has_tropical_basin", true);
-    biomesObject.addProperty("has_arid_savanna", true);
-    biomesObject.addProperty("has_scorched_dunes", true);
-    biomesObject.addProperty("has_flowering_shrubland", true);
-    biomesObject.addProperty("has_shrubland", true);
-    biomesObject.addProperty("has_arid_highlands", true);
-    biomesObject.addProperty("has_shrubby_highlands", true);
-    biomesObject.addProperty("has_woody_highlands", true);
-    biomesObject.addProperty("has_red_peaks", true);
-    biomesObject.addProperty("has_dusty_slopes", true);
-    biomesObject.addProperty("has_snowcapped_red_peaks", true);
-    biomesObject.addProperty("has_sleeted_slopes", true);
-    biomesObject.addProperty("has_blooming_highlands", true);
-    biomesObject.addProperty("has_chaparral", true);
-    biomesObject.addProperty("has_floral_ridges", true);
-    return biomesObject;
+    vanilla_trees_toggle = add("datapacks.vanilla_trees_toggle", false, "");
+    birch_forest_toggle = add("datapacks.birch_forest_toggle", true, "");
+    flower_forest_toggle = add("datapacks.flower_forest_toggle", true, "");
+    jungle_toggle = add("datapacks.jungle_toggle", true, "");
+    swamp_toggle = add("datapacks.swamp_toggle", true, "");
+    desert_toggle = add("datapacks.desert_toggle", true, "");
+    badlands_toggle = add("datapacks.badlands_toggle", true, "");
+    mountain_biomes_toggle = add("datapacks.mountain_biomes_toggle", true, "");
+    savanna_toggle = add("datapacks.savanna_toggle", true, "");
+    dark_forest_toggle = add("datapacks.dark_forest_toggle", true, "");
+    windswept_hills_toggle = add("datapacks.windswept_hills_toggle", true, "");
   }
 }

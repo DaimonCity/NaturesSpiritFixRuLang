@@ -58,7 +58,7 @@ public class NSRegistryHelper {
   public static Block registerBlock(String name, Block block, ItemConvertible blockBefore) {
     Block block1 = registerBlockWithoutTab(name, block);
     registerItemWithoutTab(name, new BlockItem(block, new Item.Settings()));
-    if (NSConfig.creative_tab) {
+    if (NatureSpirit.CONFIG.creative_tab) {
       ItemGroupEvents.modifyEntriesEvent(NSItemGroups.NS_ITEM_GROUP).register(entries -> entries.addAfter(blockBefore, block1.asItem()));
     }
     return block1;
@@ -119,7 +119,7 @@ public class NSRegistryHelper {
 
   public static Item registerItem(String name, Item item) {
     Item item1 = Registry.register(Registries.ITEM, Identifier.of(NatureSpirit.MOD_ID, name), item);
-    if (NSConfig.creative_tab) {
+    if (NatureSpirit.CONFIG.creative_tab) {
       ItemGroupEvents.modifyEntriesEvent(NSItemGroups.NS_ITEM_GROUP).register(entries -> entries.add(item1));
     }
     NatureSpiritItemHashMap.put(name, item1);
