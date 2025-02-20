@@ -10,6 +10,7 @@ import net.hibiscus.naturespirit.blocks.block_entities.PizzaToppingVariant;
 import net.hibiscus.naturespirit.config.NSConfig;
 import net.hibiscus.naturespirit.mixin.StatsTypeAccessor;
 import net.hibiscus.naturespirit.registration.*;
+import net.hibiscus.naturespirit.registration.compat.NSArtsAndCraftsCompat;
 import net.hibiscus.naturespirit.util.NSCauldronBehavior;
 import net.hibiscus.naturespirit.util.NSEvents;
 import net.hibiscus.naturespirit.util.NSVillagers;
@@ -23,7 +24,6 @@ import net.minecraft.util.Identifier;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.io.IOException;
 import java.util.Optional;
 
 public class NatureSpirit implements ModInitializer {
@@ -96,6 +96,18 @@ public class NatureSpirit implements ModInitializer {
           CONFIG.windswept_hills_toggle ? ResourcePackActivationType.DEFAULT_ENABLED : ResourcePackActivationType.NORMAL
       );
 
+
+      if (FabricLoader.getInstance().getModContainer("arts_and_crafts").isPresent()) {
+        ResourceManagerHelper.registerBuiltinResourcePack(
+                Identifier.of(MOD_ID, "arts_and_crafts_res"), modContainer.get(),
+                ResourcePackActivationType.ALWAYS_ENABLED
+        );
+        ResourceManagerHelper.registerBuiltinResourcePack(
+                Identifier.of(MOD_ID, "arts_and_crafts_dat"), modContainer.get(),
+                ResourcePackActivationType.ALWAYS_ENABLED
+        );
+      }
+
       ResourceManagerHelper.registerBuiltinResourcePack(
           Identifier.of(MOD_ID, "plank_consistency"), modContainer.get(),
           Text.translatable("pack.natures_spirit.plank_consistency"),
@@ -118,6 +130,9 @@ public class NatureSpirit implements ModInitializer {
     NSWoods.registerWoods();
     NSColoredBlocks.registerColoredBlocks();
     NSMiscBlocks.registerMiscBlocks();
+    if (FabricLoader.getInstance().getModContainer("arts_and_crafts").isPresent()) {
+      NSArtsAndCraftsCompat.registerBlocks();
+    }
     NSEvents.registerEvents();
     NSWorldGen.registerWorldGen();
     NSItemGroups.registerItemGroup();

@@ -1,11 +1,11 @@
-// 1.21.1	2025-02-15T18:53:15.7113207	Nature's Spirit/Tags for minecraft:block
+// 1.21.1	2025-02-19T21:06:42.4656023	Nature's Spirit/Tags for minecraft:block
 b3b93326994df8fbe44f2aa475604193bf32a5c5 data\minecraft\tags\block\dirt.json
 0c79637aa00eb227f04b461170cade15b2029b2b data\minecraft\tags\block\wooden_slabs.json
 05d734b14f0a5313b568c92ccec7eea3fc8185c6 data\minecraft\tags\block\saplings.json
 9c7dd269774e126d910b10a80b2cdccdf4f33e6a data\minecraft\tags\block\small_flowers.json
 6823a8ea1ab6e9f17cea01479ef1de1f6654a3f9 data\natures_spirit\tags\block\ghaf_logs.json
-eab68402a4e7fcd50981c02001ffd83dae4d4c49 data\natures_spirit\tags\block\joshua_logs.json
 047d3ed58eeb2ee86bc6af0ba8330d950eca2fb8 data\minecraft\tags\block\overworld_natural_logs.json
+eab68402a4e7fcd50981c02001ffd83dae4d4c49 data\natures_spirit\tags\block\joshua_logs.json
 8dc79de1e40f47a48dbff42f7a9b2873c07f5c97 data\minecraft\tags\block\lapis_ores.json
 7f685115a15f4ef8ba0f071f21d2fcebc3db0082 data\minecraft\tags\block\mineable\hoe.json
 2477e8dede7e1bea56af32f789aad77015ae1fcc data\natures_spirit\tags\block\stripped_logs.json

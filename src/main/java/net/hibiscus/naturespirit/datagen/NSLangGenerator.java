@@ -324,6 +324,10 @@ class NSLangGenerator extends FabricLanguageProvider {
       generateColoredTranslations(color + "_chalk_slab", translationBuilder);
       generateColoredTranslations(color + "_chalk_stairs", translationBuilder);
     }
+    generateColoredTranslations("bleached_chalk", translationBuilder);
+    generateColoredTranslations("bleached_chalk_slab", translationBuilder);
+    generateColoredTranslations("bleached_chalk_stairs", translationBuilder);
+
     generateArchExTranslations("pink_sandstone", translationBuilder);
     generateArchExTranslations("smooth_pink_sandstone", translationBuilder);
     generateArchExTranslations("travertine", translationBuilder);
