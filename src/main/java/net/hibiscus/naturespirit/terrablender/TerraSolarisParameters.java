@@ -7,13 +7,14 @@ import net.minecraft.registry.RegistryKey;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.BiomeKeys;
 import net.minecraft.world.biome.source.util.MultiNoiseUtil;
+import net.minecraft.world.biome.source.util.VanillaBiomeParameters;
 
 import java.util.function.Consumer;
 
 import static net.hibiscus.naturespirit.NatureSpirit.CONFIG;
 
 
-public class TerraSolarisParameters {
+public class TerraSolarisParameters extends VanillaBiomeParameters {
 
   private final MultiNoiseUtil.ParameterRange defaultParameter = MultiNoiseUtil.ParameterRange.of(-1.0F, 1.0F);
 
@@ -848,36 +849,6 @@ public class TerraSolarisParameters {
 
   }
 
-  private void writeCaveBiomes(Consumer<Pair<MultiNoiseUtil.NoiseHypercube, RegistryKey<Biome>>> parameters) {
-    this.writeCaveBiomeParameters(parameters,
-        this.defaultParameter,
-        this.defaultParameter,
-        MultiNoiseUtil.ParameterRange.of(0.8F, 1.0F),
-        this.defaultParameter,
-        this.defaultParameter,
-        0.0F,
-        BiomeKeys.DRIPSTONE_CAVES
-    );
-    this.writeCaveBiomeParameters(parameters,
-        this.defaultParameter,
-        MultiNoiseUtil.ParameterRange.of(0.7F, 1.0F),
-        this.defaultParameter,
-        this.defaultParameter,
-        this.defaultParameter,
-        0.0F,
-        BiomeKeys.LUSH_CAVES
-    );
-    this.writeDeepDarkParameters(parameters,
-        this.defaultParameter,
-        this.defaultParameter,
-        this.defaultParameter,
-        MultiNoiseUtil.ParameterRange.combine(this.erosionParameters[0], this.erosionParameters[1]),
-        this.defaultParameter,
-        0.0F,
-        BiomeKeys.DEEP_DARK
-    );
-  }
-
   private RegistryKey<Biome> getRegularBiome(int temperature, int humidity, MultiNoiseUtil.ParameterRange weirdness) {
     if (weirdness.max() < 0L) {
       return this.commonBiomes[temperature][humidity];
@@ -1020,28 +991,6 @@ public class TerraSolarisParameters {
     ));
     parameters.accept(Pair.of(
         MultiNoiseUtil.createNoiseHypercube(temperature, humidity, continentalness, erosion, MultiNoiseUtil.ParameterRange.of(1.0F), weirdness, offset),
-        biome
-    ));
-  }
-
-  private void writeCaveBiomeParameters(Consumer<Pair<MultiNoiseUtil.NoiseHypercube, RegistryKey<Biome>>> parameters, MultiNoiseUtil.ParameterRange temperature,
-      MultiNoiseUtil.ParameterRange humidity, MultiNoiseUtil.ParameterRange continentalness, MultiNoiseUtil.ParameterRange erosion, MultiNoiseUtil.ParameterRange weirdness,
-      float offset, RegistryKey<Biome> biome) {
-    parameters.accept(Pair.of(MultiNoiseUtil.createNoiseHypercube(
-        temperature,
-        humidity,
-        continentalness,
-        erosion,
-        MultiNoiseUtil.ParameterRange.of(0.2F, 0.9F),
-        weirdness,
-        offset
-    ), biome));
-  }
-
-  private void writeDeepDarkParameters(Consumer<Pair<MultiNoiseUtil.NoiseHypercube, RegistryKey<Biome>>> parameters, MultiNoiseUtil.ParameterRange temperature,
-      MultiNoiseUtil.ParameterRange humidity, MultiNoiseUtil.ParameterRange continentalness, MultiNoiseUtil.ParameterRange erosion, MultiNoiseUtil.ParameterRange weirdness,
-      float offset, RegistryKey<Biome> biome) {
-    parameters.accept(Pair.of(MultiNoiseUtil.createNoiseHypercube(temperature, humidity, continentalness, erosion, MultiNoiseUtil.ParameterRange.of(1.1F), weirdness, offset),
         biome
     ));
   }

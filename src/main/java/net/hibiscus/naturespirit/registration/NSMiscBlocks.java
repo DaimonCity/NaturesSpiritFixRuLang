@@ -449,7 +449,7 @@ public class NSMiscBlocks {
 
   public static final Item CHEESE_BUCKET = registerItem("cheese_bucket", new PowderSnowBucketItem(CHEESE_BLOCK, SoundEvents.ITEM_BUCKET_EMPTY, (new Item.Settings()).maxCount(1).recipeRemainder(Items.BUCKET)), Items.MILK_BUCKET, ItemGroups.FOOD_AND_DRINK);
 
-  public static final Item CHEESE_ARROW = CONFIG.cheese_arrow ? registerItem("cheese_arrow", new CheeseArrowItem(new Item.Settings()), Items.SPECTRAL_ARROW, ItemGroups.COMBAT) : null;
+  public static final Item CHEESE_ARROW =  registerItem("cheese_arrow", new CheeseArrowItem(new Item.Settings()), Items.SPECTRAL_ARROW, ItemGroups.COMBAT);
 
   public static final Block MILK_CAULDRON = registerBlockWithoutTab("milk_cauldron", new MilkCauldronBlock(AbstractBlock.Settings.copy(Blocks.CAULDRON).dropsLike(Blocks.CAULDRON)));
 

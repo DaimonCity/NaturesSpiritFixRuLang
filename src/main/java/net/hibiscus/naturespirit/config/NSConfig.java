@@ -13,7 +13,6 @@ public class NSConfig extends Config {
   public boolean calcite_generator;
   public boolean deepslate_generator;
   public boolean creative_tab;
-  public boolean cheese_arrow;
   public boolean sugi_and_stratified_pillars;
 
   public boolean vanilla_trees_toggle;
@@ -147,7 +146,6 @@ public class NSConfig extends Config {
     calcite_generator = add("misc.calcite_generator", true, "Calcite clusters from coral feature");
     deepslate_generator = add("misc.deepslate_generator", true, "Toggle the Deepslate Generator");
     creative_tab = add("misc.creative_tab", true, "Toggle the additional creative inventory tab");
-    cheese_arrow = add("misc.cheese_arrow", true, "Toggle the cheese arrow feature");
     sugi_and_stratified_pillars = add("misc.sugi_and_stratified_pillars", true, "Toggle the Pillar Generation (turn off for lower end devices)");
 
     vanilla_trees_toggle = add("datapacks.vanilla_trees_toggle", false, "");

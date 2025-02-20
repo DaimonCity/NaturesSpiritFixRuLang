@@ -3,3 +3,5 @@ accessWidener v2 named
 # Boat Types
 accessible field net/minecraft/entity/vehicle/BoatEntity$Type baseBlock Lnet/minecraft/block/Block;
 mutable field net/minecraft/entity/vehicle/BoatEntity$Type baseBlock Lnet/minecraft/block/Block;
+
+extendable method net/minecraft/world/biome/source/util/VanillaBiomeParameters writeCaveBiomes (Ljava/util/function/Consumer;)V
