@@ -4,3 +4,5 @@
 
 🛠️ **Requirements**:![](https://cdn.discordapp.com/attachments/995378780724006982/1145967316916510810/Fabric.png)
 ![](https://cdn.discordapp.com/attachments/995378780724006982/1145967813333352508/1.20.1.png)![](https://cdn.discordapp.com/attachments/995378780724006982/1145966435068284978/Terrablender.png)
+
+Forge Version: https://github.com/Team-Hibiscus/NatureSpiritForge
