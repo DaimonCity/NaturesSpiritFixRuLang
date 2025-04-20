@@ -127,6 +127,7 @@ class NSBlockLootTableProvider extends FabricBlockLootTableProvider {
       addDrop(stoneSet.getBricksWall());
       addDrop(stoneSet.getPolished());
       addDrop(stoneSet.getPolishedStairs());
+      addDrop(stoneSet.getChiseled());
       this.addDrop(stoneSet.getPolishedSlab(), this::slabDrops);
       addDrop(stoneSet.getPolishedWall());
     }

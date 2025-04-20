@@ -1,76 +1,146 @@
 package net.hibiscus.naturespirit;
 
 import net.fabricmc.api.ModInitializer;
-import net.fabricmc.fabric.api.particle.v1.FabricParticleTypes;
-import net.fabricmc.fabric.api.registry.CompostingChanceRegistry;
-import net.fabricmc.fabric.api.registry.FabricBrewingRecipeRegistry;
-import net.hibiscus.naturespirit.datagen.HibiscusBiomes;
-import net.hibiscus.naturespirit.entity.HibiscusBoatEntity;
-import net.hibiscus.naturespirit.items.HibiscusBoatDispensorBehavior;
-import net.hibiscus.naturespirit.items.HibiscusVinegarDispenserBehavior;
+import net.fabricmc.fabric.api.event.registry.DynamicRegistries;
+import net.fabricmc.fabric.api.resource.ResourceManagerHelper;
+import net.fabricmc.fabric.api.resource.ResourcePackActivationType;
+import net.fabricmc.loader.api.FabricLoader;
+import net.fabricmc.loader.api.ModContainer;
+import net.hibiscus.naturespirit.blocks.block_entities.PizzaToppingVariant;
+import net.hibiscus.naturespirit.config.NSConfig;
 import net.hibiscus.naturespirit.mixin.StatsTypeAccessor;
-import net.hibiscus.naturespirit.registration.HibiscusBlocksAndItems;
-import net.hibiscus.naturespirit.registration.HibiscusEntityTypes;
-import net.hibiscus.naturespirit.registration.HibiscusItemGroups;
-import net.hibiscus.naturespirit.registration.HibiscusSounds;
-import net.hibiscus.naturespirit.registration.block_registration.HibiscusWoods;
-import net.hibiscus.naturespirit.util.HibiscusCauldronBehavior;
-import net.hibiscus.naturespirit.util.HibiscusEvents;
-import net.hibiscus.naturespirit.util.HibiscusVillagers;
-import net.hibiscus.naturespirit.util.HibiscusWorldGen;
+import net.hibiscus.naturespirit.registration.*;
+import net.hibiscus.naturespirit.registration.compat.NSArtsAndCraftsCompat;
+import net.hibiscus.naturespirit.util.NSCauldronBehavior;
+import net.hibiscus.naturespirit.util.NSEvents;
+import net.hibiscus.naturespirit.util.NSVillagers;
 import net.minecraft.core.Registry;
-import net.minecraft.core.particles.SimpleParticleType;
 import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.network.chat.Component;
+import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.stats.StatFormatter;
 import net.minecraft.world.entity.animal.CatVariant;
-import net.minecraft.world.item.Items;
-import net.minecraft.world.item.alchemy.PotionBrewing;
-import net.minecraft.world.level.block.DispenserBlock;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.util.Optional;
+
 public class NatureSpirit implements ModInitializer {
 
-   public static final String MOD_ID = "natures_spirit";
-   public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
-   public static final ResourceLocation EAT_PIZZA_SLICE = StatsTypeAccessor.registerNew("eat_pizza_slice", StatFormatter.DEFAULT);
-   public static final ResourceLocation EAT_CHEESE = StatsTypeAccessor.registerNew("eat_cheese", StatFormatter.DEFAULT);
-   public static final SimpleParticleType RED_MAPLE_LEAVES_PARTICLE = FabricParticleTypes.simple(false);
-   public static final SimpleParticleType ORANGE_MAPLE_LEAVES_PARTICLE = FabricParticleTypes.simple(false);
-   public static final SimpleParticleType YELLOW_MAPLE_LEAVES_PARTICLE = FabricParticleTypes.simple(false);
-   public static final SimpleParticleType MILK_PARTICLE = FabricParticleTypes.simple(false);
-   public static final SimpleParticleType CALCITE_BUBBLE_PARTICLE = FabricParticleTypes.simple(false);
+  public static final String MOD_ID = "natures_spirit";
+  public static final Logger LOGGER = LoggerFactory.getLogger("Nature's Spirit");
+  public static final ResourceLocation EAT_PIZZA_SLICE = StatsTypeAccessor.registerNew("eat_pizza_slice", StatFormatter.DEFAULT);
+  public static final ResourceLocation EAT_CHEESE = StatsTypeAccessor.registerNew("eat_cheese", StatFormatter.DEFAULT);
+  public static final ResourceKey<Registry<PizzaToppingVariant>> PIZZA_TOPPING_VARIANT = ResourceKey.createRegistryKey(ResourceLocation.fromNamespaceAndPath(MOD_ID, "pizza_topping_variant"));
+  public static final NSConfig CONFIG = new NSConfig(FabricLoader.getInstance().getConfigDir().resolve(MOD_ID + ".toml"));
 
-   @Override public void onInitialize() {
+  @Override
+  public void onInitialize() {
+    Optional<ModContainer> modContainer = FabricLoader.getInstance().getModContainer(MOD_ID);
 
-      Registry.register(BuiltInRegistries.PARTICLE_TYPE, new ResourceLocation(MOD_ID, "red_maple_leaves"), RED_MAPLE_LEAVES_PARTICLE);
-      Registry.register(BuiltInRegistries.PARTICLE_TYPE, new ResourceLocation(MOD_ID, "orange_maple_leaves"), ORANGE_MAPLE_LEAVES_PARTICLE);
-      Registry.register(BuiltInRegistries.PARTICLE_TYPE, new ResourceLocation(MOD_ID, "yellow_maple_leaves"), YELLOW_MAPLE_LEAVES_PARTICLE);
-      Registry.register(BuiltInRegistries.PARTICLE_TYPE, new ResourceLocation(MOD_ID, "milk"), MILK_PARTICLE);
-      Registry.register(BuiltInRegistries.PARTICLE_TYPE, new ResourceLocation(MOD_ID, "calcite_bubble"), CALCITE_BUBBLE_PARTICLE);
-      HibiscusVillagers.registerVillagers();
-      HibiscusBiomes.registerBiomes();
-      HibiscusWoods.registerWoods();
-      HibiscusBlocksAndItems.registerHibiscusBlocks();
-      HibiscusEvents.registerEvents();
-      HibiscusWorldGen.registerWorldGen();
-      HibiscusItemGroups.registerItemGroup();
-      HibiscusEntityTypes.registerEntityTypes();
-      HibiscusSounds.registerSounds();
-      HibiscusCauldronBehavior.registerBehavior();
-      PotionBrewing.addContainerRecipe(Items.POTION, Items.SWEET_BERRIES, HibiscusBlocksAndItems.VINEGAR_BOTTLE);
+    if (modContainer.isPresent()) {
+      ResourceManagerHelper.registerBuiltinResourcePack(
+          ResourceLocation.fromNamespaceAndPath(MOD_ID, "modified_vanilla_trees"), modContainer.get(),
+          Component.translatable("pack.natures_spirit.modified_vanilla_trees"),
+          CONFIG.vanilla_trees_toggle ? ResourcePackActivationType.DEFAULT_ENABLED : ResourcePackActivationType.NORMAL
+      );
+      ResourceManagerHelper.registerBuiltinResourcePack(
+          ResourceLocation.fromNamespaceAndPath(MOD_ID, "modified_flower_forest"), modContainer.get(),
+          Component.translatable("pack.natures_spirit.modified_flower_forest"),
+          CONFIG.flower_forest_toggle ? ResourcePackActivationType.DEFAULT_ENABLED : ResourcePackActivationType.NORMAL
+      );
+      ResourceManagerHelper.registerBuiltinResourcePack(
+          ResourceLocation.fromNamespaceAndPath(MOD_ID, "modified_birch_forest"), modContainer.get(),
+          Component.translatable("pack.natures_spirit.modified_birch_forest"),
+          CONFIG.birch_forest_toggle ? ResourcePackActivationType.DEFAULT_ENABLED : ResourcePackActivationType.NORMAL
+      );
+      ResourceManagerHelper.registerBuiltinResourcePack(
+          ResourceLocation.fromNamespaceAndPath(MOD_ID, "modified_jungle"), modContainer.get(),
+          Component.translatable("pack.natures_spirit.modified_jungle"),
+          CONFIG.jungle_toggle ? ResourcePackActivationType.DEFAULT_ENABLED : ResourcePackActivationType.NORMAL
+      );
+      ResourceManagerHelper.registerBuiltinResourcePack(
+          ResourceLocation.fromNamespaceAndPath(MOD_ID, "modified_swamp"), modContainer.get(),
+          Component.translatable("pack.natures_spirit.modified_swamp"),
+          CONFIG.swamp_toggle ? ResourcePackActivationType.DEFAULT_ENABLED : ResourcePackActivationType.NORMAL
+      );
+      ResourceManagerHelper.registerBuiltinResourcePack(
+          ResourceLocation.fromNamespaceAndPath(MOD_ID, "modified_desert"), modContainer.get(),
+          Component.translatable("pack.natures_spirit.modified_desert"),
+          CONFIG.desert_toggle ? ResourcePackActivationType.DEFAULT_ENABLED : ResourcePackActivationType.NORMAL
+      );
+      ResourceManagerHelper.registerBuiltinResourcePack(
+          ResourceLocation.fromNamespaceAndPath(MOD_ID, "modified_badlands"), modContainer.get(),
+          Component.translatable("pack.natures_spirit.modified_badlands"),
+          CONFIG.badlands_toggle ? ResourcePackActivationType.DEFAULT_ENABLED : ResourcePackActivationType.NORMAL
+      );
+      ResourceManagerHelper.registerBuiltinResourcePack(
+          ResourceLocation.fromNamespaceAndPath(MOD_ID, "modified_mountain_biomes"), modContainer.get(),
+          Component.translatable("pack.natures_spirit.modified_mountain_biomes"),
+          CONFIG.mountain_biomes_toggle ? ResourcePackActivationType.DEFAULT_ENABLED : ResourcePackActivationType.NORMAL
+      );
+      ResourceManagerHelper.registerBuiltinResourcePack(
+          ResourceLocation.fromNamespaceAndPath(MOD_ID, "modified_savannas"), modContainer.get(),
+          Component.translatable("pack.natures_spirit.modified_savannas"),
+          CONFIG.savanna_toggle ? ResourcePackActivationType.DEFAULT_ENABLED : ResourcePackActivationType.NORMAL
+      );
+      ResourceManagerHelper.registerBuiltinResourcePack(
+          ResourceLocation.fromNamespaceAndPath(MOD_ID, "modified_dark_forest"), modContainer.get(),
+          Component.translatable("pack.natures_spirit.modified_dark_forest"),
+          CONFIG.dark_forest_toggle ? ResourcePackActivationType.DEFAULT_ENABLED : ResourcePackActivationType.NORMAL
+      );
+      ResourceManagerHelper.registerBuiltinResourcePack(
+          ResourceLocation.fromNamespaceAndPath(MOD_ID, "modified_windswept_hills"), modContainer.get(),
+          Component.translatable("pack.natures_spirit.modified_windswept_hills"),
+          CONFIG.windswept_hills_toggle ? ResourcePackActivationType.DEFAULT_ENABLED : ResourcePackActivationType.NORMAL
+      );
 
-      CompostingChanceRegistry.INSTANCE.add(HibiscusBlocksAndItems.DESERT_TURNIP_BLOCK.asItem(), 0.5F);
-      CompostingChanceRegistry.INSTANCE.add(HibiscusBlocksAndItems.DESERT_TURNIP_ROOT_BLOCK.asItem(), 0.4F);
 
-      DispenserBlock.registerBehavior(HibiscusBlocksAndItems.VINEGAR_BOTTLE, new HibiscusVinegarDispenserBehavior());
-
-      for(HibiscusBoatEntity.HibiscusBoat boat : HibiscusBoatEntity.HibiscusBoat.values()) {
-         DispenserBlock.registerBehavior(boat.boat(), new HibiscusBoatDispensorBehavior(boat, false));
-         DispenserBlock.registerBehavior(boat.chestBoat(), new HibiscusBoatDispensorBehavior(boat, true));
+      if (FabricLoader.getInstance().getModContainer("arts_and_crafts").isPresent()) {
+        ResourceManagerHelper.registerBuiltinResourcePack(
+                ResourceLocation.fromNamespaceAndPath(MOD_ID, "arts_and_crafts_res"), modContainer.get(),
+                ResourcePackActivationType.ALWAYS_ENABLED
+        );
+        ResourceManagerHelper.registerBuiltinResourcePack(
+                ResourceLocation.fromNamespaceAndPath(MOD_ID, "arts_and_crafts_dat"), modContainer.get(),
+                ResourcePackActivationType.ALWAYS_ENABLED
+        );
       }
 
-      Registry.register(BuiltInRegistries.CAT_VARIANT, "trans", new CatVariant(new ResourceLocation(MOD_ID, "textures/entity/cat/trans" + ".png")));
-   }
+      ResourceManagerHelper.registerBuiltinResourcePack(
+          ResourceLocation.fromNamespaceAndPath(MOD_ID, "plank_consistency"), modContainer.get(),
+          Component.translatable("pack.natures_spirit.plank_consistency"),
+          ResourcePackActivationType.NORMAL
+      );
+
+      ResourceManagerHelper.registerBuiltinResourcePack(
+          ResourceLocation.fromNamespaceAndPath(MOD_ID, "emissive_ores_compatibility"), modContainer.get(),
+          Component.translatable("pack.natures_spirit.emissive_ores_compatibility"),
+          ResourcePackActivationType.NORMAL
+      );
+    }
+
+    NSSounds.registerSounds();
+    NSDataComponents.registerDataComponents();
+    NSEntityTypes.registerEntityTypes();
+    NSVillagers.registerVillagers();
+    NSParticleTypes.registerParticleTypes();
+    NSBiomes.registerBiomes();
+    NSWoods.registerWoods();
+    NSColoredBlocks.registerColoredBlocks();
+    NSMiscBlocks.registerMiscBlocks();
+    if (FabricLoader.getInstance().getModContainer("arts_and_crafts").isPresent()) {
+      NSArtsAndCraftsCompat.registerBlocks();
+    }
+    NSEvents.registerEvents();
+    NSWorldGen.registerWorldGen();
+    NSItemGroups.registerItemGroup();
+    NSCriteria.registerCriteria();
+    NSCauldronBehavior.registerBehavior();
+    DynamicRegistries.registerSynced(PIZZA_TOPPING_VARIANT, PizzaToppingVariant.CODEC);
+
+    Registry.register(BuiltInRegistries.CAT_VARIANT, "trans", new CatVariant(ResourceLocation.fromNamespaceAndPath(MOD_ID, "textures/entity/cat/trans" + ".png")));
+
+  }
 }

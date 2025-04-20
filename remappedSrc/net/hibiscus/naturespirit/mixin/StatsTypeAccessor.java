@@ -6,8 +6,11 @@ import net.minecraft.stats.Stats;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.gen.Invoker;
 
-@Mixin(Stats.class) public interface StatsTypeAccessor {
-   @Invoker("register") static ResourceLocation registerNew(String id, StatFormatter formatter) {
-      throw new AssertionError();
-   }
+@Mixin(Stats.class)
+public interface StatsTypeAccessor {
+
+  @Invoker("register")
+  static ResourceLocation registerNew(String id, StatFormatter formatter) {
+    throw new AssertionError();
+  }
 }

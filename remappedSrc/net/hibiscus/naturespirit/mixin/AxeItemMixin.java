@@ -11,17 +11,20 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
-@Debug(export = true) @Mixin(AxeItem.class) public class AxeItemMixin {
+@Debug(export = true)
+@Mixin(AxeItem.class)
+public class AxeItemMixin {
 
-   @Inject(method = "useOnBlock", at = @At("HEAD")) private void isValid(UseOnContext context, CallbackInfoReturnable <InteractionResult> cir) {
-      InteractionResult result = UseBlockCallback.EVENT.invoker().interact(context.getPlayer(),
-              context.getLevel(),
-              context.getHand(),
-              new BlockHitResult(context.getClickLocation(), context.getClickedFace(), context.getClickedPos(), context.isInside())
-      );
+  @Inject(method = "useOnBlock", at = @At("HEAD"))
+  private void isValid(UseOnContext context, CallbackInfoReturnable<InteractionResult> cir) {
+    InteractionResult result = UseBlockCallback.EVENT.invoker().interact(context.getPlayer(),
+        context.getLevel(),
+        context.getHand(),
+        new BlockHitResult(context.getClickLocation(), context.getClickedFace(), context.getClickedPos(), context.isInside())
+    );
 
-      if(result == InteractionResult.SUCCESS) {
-         cir.cancel();
-      }
-   }
+    if (result == InteractionResult.SUCCESS) {
+      cir.cancel();
+    }
+  }
 }

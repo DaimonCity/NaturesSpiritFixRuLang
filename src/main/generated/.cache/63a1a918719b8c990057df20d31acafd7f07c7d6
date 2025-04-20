@@ -1,4 +1,4 @@
-// 1.21.1	2025-02-19T21:06:42.4605812	Nature's Spirit/Block Loot Tables
+// 1.21.1	2025-04-20T14:27:41.4341965	Nature's Spirit/Block Loot Tables
 ef9f4f956dff7f989e027863cd6b7dc9df84ae03 data\natures_spirit\loot_table\blocks\gray_polypore.json
 cacd863c91524b8e19d2b24083e7429937bf512f data\natures_spirit\loot_table\blocks\saxaul_sign.json
 af4b1642e48cb94a8a4e0f822d17367ce34bc726 data\natures_spirit\loot_table\blocks\potted_oat_grass.json
@@ -302,6 +302,7 @@ f36a3e63382e3340f6c28bad0701122daed019ef data\natures_spirit\loot_table\blocks\p
 22a39dd279f94f10b3629e4d358f3152851ce8fd data\natures_spirit\loot_table\blocks\maple_planks.json
 057053cf56ba3b3fa453d94b3bf9e475f64ea6bd data\natures_spirit\loot_table\blocks\light_blue_kaolin_brick_stairs.json
 43f715b058f2a2652a18984e815f4c1d3868ff40 data\natures_spirit\loot_table\blocks\potted_cedar_sapling.json
+4d2bdbbc9e2f421e341cf6286fdf99e77ade78c2 data\natures_spirit\loot_table\blocks\chiseled_chert.json
 e42296ae5ba4bec951f16ab483c75c6aeccb06a4 data\natures_spirit\loot_table\blocks\stripped_aspen_wood.json
 3a5013e3329bf1efd9304c5278310372731d7cec data\natures_spirit\loot_table\blocks\magenta_chalk.json
 c06eb1a856a63b0567d75991c077688af92c7336 data\natures_spirit\loot_table\blocks\maple_slab.json
@@ -531,6 +532,7 @@ d853fbe61d15635abec8c6b4e53af9af7d0e4344 data\natures_spirit\loot_table\blocks\j
 5fc5f13c42316b5f0bc30b554818ab24ec883990 data\natures_spirit\loot_table\blocks\travertine.json
 b1ec1a30ce77be92fec5f2f0781bd4acd31a454a data\natures_spirit\loot_table\blocks\green_chalk.json
 2c77b8c120202793a349d4f29a88d98fa9fc4e29 data\natures_spirit\loot_table\blocks\mahogany_planks.json
+4198bb3200bb9bdd86b796a852bf67df9f938189 data\natures_spirit\loot_table\blocks\chiseled_travertine.json
 ea550a62077c7e5c78c108a0e75b2fb99142cc51 data\natures_spirit\loot_table\blocks\sugi_sapling.json
 18b965a67d32ad149ecce35ccd975cdfc0571d17 data\natures_spirit\loot_table\blocks\magenta_kaolin_brick_slab.json
 8fee3463bbd5fe503de606baf603d4286277f12c data\natures_spirit\loot_table\blocks\wisteria_door.json

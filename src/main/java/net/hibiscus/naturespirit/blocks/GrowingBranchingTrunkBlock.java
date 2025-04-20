@@ -17,6 +17,7 @@ import net.minecraft.sound.SoundEvents;
 import net.minecraft.state.StateManager;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
+import net.minecraft.util.ItemActionResult;
 import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
@@ -64,11 +65,9 @@ public class GrowingBranchingTrunkBlock extends BranchingTrunkBlock implements F
   }
 
   @Override
-  public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, BlockHitResult hit) {
+  public ItemActionResult onUseWithItem(ItemStack itemStack, BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
 
-    Hand hand = player.getActiveHand();
-    if (player.getStackInHand(hand).getItem() == Items.SHEARS && !state.get(SHEARED)) {
-      ItemStack itemStack = player.getStackInHand(hand);
+    if (itemStack.isOf(Items.SHEARS) && !state.get(SHEARED)) {
       if (player instanceof ServerPlayerEntity) {
         Criteria.ITEM_USED_ON_BLOCK.trigger((ServerPlayerEntity) player, pos, itemStack);
       }
@@ -79,9 +78,9 @@ public class GrowingBranchingTrunkBlock extends BranchingTrunkBlock implements F
       world.emitGameEvent(GameEvent.BLOCK_CHANGE, pos, GameEvent.Emitter.of(player, blockState2));
       player.getStackInHand(hand).damage(1, player, LivingEntity.getSlotForHand(player.getActiveHand()));
 
-      return ActionResult.success(world.isClient);
+      return ItemActionResult.success(world.isClient);
     }
-    return super.onUse(state, world, pos, player, hit);
+    return super.onUseWithItem(itemStack, state, world, pos, player, hand, hit);
   }
 
   @Override

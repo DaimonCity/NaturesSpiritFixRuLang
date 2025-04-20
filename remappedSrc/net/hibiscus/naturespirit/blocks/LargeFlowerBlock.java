@@ -2,24 +2,25 @@ package net.hibiscus.naturespirit.blocks;
 
 
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.Holder;
 import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.FlowerBlock;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.phys.Vec3;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 
 public class LargeFlowerBlock extends FlowerBlock {
-   protected static final VoxelShape SHAPE = Block.box(4.0D, 0.0D, 4.0D, 12.0D, 16.0D, 12.0D);
 
-   public LargeFlowerBlock(MobEffect mobEffect, int i, Properties properties) {
-      super(mobEffect, i, properties);
-   }
+  protected static final VoxelShape SHAPE = Block.box(2D, 0D, 2D, 14D, 16D, 14D);
 
-   public VoxelShape getShape(BlockState state, BlockGetter level, BlockPos pos, CollisionContext context) {
-      Vec3 vec3 = state.getOffset(level, pos);
-      return SHAPE.move(vec3.x, vec3.y, vec3.z);
-   }
+  @Override
+  public VoxelShape getShape(BlockState state, BlockGetter world, BlockPos pos, CollisionContext context) {
+    return SHAPE;
+  }
+
+  public LargeFlowerBlock(Holder<MobEffect> mobEffect, int i, Properties properties) {
+    super(mobEffect, i, properties);
+  }
 }
