@@ -747,7 +747,7 @@ public class TerraFeraxParameters extends VanillaBiomeParameters {
   }
 
   private RegistryKey<Biome> getStratifiedDesertOrRegularBiome(int temperature, int humidity, MultiNoiseUtil.ParameterRange weirdness) {
-    return temperature == 4 ? (CONFIG.has_lively_dunes ? NSBiomes.STRATIFIED_DESERT : this.getBadlandsBiome(humidity, weirdness))
+    return temperature == 4 ? (CONFIG.has_stratified_desert ? NSBiomes.STRATIFIED_DESERT : this.getBadlandsBiome(humidity, weirdness))
         : this.getRegularBiome(temperature, humidity, weirdness);
   }
 
@@ -792,7 +792,7 @@ public class TerraFeraxParameters extends VanillaBiomeParameters {
     if (temperature <= 2) {
       return weirdness.max() < 0L ? BiomeKeys.JAGGED_PEAKS : BiomeKeys.FROZEN_PEAKS;
     } else {
-      return temperature == 3 ? BiomeKeys.STONY_PEAKS : (CONFIG.has_lively_dunes ? NSBiomes.STRATIFIED_DESERT : this.getBadlandsBiome(humidity, weirdness));
+      return temperature == 3 ? BiomeKeys.STONY_PEAKS : (CONFIG.has_stratified_desert ? NSBiomes.STRATIFIED_DESERT : this.getBadlandsBiome(humidity, weirdness));
     }
   }
 

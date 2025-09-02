@@ -781,7 +781,7 @@ public class TerraFlavaParameters extends VanillaBiomeParameters {
   }
 
   private RegistryKey<Biome> getWoodedDrylandsOrRegularBiome(int temperature, int humidity, MultiNoiseUtil.ParameterRange weirdness) {
-    return temperature == 4 ? NSBiomes.WOODED_DRYLANDS : this.getRegularBiome(temperature, humidity, weirdness);
+    return temperature == 4 && CONFIG.has_wooded_drylands ? NSBiomes.WOODED_DRYLANDS : this.getRegularBiome(temperature, humidity, weirdness);
   }
 
   private RegistryKey<Biome> getBadlandsBiome(int humidity, MultiNoiseUtil.ParameterRange weirdness) {
