@@ -41,11 +41,11 @@ public class NSBlockTagGenerator extends FabricTagProvider.BlockTagProvider {
       getOrCreateTagBuilder(BlockTags.LOGS_THAT_BURN).addTag(woodSet.getBlockLogsTag());
       if (woodSet.getWoodPreset() == WoodPreset.JOSHUA) {
         getOrCreateTagBuilder(woodSet.getBlockLogsTag()).add(woodSet.getStrippedBundle(), woodSet.getBundle());
-        getOrCreateTagBuilder(NSTags.Blocks.STRIPPED_LOGS).add(woodSet.getStrippedBundle());
+        getOrCreateTagBuilder(NSTags.Blocks.STRIPPED_WOOD).add(woodSet.getStrippedBundle());
       }
       if (woodSet.hasBark()) {
         getOrCreateTagBuilder(woodSet.getBlockLogsTag()).add(woodSet.getStrippedWood(), woodSet.getWood());
-        getOrCreateTagBuilder(NSTags.Blocks.STRIPPED_LOGS).add(woodSet.getStrippedWood());
+        getOrCreateTagBuilder(NSTags.Blocks.STRIPPED_WOOD).add(woodSet.getStrippedWood());
       }
       if (woodSet.hasMosaic()) {
         getOrCreateTagBuilder(BlockTags.SLABS).add(woodSet.getMosaicSlab());
@@ -326,5 +326,7 @@ public class NSBlockTagGenerator extends FabricTagProvider.BlockTagProvider {
     getOrCreateTagBuilder(BlockTags.SLABS).forceAddTag(NSTags.Blocks.CHALK_SLABS).forceAddTag(NSTags.Blocks.KAOLIN_SLABS).forceAddTag(NSTags.Blocks.KAOLIN_SLABS)
         .add(PINK_SANDSTONE_SLAB, SMOOTH_PINK_SANDSTONE_SLAB, CUT_PINK_SANDSTONE_SLAB);
     getOrCreateTagBuilder(BlockTags.WALLS).add(PINK_SANDSTONE_WALL);
+    getOrCreateTagBuilder(Blocks.STRIPPED_WOOD).add(STRIPPED_ALLUAUDIA_BUNDLE);
+    getOrCreateTagBuilder(Blocks.STRIPPED_LOGS).add(STRIPPED_ALLUAUDIA);
   }
 }
