@@ -307,7 +307,7 @@ public class TerraFeraxParameters extends VanillaBiomeParameters {
             this.erosionParameters[6],
             weirdness,
             0.0F,
-            CONFIG.has_lively_dunes ? registryKey2 : registryKey
+            CONFIG.has_stratified_desert ? registryKey2 : registryKey
         );
       }
     }
@@ -364,7 +364,7 @@ public class TerraFeraxParameters extends VanillaBiomeParameters {
             this.erosionParameters[3],
             weirdness,
             0.0F,
-            CONFIG.has_lively_dunes ? registryKey2 : registryKey
+            CONFIG.has_stratified_desert ? registryKey2 : registryKey
         );
         this.writeBiomeParameters(parameters,
             parameterRange,
@@ -373,7 +373,7 @@ public class TerraFeraxParameters extends VanillaBiomeParameters {
             this.erosionParameters[2],
             weirdness,
             0.0F,
-            CONFIG.has_lively_dunes ? registryKey2 : registryKey
+            CONFIG.has_stratified_desert ? registryKey2 : registryKey
         );
         this.writeBiomeParameters(parameters,
             parameterRange,
@@ -402,7 +402,7 @@ public class TerraFeraxParameters extends VanillaBiomeParameters {
             this.erosionParameters[5],
             weirdness,
             0.0F,
-            CONFIG.has_lively_dunes ? registryKey2 : registryKey6
+            CONFIG.has_stratified_desert ? registryKey2 : registryKey6
         );
         this.writeBiomeParameters(parameters,
             parameterRange,
@@ -483,7 +483,7 @@ public class TerraFeraxParameters extends VanillaBiomeParameters {
         this.writeBiomeParameters(parameters, parameterRange, parameterRange2, this.farInlandContinentalness, this.erosionParameters[1], weirdness, 0.0F,
             i == 0 ? registryKey9 : registryKey5);
         this.writeBiomeParameters(parameters, parameterRange, parameterRange2, this.nearInlandContinentalness, this.erosionParameters[2], weirdness, 0.0F,
-            CONFIG.has_lively_dunes ? registryKey2 : registryKey);
+            CONFIG.has_stratified_desert ? registryKey2 : registryKey);
         this.writeBiomeParameters(parameters, parameterRange, parameterRange2, this.midInlandContinentalness, this.erosionParameters[2], weirdness, 0.0F, registryKey2);
         this.writeBiomeParameters(parameters, parameterRange, parameterRange2, this.farInlandContinentalness, this.erosionParameters[2], weirdness, 0.0F, registryKey5);
         this.writeBiomeParameters(parameters,
@@ -493,7 +493,7 @@ public class TerraFeraxParameters extends VanillaBiomeParameters {
             this.erosionParameters[3],
             weirdness,
             0.0F,
-            CONFIG.has_lively_dunes ? registryKey2 : registryKey
+            CONFIG.has_stratified_desert ? registryKey2 : registryKey
         );
         this.writeBiomeParameters(parameters,
             parameterRange,
@@ -513,7 +513,7 @@ public class TerraFeraxParameters extends VanillaBiomeParameters {
               this.erosionParameters[4],
               weirdness,
               0.0F,
-              CONFIG.has_lively_dunes ? registryKey2 : registryKey
+              CONFIG.has_stratified_desert ? registryKey2 : registryKey
           );
         } else {
           this.writeBiomeParameters(parameters,
@@ -604,7 +604,7 @@ public class TerraFeraxParameters extends VanillaBiomeParameters {
             MultiNoiseUtil.ParameterRange.combine(this.erosionParameters[2], this.erosionParameters[3]),
             weirdness,
             0.0F,
-            CONFIG.has_lively_dunes ? registryKey2 : registryKey
+            CONFIG.has_stratified_desert ? registryKey2 : registryKey
         );
         this.writeBiomeParameters(parameters,
             parameterRange,
