@@ -1,14 +1,11 @@
 package net.hibiscus.naturespirit.terrablender;
 
 import net.hibiscus.naturespirit.NatureSpirit;
-import net.hibiscus.naturespirit.config.NSConfig;
 import net.hibiscus.naturespirit.world.NSSurfaceRules;
 import net.minecraft.util.Identifier;
 import terrablender.api.Regions;
 import terrablender.api.SurfaceRuleManager;
 import terrablender.api.TerraBlenderApi;
-
-import java.io.IOException;
 
 import static net.hibiscus.naturespirit.NatureSpirit.MOD_ID;
 

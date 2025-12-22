@@ -2,7 +2,6 @@ package net.hibiscus.naturespirit.mixin;
 
 import com.llamalad7.mixinextras.sugar.Local;
 import net.hibiscus.naturespirit.NatureSpirit;
-import net.hibiscus.naturespirit.config.NSConfig;
 import net.hibiscus.naturespirit.registration.NSBiomes;
 import net.hibiscus.naturespirit.registration.NSWorldGen;
 import net.minecraft.block.BlockState;

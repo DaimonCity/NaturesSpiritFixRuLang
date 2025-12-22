@@ -7,8 +7,18 @@ import net.minecraft.item.Item;
 import net.minecraft.registry.RegistryKeys;
 import net.minecraft.registry.tag.TagKey;
 import net.minecraft.util.Identifier;
+import net.minecraft.world.biome.Biome;
 
 public class NSTags {
+
+  public static class Biomes {
+
+    public static final TagKey<Biome> FORCE_ICE = createTag("force_ice");
+
+    private static TagKey<Biome> createTag(String name) {
+      return TagKey.of(RegistryKeys.BIOME, Identifier.of(NatureSpirit.MOD_ID, name));
+    }
+  }
 
   public static class Items {
 

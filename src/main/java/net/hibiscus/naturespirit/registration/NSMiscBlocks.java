@@ -9,7 +9,6 @@ import net.fabricmc.fabric.api.registry.StrippableBlockRegistry;
 import net.hibiscus.naturespirit.NatureSpirit;
 import net.hibiscus.naturespirit.blocks.*;
 import net.hibiscus.naturespirit.blocks.block_entities.PizzaBlockEntity;
-import net.hibiscus.naturespirit.config.NSConfig;
 import net.hibiscus.naturespirit.datagen.NSConfiguredFeatures;
 import net.hibiscus.naturespirit.items.AzollaItem;
 import net.hibiscus.naturespirit.items.CheeseArrowItem;
@@ -32,7 +31,6 @@ import net.minecraft.util.math.Direction;
 import net.minecraft.util.math.intprovider.ConstantIntProvider;
 import net.minecraft.util.math.intprovider.UniformIntProvider;
 
-import static net.hibiscus.naturespirit.NatureSpirit.CONFIG;
 import static net.hibiscus.naturespirit.NatureSpirit.MOD_ID;
 import static net.hibiscus.naturespirit.registration.NSRegistryHelper.*;
 

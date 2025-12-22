@@ -2,7 +2,6 @@ package net.hibiscus.naturespirit.registration;
 
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
 import net.hibiscus.naturespirit.NatureSpirit;
-import net.hibiscus.naturespirit.config.NSConfig;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
 import net.minecraft.registry.Registries;

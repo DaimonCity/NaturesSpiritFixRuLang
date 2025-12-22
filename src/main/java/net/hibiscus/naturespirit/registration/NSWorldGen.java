@@ -1,10 +1,9 @@
 package net.hibiscus.naturespirit.registration;
 
 import com.mojang.serialization.MapCodec;
-import net.hibiscus.naturespirit.world.carver.ReplaceableCaveCarver;
-import net.hibiscus.naturespirit.world.carver.ReplaceableCaveCarverConfig;
-import net.hibiscus.naturespirit.world.carver.ReplaceableRavineCarver;
-import net.hibiscus.naturespirit.world.carver.ReplaceableRavineCarverConfig;
+import net.fabricmc.fabric.api.biome.v1.BiomeModifications;
+import net.fabricmc.fabric.api.biome.v1.BiomeSelectors;
+import net.hibiscus.naturespirit.datagen.NSPlacedFeatures;
 import net.hibiscus.naturespirit.world.feature.HugeBrownMushroomFeature;
 import net.hibiscus.naturespirit.world.feature.HugeRedMushroomFeature;
 import net.hibiscus.naturespirit.world.feature.*;
@@ -17,6 +16,8 @@ import net.minecraft.registry.RegistryKey;
 import net.minecraft.registry.RegistryKeys;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.noise.DoublePerlinNoiseSampler;
+import net.minecraft.world.biome.BiomeKeys;
+import net.minecraft.world.gen.GenerationStep;
 import net.minecraft.world.gen.carver.Carver;
 import net.minecraft.world.gen.carver.CarverConfig;
 import net.minecraft.world.gen.feature.HugeMushroomFeatureConfig;
@@ -70,12 +71,6 @@ public class NSWorldGen {
   public static final FoliagePlacerType<CoconutFoliagePlacer> COCONUT_FOLIAGE_PLACER_TYPE = registerFoliagePlacer("coconut_foliage_placer", CoconutFoliagePlacer.CODEC);
   public static final FoliagePlacerType<BirchFoliagePlacer> BIRCH_FOLIAGE_PLACER_TYPE = registerFoliagePlacer("birch_foliage_placer", BirchFoliagePlacer.CODEC);
   public static final FoliagePlacerType<GroundedBushFoliagePlacer> GROUNDED_BUSH_PLACER_TYPE = registerFoliagePlacer("grounded_bush_foliage_placer", GroundedBushFoliagePlacer.CODEC);
-
-
-  public static final Carver<ReplaceableCaveCarverConfig> REPLACEABLE_CAVE_CARVER = registerCaveCarver("replaceable_cave",
-      new ReplaceableCaveCarver(ReplaceableCaveCarverConfig.CAVE_CODEC));
-  public static final Carver<ReplaceableRavineCarverConfig> REPLACEABLE_RAVINE_CARVER = registerCaveCarver("replaceable_canyon",
-      new ReplaceableRavineCarver(ReplaceableRavineCarverConfig.RAVINE_CODEC));
 
   public static final RegistryKey<DoublePerlinNoiseSampler.NoiseParameters> SUGI_PILLAR = RegistryKey.of(RegistryKeys.NOISE_PARAMETERS, Identifier.of(MOD_ID, "sugi_pillar"));
   public static final RegistryKey<DoublePerlinNoiseSampler.NoiseParameters> SUGI_PILLAR_ROOF = RegistryKey.of(RegistryKeys.NOISE_PARAMETERS,
@@ -150,12 +145,10 @@ public class NSWorldGen {
     return (TreeDecoratorType) Registry.register(Registries.TREE_DECORATOR_TYPE, Identifier.of(MOD_ID, id), new TreeDecoratorType(codec));
   }
 
-  private static <C extends CarverConfig, F extends Carver<C>> Carver<C> registerCaveCarver(String id, F carver) {
-    return Registry.register(Registries.CARVER, Identifier.of(MOD_ID, id), carver);
-  }
-
   public static void registerWorldGen() {
-//            BiomeModifications.addFeature(BiomeSelectors.includeByKey(BiomeKeys.SANDY), GenerationStep.Feature.VEGETAL_DECORATION, NSPlacedFeatures.ROOTED_DESERT_TURNIP);
+    BiomeModifications.addFeature(BiomeSelectors.includeByKey(BiomeKeys.DESERT), GenerationStep.Feature.VEGETAL_DECORATION, NSPlacedFeatures.PATCH_SCORCHED_GRASS_PLACED);
+    BiomeModifications.addFeature(BiomeSelectors.includeByKey(BiomeKeys.DESERT), GenerationStep.Feature.VEGETAL_DECORATION, NSPlacedFeatures.PATCH_TALL_SCORCHED_GRASS_PLACED);
+    BiomeModifications.addFeature(BiomeSelectors.includeByKey(BiomeKeys.DESERT), GenerationStep.Feature.VEGETAL_DECORATION, NSPlacedFeatures.ROOTED_DESERT_TURNIP);
   }
 
 }

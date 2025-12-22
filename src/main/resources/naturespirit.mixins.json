@@ -12,7 +12,8 @@
     "SurfaceBuilderMixin",
     "entity.boat.BoatDropsMixin",
     "entity.boat.BoatTypeMixin",
-    "entity.boat.ChestBoatDropsMixin"
+    "entity.boat.ChestBoatDropsMixin",
+    "BiomeMixin"
   ],
   "client": [
   ],

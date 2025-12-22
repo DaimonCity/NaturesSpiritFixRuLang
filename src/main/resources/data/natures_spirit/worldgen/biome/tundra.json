@@ -1,9 +1,9 @@
 {
   "carvers": {
     "air": [
-      "natures_spirit:replaceable_cave",
-      "natures_spirit:replaceable_cave_extra_underground",
-      "natures_spirit:replaceable_canyon"
+      "minecraft:cave",
+      "minecraft:cave_extra_underground",
+      "minecraft:canyon"
     ]
   },
   "has_precipitation": false,
@@ -96,7 +96,6 @@
       "minecraft:patch_sugar_cane"
     ],
     [
-      "natures_spirit:ice_fixer",
       "natures_spirit:snowy_grass_fixer"
     ]
   ],
@@ -194,5 +193,5 @@
     "water_ambient": [],
     "water_creature": []
   },
-  "temperature": 0.15
+  "temperature": 0.5
 }

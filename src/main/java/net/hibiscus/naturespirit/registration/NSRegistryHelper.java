@@ -3,7 +3,6 @@ package net.hibiscus.naturespirit.registration;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.fabricmc.fabric.api.registry.CompostingChanceRegistry;
 import net.hibiscus.naturespirit.NatureSpirit;
-import net.hibiscus.naturespirit.config.NSConfig;
 import net.hibiscus.naturespirit.registration.sets.FlowerSet;
 import net.hibiscus.naturespirit.registration.sets.StoneSet;
 import net.hibiscus.naturespirit.registration.sets.WoodSet;

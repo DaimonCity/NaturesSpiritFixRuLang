@@ -1,7 +1,6 @@
 package net.hibiscus.naturespirit.mixin;
 
 import net.hibiscus.naturespirit.NatureSpirit;
-import net.hibiscus.naturespirit.config.NSConfig;
 import net.minecraft.block.AnvilBlock;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;

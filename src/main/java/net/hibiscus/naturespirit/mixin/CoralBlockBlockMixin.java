@@ -1,7 +1,6 @@
 package net.hibiscus.naturespirit.mixin;
 
 import net.hibiscus.naturespirit.NatureSpirit;
-import net.hibiscus.naturespirit.config.NSConfig;
 import net.hibiscus.naturespirit.registration.NSMiscBlocks;
 import net.minecraft.block.*;
 import net.minecraft.fluid.Fluids;

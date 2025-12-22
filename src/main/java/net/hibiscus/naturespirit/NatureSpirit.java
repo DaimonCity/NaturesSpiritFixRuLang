@@ -66,11 +66,6 @@ public class NatureSpirit implements ModInitializer {
           CONFIG.swamp_toggle ? ResourcePackActivationType.DEFAULT_ENABLED : ResourcePackActivationType.NORMAL
       );
       ResourceManagerHelper.registerBuiltinResourcePack(
-          Identifier.of(MOD_ID, "modified_desert"), modContainer.get(),
-          Text.translatable("pack.natures_spirit.modified_desert"),
-          CONFIG.desert_toggle ? ResourcePackActivationType.DEFAULT_ENABLED : ResourcePackActivationType.NORMAL
-      );
-      ResourceManagerHelper.registerBuiltinResourcePack(
           Identifier.of(MOD_ID, "modified_badlands"), modContainer.get(),
           Text.translatable("pack.natures_spirit.modified_badlands"),
           CONFIG.badlands_toggle ? ResourcePackActivationType.DEFAULT_ENABLED : ResourcePackActivationType.NORMAL

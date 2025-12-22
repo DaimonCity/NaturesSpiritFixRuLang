@@ -10,7 +10,6 @@ import net.minecraft.util.math.VerticalSurfaceType;
 import net.minecraft.world.gen.YOffset;
 import net.minecraft.world.gen.noise.NoiseParametersKeys;
 import net.minecraft.world.gen.surfacebuilder.MaterialRules;
-import net.minecraft.world.gen.surfacebuilder.MaterialRules.*;
 
 import static net.minecraft.world.gen.surfacebuilder.MaterialRules.*;
 

@@ -20,7 +20,6 @@ public class NSConfig extends Config {
   public boolean flower_forest_toggle;
   public boolean jungle_toggle;
   public boolean swamp_toggle;
-  public boolean desert_toggle;
   public boolean badlands_toggle;
   public boolean mountain_biomes_toggle;
   public boolean savanna_toggle;
@@ -153,7 +152,6 @@ public class NSConfig extends Config {
     flower_forest_toggle = add("datapacks.flower_forest_toggle", true, "");
     jungle_toggle = add("datapacks.jungle_toggle", true, "");
     swamp_toggle = add("datapacks.swamp_toggle", true, "");
-    desert_toggle = add("datapacks.desert_toggle", true, "");
     badlands_toggle = add("datapacks.badlands_toggle", true, "");
     mountain_biomes_toggle = add("datapacks.mountain_biomes_toggle", true, "");
     savanna_toggle = add("datapacks.savanna_toggle", true, "");
