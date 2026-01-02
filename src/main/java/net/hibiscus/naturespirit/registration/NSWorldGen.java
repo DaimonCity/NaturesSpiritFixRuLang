@@ -4,6 +4,10 @@ import com.mojang.serialization.MapCodec;
 import net.fabricmc.fabric.api.biome.v1.BiomeModifications;
 import net.fabricmc.fabric.api.biome.v1.BiomeSelectors;
 import net.hibiscus.naturespirit.datagen.NSPlacedFeatures;
+import net.hibiscus.naturespirit.world.carver.ReplaceableCaveCarver;
+import net.hibiscus.naturespirit.world.carver.ReplaceableCaveCarverConfig;
+import net.hibiscus.naturespirit.world.carver.ReplaceableRavineCarver;
+import net.hibiscus.naturespirit.world.carver.ReplaceableRavineCarverConfig;
 import net.hibiscus.naturespirit.world.feature.HugeBrownMushroomFeature;
 import net.hibiscus.naturespirit.world.feature.HugeRedMushroomFeature;
 import net.hibiscus.naturespirit.world.feature.*;
@@ -20,6 +24,7 @@ import net.minecraft.world.biome.BiomeKeys;
 import net.minecraft.world.gen.GenerationStep;
 import net.minecraft.world.gen.carver.Carver;
 import net.minecraft.world.gen.carver.CarverConfig;
+import net.minecraft.world.gen.carver.CaveCarver;
 import net.minecraft.world.gen.feature.HugeMushroomFeatureConfig;
 import net.minecraft.world.gen.feature.*;
 import net.minecraft.world.gen.foliage.FoliagePlacer;
@@ -46,9 +51,8 @@ public class NSWorldGen {
   public static final TrunkPlacerType<MegaSugiTrunkPlacer> MEGA_SUGI_TRUNK_PLACER = registerTrunkPlacer("mega_sugi_trunk_placer", MegaSugiTrunkPlacer.CODEC);
   public static final TrunkPlacerType<CoconutTrunkPlacer> COCONUT_TRUNK_PLACER = registerTrunkPlacer("coconut_trunk_placer", CoconutTrunkPlacer.CODEC);
   public static final TrunkPlacerType<RedwoodTrunkPlacer> REDWOOD_TRUNK_PLACER = registerTrunkPlacer("redwood_trunk_placer", RedwoodTrunkPlacer.CODEC);
-
-
-  public static final TreeDecoratorType<WisteriaVinesTreeDecorator> WISTERIA_VINES_TREE_DECORATOR = registerTreeDecorator("wisteria_vines_tree_decorator",
+//  public static final TrunkPlacerType<> REPLACEABLE_CAVE_CARVER =
+    public static final TreeDecoratorType<WisteriaVinesTreeDecorator> WISTERIA_VINES_TREE_DECORATOR = registerTreeDecorator("wisteria_vines_tree_decorator",
       WisteriaVinesTreeDecorator.CODEC
   );
   public static final TreeDecoratorType<MapleGroundTreeDecorator> MAPLE_GROUND_TREE_DECORATOR = registerTreeDecorator("maple_ground_tree_decorator",
@@ -133,6 +137,14 @@ public class NSWorldGen {
       new LeveledRandomPatch(RandomPatchFeatureConfig.CODEC)
   );
 
+  public static final Carver<ReplaceableCaveCarverConfig> REPLACEABLE_CAVE_CARVER = registerCaveCarver(
+          "replaceable_cave",
+          new ReplaceableCaveCarver(ReplaceableCaveCarverConfig.CAVE_CODEC));
+  public static final Carver<ReplaceableRavineCarverConfig> REPLACEABLE_RAVINE_CARVER = registerCaveCarver(
+          "replaceable_canyon",
+          new ReplaceableRavineCarver(ReplaceableRavineCarverConfig.RAVINE_CODEC));
+
+
   private static <P extends FoliagePlacer> FoliagePlacerType<P> registerFoliagePlacer(String id, MapCodec<P> codec) {
     return (FoliagePlacerType) Registry.register(Registries.FOLIAGE_PLACER_TYPE, Identifier.of(MOD_ID, id), new FoliagePlacerType(codec));
   }
@@ -145,10 +157,30 @@ public class NSWorldGen {
     return (TreeDecoratorType) Registry.register(Registries.TREE_DECORATOR_TYPE, Identifier.of(MOD_ID, id), new TreeDecoratorType(codec));
   }
 
+
+  // Carver<C> - class_2939<C>
+  // Registry - class_2378
+  // .register - .method_10230
+  // Registries - class_7923
+  //
+
+  private static <C extends CarverConfig, F extends Carver<C>> Carver<C> registerCaveCarver(String id, F carver) {
+        return (Carver) Registry.register(Registries.CARVER, Identifier.of("natures_spirit", id), carver);
+   }
+
   public static void registerWorldGen() {
-    BiomeModifications.addFeature(BiomeSelectors.includeByKey(BiomeKeys.DESERT), GenerationStep.Feature.VEGETAL_DECORATION, NSPlacedFeatures.PATCH_SCORCHED_GRASS_PLACED);
-    BiomeModifications.addFeature(BiomeSelectors.includeByKey(BiomeKeys.DESERT), GenerationStep.Feature.VEGETAL_DECORATION, NSPlacedFeatures.PATCH_TALL_SCORCHED_GRASS_PLACED);
-    BiomeModifications.addFeature(BiomeSelectors.includeByKey(BiomeKeys.DESERT), GenerationStep.Feature.VEGETAL_DECORATION, NSPlacedFeatures.ROOTED_DESERT_TURNIP);
+    BiomeModifications.addFeature(BiomeSelectors.tag(NSTags.Biomes.DESERT_LIKE),
+            GenerationStep.Feature.TOP_LAYER_MODIFICATION,
+            NSPlacedFeatures.PATCH_SCORCHED_GRASS_PLACED);
+
+    BiomeModifications.addFeature(BiomeSelectors.tag(NSTags.Biomes.DESERT_LIKE),
+            GenerationStep.Feature.TOP_LAYER_MODIFICATION,
+            NSPlacedFeatures.PATCH_TALL_SCORCHED_GRASS_PLACED);
+
+    BiomeModifications.addFeature(BiomeSelectors.tag(NSTags.Biomes.DESERT_LIKE),
+            GenerationStep.Feature.TOP_LAYER_MODIFICATION,
+            NSPlacedFeatures.ROOTED_DESERT_TURNIP);
+
   }
 
 }
